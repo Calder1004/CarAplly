@@ -2,18 +2,13 @@
 .classpath
 .project
 .settings/
-.metadata/
-.Servers/
 
-# Intellij
+# IntelliJ
 .idea/
 *.iml
-*.iws
 
-# Mac
-.DS_Store
+# Build
+build/
 
-# Maven
-log/
-target/
-/bin/
+# Servers
+Servers/
