@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import static db.dbConn.*;
 
 import vo.CarListBean;
+import vo.CarListOptionBean;
 
 public class CarDAO {
 	private static CarDAO instance;
@@ -49,5 +50,34 @@ public class CarDAO {
 	        close(pstmt);
 	    }
 	    return carlistarr;
+	}
+	
+	public ArrayList<CarListOptionBean> getCarOptionList() {
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    ArrayList<CarListOptionBean> carlistoptionarr = new ArrayList<CarListOptionBean>();
+	    String sql = "select * from car_detail_view";
+
+	    try {
+	        pstmt = con.prepareStatement(sql);
+	        rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            CarListOptionBean carListOptionBean = new CarListOptionBean();
+	            carListOptionBean.setColor(rs.getString("color"));
+	            carListOptionBean.setCc(rs.getInt("cc"));
+	            carListOptionBean.setKm(rs.getInt("km"));
+	            carListOptionBean.setPrice(rs.getString("price"));
+	            carListOptionBean.setGrade(rs.getString("grade"));
+	            carlistoptionarr.add(carListOptionBean);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        System.out.println("¿¡·¯:" + e);
+	    } finally {
+	        close(rs);
+	        close(pstmt);
+	    }
+	    return carlistoptionarr;
 	}
 }

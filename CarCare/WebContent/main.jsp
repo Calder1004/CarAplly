@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/CarCare/carList.car">차 목록보기</a>
+	<a href="/CarCare/carList.car">시승신청</a>
 </body>
 </html>			

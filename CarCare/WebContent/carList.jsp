@@ -10,6 +10,7 @@
     
     <c:forEach var="car" items="${carList}">
         <p>Brand: ${car.brand}, Model: ${car.model}</p>
+        <a href="CarDetail.car">옵션 선택</a>
     </c:forEach>
 </body>
 </html>

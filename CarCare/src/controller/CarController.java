@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.CarListAction;
+import action.CarListOptionAction;
 import vo.ActionForward;
 
 
@@ -27,17 +28,25 @@ public class CarController extends HttpServlet {
 	}
 	
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String RequestURI = request.getRequestURI();
-		System.out.println("RequestURI: " + RequestURI);
 		String contextPath = request.getContextPath();
-		System.out.println("ContextPath: " + contextPath);
 		String command = RequestURI.substring(contextPath.length());
-		System.out.println("Command: " + command);
+
 		ActionForward forward = null;
 		Action action = null;
 		
 		if(command.equals("/carList.car") || command.equals("/carList")) {
 			action = new CarListAction();
+			try {
+				forward = action.execute(request, response);	
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/carListOption.car") || command.equals("/carListOption")) {
+			action = new CarListOptionAction();
 			try {
 				forward = action.execute(request, response);	
 			}catch(Exception e) {
