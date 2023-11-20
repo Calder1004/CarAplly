@@ -1,1 +1,14 @@
-/.metadata/
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Build
+build/
+
+# Servers
+Servers/
