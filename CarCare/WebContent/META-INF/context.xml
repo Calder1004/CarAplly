@@ -9,6 +9,6 @@
               maxWait="10000"
               username="sdt23kkp"
               password="sdt23kkp"
-              driverClassName="com.mysql.jdbc.Driver"
+              driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://118.131.179.138:3306/sdt23kkp"/>
 </Context>
