@@ -32,7 +32,11 @@ public class CarListOptionBean {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
+	@Override
+	public String toString() {
+	    return "CarListOptionBean [color=" + color + ", cc=" + cc + ", km=" + km + ", price=" + price + ", grade=" + grade + "]";
+	}
+
 	String color;
 	int cc;
 	int km;

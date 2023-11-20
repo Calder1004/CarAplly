@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
+
 import static db.dbConn.*;
 
 import vo.CarListBean;
@@ -38,9 +40,8 @@ public class CarDAO {
 	        while (rs.next()) {
 	            CarListBean carListBean = new CarListBean();
 	            carListBean.setBrand(rs.getString("brand"));
-	            carListBean.setModel(rs.getString("model")); // 수정된 부분
+	            carListBean.setModel(rs.getString("model"));
 	            carlistarr.add(carListBean);
-	            System.out.println(carlistarr);
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -52,32 +53,35 @@ public class CarDAO {
 	    return carlistarr;
 	}
 	
-	public ArrayList<CarListOptionBean> getCarOptionList() {
-	    PreparedStatement pstmt = null;
-	    ResultSet rs = null;
-	    ArrayList<CarListOptionBean> carlistoptionarr = new ArrayList<CarListOptionBean>();
-	    String sql = "select * from car_detail_view";
+    public List<CarListOptionBean> getCarOptionList(String brand, String model) {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<CarListOptionBean> carlistoptionarr = new ArrayList<CarListOptionBean>();
+        String sql = "SELECT * FROM car_detail_view WHERE brand = ? AND model = ?";
 
-	    try {
-	        pstmt = con.prepareStatement(sql);
-	        rs = pstmt.executeQuery();
+        try {
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, brand);
+            pstmt.setString(2, model);
+            rs = pstmt.executeQuery();
 
-	        while (rs.next()) {
-	            CarListOptionBean carListOptionBean = new CarListOptionBean();
-	            carListOptionBean.setColor(rs.getString("color"));
-	            carListOptionBean.setCc(rs.getInt("cc"));
-	            carListOptionBean.setKm(rs.getInt("km"));
-	            carListOptionBean.setPrice(rs.getString("price"));
-	            carListOptionBean.setGrade(rs.getString("grade"));
-	            carlistoptionarr.add(carListOptionBean);
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        System.out.println("에러:" + e);
-	    } finally {
-	        close(rs);
-	        close(pstmt);
-	    }
-	    return carlistoptionarr;
-	}
+            while (rs.next()) {
+                CarListOptionBean carListOptionBean = new CarListOptionBean();
+                carListOptionBean.setColor(rs.getString("color"));
+                carListOptionBean.setCc(rs.getInt("cc"));
+                carListOptionBean.setKm(rs.getInt("km"));
+                carListOptionBean.setPrice(rs.getString("price"));
+                carListOptionBean.setGrade(rs.getString("grade"));
+                carlistoptionarr.add(carListOptionBean);
+                System.out.println(carListOptionBean);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("에러:" + e);
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        return carlistoptionarr;
+    }
 }

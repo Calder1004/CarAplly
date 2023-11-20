@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/CarCare/carList.car">시승신청</a>
+	<a href="/main.jsp">홈</a>
+	<a href="/CarCare/carList.car">시승신청</a>	
+	<a href="/customer.jsp>">고객센터</a>
 </body>
 </html>			
