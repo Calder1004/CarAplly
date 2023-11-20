@@ -1,7 +1,7 @@
 package vo;
 
 public class CarListOptionBean {
-	
+  
 	public String getColor() {
 		return color;
 	}
