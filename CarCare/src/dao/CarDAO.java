@@ -73,7 +73,7 @@ public class CarDAO {
                 carListOptionBean.setPrice(rs.getString("price"));
                 carListOptionBean.setGrade(rs.getString("grade"));
                 carlistoptionarr.add(carListOptionBean);
-                System.out.println(carListOptionBean);
+       
             }
         } catch (Exception e) {
             e.printStackTrace();

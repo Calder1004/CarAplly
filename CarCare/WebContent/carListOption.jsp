@@ -6,20 +6,42 @@
 
 <html>
 <head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
     <title>Car List Option</title>
 </head>
 <body>
 
 <c:if test="${not empty carListOption}">
     <h2>Car List Option:</h2>
-    <ul>
-        <c:forEach var="option" items="${carListOption}">
-            <li>CC: ${option.cc}</li>
-            <li>Color: ${option.color}</li>
-            <li>Price: ${option.price}</li>
-            <!-- 여기에 원하는 다른 속성을 추가하세요 -->
-        </c:forEach>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>CC</th>
+                <th>Color</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="option" items="${carListOption}">
+                <tr>
+                    <td>${option.cc}</td>
+                    <td>${option.color}</td>
+                    <td>${option.price}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </c:if>
 
 <c:if test="${empty carListOption}">

@@ -24,7 +24,7 @@ public class CarListOptionAction implements Action {
 	        
 	        CarListOptionService carListosv = new CarListOptionService();
 	        carListOption = (ArrayList<CarListOptionBean>) carListosv.selectOptionCarList(brand, model);
-	        System.out.println("CarListOptionAction" + carListOption);
+	
 	        request.setAttribute("carListOption", carListOption);
 	        forward = new ActionForward("carListOption.jsp", false);
 
