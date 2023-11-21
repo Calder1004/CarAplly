@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.CarListAction;
 import action.CarListOptionAction;
+import action.CenterAction;
 import vo.ActionForward;
 
 
@@ -49,6 +50,15 @@ public class CarController extends HttpServlet {
 			action = new CarListOptionAction();
 			try {
 				forward = action.execute(request, response);	
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/center.car") || command.equals("/center")) {
+			action = new CenterAction();
+			try {
+				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

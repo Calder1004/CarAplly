@@ -10,6 +10,7 @@ import static db.dbConn.*;
 
 import vo.CarListBean;
 import vo.CarListOptionBean;
+import vo.CenterBean;
 
 public class CarDAO {
 	private static CarDAO instance;
@@ -27,6 +28,7 @@ public class CarDAO {
 		this.con = con;
 	}
 	
+	// 자동차 모델 조회
 	public ArrayList<CarListBean> getCarList() {
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -53,6 +55,7 @@ public class CarDAO {
 	    return carlistarr;
 	}
 	
+	// 자동차 모델 옵션 조회
     public List<CarListOptionBean> getCarOptionList(String brand, String model) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -83,5 +86,34 @@ public class CarDAO {
             close(pstmt);
         }
         return carlistoptionarr;
+    }
+    
+    // 센터 조회
+    public List<CenterBean> getCenterList() {
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	List<CenterBean> centerlistarr = new ArrayList<CenterBean>();
+    	String sql = "SELECT * FROM centerlistview";
+    	
+    	try {
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()) {
+    			CenterBean centerbean = new CenterBean();
+    			centerbean.setName(rs.getString("centername"));
+    			centerbean.setAddress(rs.getString("centeradr"));
+    			centerbean.setNumber(rs.getString("centernum"));
+    			centerlistarr.add(centerbean);
+    		}
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		System.out.println("에러:" + e);
+    	} finally {
+    		close(rs);
+    		close(pstmt);
+    	}
+    	
+    	
+    	return centerlistarr;
     }
 }

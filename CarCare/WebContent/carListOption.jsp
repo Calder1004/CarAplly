@@ -40,6 +40,7 @@
                     <td>${option.price}</td>
                 </tr>
             </c:forEach>
+            <a href="center.car?name=${center.name}">센터 지정</a>
         </tbody>
     </table>
 </c:if>
