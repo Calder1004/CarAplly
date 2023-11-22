@@ -11,7 +11,7 @@ import static db.dbConn.*;
 import vo.CarListBean;
 import vo.CarListOptionBean;
 import vo.CenterBean;
-
+import vo.TestDriveBean;
 public class CarDAO {
 	private static CarDAO instance;
 	private Connection con;
@@ -33,7 +33,7 @@ public class CarDAO {
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
 	    ArrayList<CarListBean> carlistarr = new ArrayList<CarListBean>();
-	    String sql = "SELECT brand, model FROM carlistview";
+	    String sql = "SELECT * FROM car_list_view";
 
 	    try {
 	        pstmt = con.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class CarDAO {
 
 	        while (rs.next()) {
 	            CarListBean carListBean = new CarListBean();
+	            carListBean.setId(rs.getInt("id"));
 	            carListBean.setBrand(rs.getString("brand"));
 	            carListBean.setModel(rs.getString("model"));
 	            carlistarr.add(carListBean);
@@ -118,4 +119,26 @@ public class CarDAO {
     	
     	return centerlistarr;
     }
+    
+    public int insertFormat(TestDriveBean tdb) {
+		PreparedStatement pstmt = null;
+		int insertTestDrive = 0;
+		String sql = "INSERT INTO schedule_drive (center_id, user_id, car_id, reservation_date, state) VALUES(?,?,?,?,?)";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, tdb.getCenter_id());
+			pstmt.setInt(2,	tdb.getUser_id());
+			pstmt.setInt(3, tdb.getCar_id());
+			pstmt.setDate(4, tdb.getReservation_date());
+			pstmt.setBoolean(5, tdb.isState());
+			insertTestDrive = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return insertTestDrive;
+	}
+
 }

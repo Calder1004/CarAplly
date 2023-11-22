@@ -3,6 +3,14 @@ package vo;
 import java.util.List;
 
 public class CarListBean {
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public CarListBean() {
 	    }
 	public String getBrand() {
@@ -33,6 +41,9 @@ public class CarListBean {
     
 	private List<CarListOptionBean> options;
 	
+	int id;
+
+
 	String brand;
 	String model;
 	

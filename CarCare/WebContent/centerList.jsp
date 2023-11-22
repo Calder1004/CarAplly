@@ -65,7 +65,7 @@
 <body>
     <c:if test="${not empty center}">
         <h2>Center List</h2>
-        <form id="centerForm" action="TestDrive.car" method="post">
+        <form id="centerForm" action="date.car" method="post">
             <table>
                 <thead>
                     <tr>
