@@ -4,12 +4,22 @@ import java.util.List;
 
 public class CenterBean {
 
-    private String name;
+	private int id;
+	private String name;
     private String number;
     private String address;
 
     private List<CarListOptionBean> options;
     private List<CarListBean> lists;
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
     public String getName() {
         return name;

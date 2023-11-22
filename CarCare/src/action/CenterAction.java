@@ -18,6 +18,8 @@ public class CenterAction implements Action {
 		ArrayList<CenterBean> center;
 		CenterListService centerlistsvc = new CenterListService();
 		center = centerlistsvc.selectCenterList();
+        request.setAttribute("center", center);
+        forward = new ActionForward("centerList.jsp", false);
 		return forward;
 	}
 

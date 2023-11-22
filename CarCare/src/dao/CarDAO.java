@@ -93,16 +93,17 @@ public class CarDAO {
     	PreparedStatement pstmt = null;
     	ResultSet rs = null;
     	ArrayList<CenterBean> centerlistarr = new ArrayList<CenterBean>();
-    	String sql = "SELECT * FROM centerlistview";
+    	String sql = "SELECT * FROM centers";
     	
     	try {
     		pstmt = con.prepareStatement(sql);
     		rs = pstmt.executeQuery();
     		while(rs.next()) {
     			CenterBean centerbean = new CenterBean();
-    			centerbean.setName(rs.getString("centername"));
-    			centerbean.setAddress(rs.getString("centeradr"));
-    			centerbean.setNumber(rs.getString("centernum"));
+    			centerbean.setId(rs.getInt("id"));
+    			centerbean.setName(rs.getString("name"));
+    			centerbean.setAddress(rs.getString("address"));
+    			centerbean.setNumber(rs.getString("number"));
     			centerlistarr.add(centerbean);
     		}
     	} catch (Exception e) {

@@ -15,7 +15,7 @@ public class CenterListService {
 		CarDAO carDAO = CarDAO.getInstance();
 		carDAO.setConnection(con);
 		centerlist = carDAO.getCenterList();
+		close(con);
 		return centerlist;
-		
 	}
 }
