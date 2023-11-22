@@ -28,7 +28,6 @@
 </head>
 <body>
     <h1>Car List</h1>
-    
     <table>
         <thead>
             <tr>
@@ -41,7 +40,6 @@
                 <tr>
                     <td>${car.brand}</td>
                     <td>${car.model}</td>
-                    <!-- 다음 페이지로 선택한 옵션 정보를 전달하는 링크 -->
                     <td><a href="carListOption.car?brand=${car.brand}&model=${car.model}">옵션 선택</a></td>
                 </tr>
             </c:forEach>

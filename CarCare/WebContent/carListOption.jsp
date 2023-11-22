@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vo.CarListOptionBean" %>
+<%@ page import="vo.CenterBean" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -40,7 +41,6 @@
                     <td>${option.price}</td>
                 </tr>
             </c:forEach>
-            <a href="center.car?name=${center.name}">센터 지정</a>
         </tbody>
     </table>
 </c:if>
