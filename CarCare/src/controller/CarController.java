@@ -14,6 +14,7 @@ import action.CarListAction;
 import action.CarListOptionAction;
 import action.CenterAction;
 import action.TestDriveAction;
+import action.DateAction;
 import vo.ActionForward;
 
 
@@ -58,6 +59,15 @@ public class CarController extends HttpServlet {
 		
 		if(command.equals("/center.car") || command.equals("/center")) {
 			action = new CenterAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/date.car") || command.equals("/date")) {
+			action = new DateAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
