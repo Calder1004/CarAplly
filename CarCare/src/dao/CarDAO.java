@@ -124,15 +124,22 @@ public class CarDAO {
 		PreparedStatement pstmt = null;
 		int insertTestDrive = 0;
 		String sql = "INSERT INTO schedule_drive (center_id, user_id, car_id, reservation_date, state) VALUES(?,?,?,?,?)";
-		
 		try {
+			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, tdb.getCenter_id());
-			pstmt.setInt(2,	tdb.getUser_id());
-			pstmt.setInt(3, tdb.getCar_id());
-			pstmt.setDate(4, tdb.getReservation_date());
+			pstmt.setInt(1, tdb.getCenterId());
+			pstmt.setInt(2,	tdb.getUserId());
+			pstmt.setInt(3, tdb.getCarId());
+			pstmt.setDate(4, tdb.getReservationDate());
 			pstmt.setBoolean(5, tdb.isState());
+	        System.out.println("Before Query Execution - CenterID: " + tdb.getCenterId() +
+	                ", UserID: " + tdb.getUserId() +
+	                ", CarID: " + tdb.getCarId() +
+	                ", ReservationDate: " + tdb.getReservationDate() +
+	                ", State: " + tdb.isState());	
 			insertTestDrive = pstmt.executeUpdate();
+			System.out.println(insertTestDrive);
+			System.out.println("DEBUG: SQL Query - " + pstmt.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
