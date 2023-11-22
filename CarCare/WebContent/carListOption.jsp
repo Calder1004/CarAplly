@@ -93,6 +93,7 @@
                 <th>CC</th>
                 <th>Color</th>
                 <th>Price</th>
+                <th>km</th>
             </tr>
         </thead>
         <tbody>
@@ -101,6 +102,7 @@
                     <td>${option.cc}</td>
                     <td>${option.color}</td>
                     <td>${option.price}</td>
+                    <td>${option.km }</td>
                 </tr>
             </c:forEach>
         </tbody>

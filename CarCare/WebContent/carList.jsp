@@ -40,6 +40,8 @@
 
         tr:hover {
             background-color: #3498db;
+            color: white;
+            cursor: pointer;
         }
 
         a {
@@ -82,7 +84,6 @@
             modelInput.value = model;
             form.appendChild(modelInput);
 
-            // 폼을 body에 추가하고 제출
             document.body.appendChild(form);
             form.submit();
         }
