@@ -89,10 +89,10 @@ public class CarDAO {
     }
     
     // 센터 조회
-    public List<CenterBean> getCenterList() {
+    public ArrayList<CenterBean> getCenterList() {
     	PreparedStatement pstmt = null;
     	ResultSet rs = null;
-    	List<CenterBean> centerlistarr = new ArrayList<CenterBean>();
+    	ArrayList<CenterBean> centerlistarr = new ArrayList<CenterBean>();
     	String sql = "SELECT * FROM centerlistview";
     	
     	try {

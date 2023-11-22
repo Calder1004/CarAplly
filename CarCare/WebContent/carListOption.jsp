@@ -41,6 +41,7 @@
                     <td>${option.price}</td>
                 </tr>
             </c:forEach>
+            <a href="/center.car">센터조회</a>
         </tbody>
     </table>
 </c:if>
