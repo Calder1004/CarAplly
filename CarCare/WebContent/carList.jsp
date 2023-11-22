@@ -55,15 +55,15 @@
             background-color: #45a049;
         }
     </style>
-	
+
     <script>
         function redirectToOption(brand, model) {
-            // 폼 생성
+
             var form = document.createElement("form");
             form.method = "post";
             form.action = "carListOption.car";
 
-            // hidden 필드 생성 및 폼에 추가
+           
             var brandInput = document.createElement("input");
             brandInput.type = "hidden";
             brandInput.name = "brand";

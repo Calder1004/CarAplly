@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vo.CarListOptionBean" %>
-<%@ page import="java.net.URLDecoder" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
@@ -41,7 +40,9 @@
         }
 
         tr:hover {
-            background-color: #f5f5f5;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
         }
 
         a {
@@ -64,12 +65,23 @@
             margin-top: 20px;
         }
     </style>
-        <script>
-        function redirectToCenter() {
-            window.location.href = "center.car";
+
+    <script>
+        function redirectToCenter(id) {
+            var form = document.createElement("form");
+            form.method = "post";
+            form.action = "center.car";
+
+            var idInput = document.createElement("input");
+            idInput.type = "hidden";
+            idInput.name = "id";
+            idInput.value = id;
+            form.appendChild(idInput);
+
+            document.body.appendChild(form);
+            form.submit();
         }
     </script>
-    <title>Car List Option</title>
 </head>
 <body>
 
@@ -85,7 +97,7 @@
         </thead>
         <tbody>
             <c:forEach var="option" items="${carListOption}">
-                <tr>
+                <tr onclick="redirectToCenter('${option.id}')">
                     <td>${option.cc}</td>
                     <td>${option.color}</td>
                     <td>${option.price}</td>
@@ -93,7 +105,6 @@
             </c:forEach>
         </tbody>
     </table>
-    <a href="#" onclick="redirectToCenter()">센터조회</a>
 </c:if>
 
 <c:if test="${empty carListOption}">
@@ -101,6 +112,4 @@
 </c:if>
 
 </body>
-
-</body>
-</html>
+</html>	

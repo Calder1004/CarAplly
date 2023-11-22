@@ -2,6 +2,13 @@ package vo;
 
 public class CarListOptionBean {
   
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getColor() {
 		return color;
 	}
@@ -36,7 +43,8 @@ public class CarListOptionBean {
 	public String toString() {
 	    return "CarListOptionBean [color=" + color + ", cc=" + cc + ", km=" + km + ", price=" + price + ", grade=" + grade + "]";
 	}
-
+	
+	int id;
 	String color;
 	int cc;
 	int km;

@@ -60,7 +60,7 @@ public class CarDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         List<CarListOptionBean> carlistoptionarr = new ArrayList<CarListOptionBean>();
-        String sql = "SELECT * FROM car_detail_view WHERE brand = ? AND model = ?";
+        String sql = "SELECT * FROM car_option_view WHERE brand = ? AND model = ?";
 
         try {
             pstmt = con.prepareStatement(sql);
@@ -70,6 +70,7 @@ public class CarDAO {
 
             while (rs.next()) {
                 CarListOptionBean carListOptionBean = new CarListOptionBean();
+                carListOptionBean.setId(rs.getInt("id"));
                 carListOptionBean.setColor(rs.getString("color"));
                 carListOptionBean.setCc(rs.getInt("cc"));
                 carListOptionBean.setKm(rs.getInt("km"));

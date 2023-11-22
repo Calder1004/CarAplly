@@ -60,42 +60,51 @@
             background-color: #45a049;
         }
     </style>
+    
 </head>
 <body>
     <c:if test="${not empty center}">
         <h2>Center List</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Center Name</th>
-                    <th>Center Address</th>
-                    <th>Center Number</th>
-                </tr>
-            </thead>
-	            <tbody>
-	                <c:forEach var="center" items="${center}">
-	                    <tr>
-	                        <td>${center.name}</td>
-	                        <td>${center.address}</td>
-	                        <td>${center.number}</td>
-	                    </tr>
-	                </c:forEach>
-	            </tbody>
-				<form action="/TestDrive.car" method="post">
-				    <label for="dateInput">날짜 선택:</label>
-				    <input type="date" id="dateInput" name="dateInput" required>
-				
-				    <!-- center 객체의 정보를 hidden 필드로 추가 -->
-				    <c:forEach var="center" items="${centerList}">
-				        <input type="hidden" name="centerList[${status.index}].name" value="${center.name}">
-				        <input type="hidden" name="centerList[${status.index}].address" value="${center.address}">
-				        <input type="hidden" name="centerList[${status.index}].number" value="${center.number}">
-				    </c:forEach>
-				
-				    <input type="submit" value="제출">
-				</form>
-        </table>
-        <a href="#">예약신청</a>
+        <form id="centerForm" action="TestDrive.car" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Center Name</th>
+                        <th>Center Address</th>
+                        <th>Center Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="center" items="${center}">
+                        <tr class="centerRow" onclick="submitForm(this)" data-name="${center.name}" data-address="${center.address}" data-number="${center.number}">
+                            <td>${center.name}</td>
+                            <td>${center.address}</td>
+                            <td>${center.number}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <input type="hidden" id="selectedName" name="selectedName">
+            <input type="hidden" id="selectedAddress" name="selectedAddress">
+            <input type="hidden" id="selectedNumber" name="selectedNumber">
+        </form>
+
+        <script>
+            function submitForm(clickedRow) {
+                var name = clickedRow.getAttribute('name');
+                var address = clickedRow.getAttribute('address');
+                var number = clickedRow.getAttribute('number');
+
+                // 선택된 행의 데이터를 숨겨진 필드에 설정
+                document.getElementById('selectedName').value = name;
+                document.getElementById('selectedAddress').value = address;
+                document.getElementById('selectedNumber').value = number;
+
+                // 폼 제출
+                document.getElementById('centerForm').submit();
+            }
+        </script>
     </c:if>
 </body>
+
 </html>
