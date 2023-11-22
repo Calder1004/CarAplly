@@ -57,11 +57,17 @@
     </style>
 
     <script>
-        function redirectToOption(brand, model) {
+        function redirectToOption(id,brand, model) {
 
             var form = document.createElement("form");
             form.method = "post";
             form.action = "carListOption.car";
+            
+            var IdInput = document.createElement("input");
+            IdInput.type = "hidden";
+            IdInput.name = "id";
+            IdInput.value = id;
+            form.appendChild(IdInput);
 
            
             var brandInput = document.createElement("input");
@@ -101,7 +107,7 @@
         </thead>
         <tbody>
             <c:forEach var="car" items="${carList}">
-                <tr onclick="redirectToOption('${car.brand}', '${car.model}')" onmouseover="addHoverEffect(this)" onmouseout="removeHoverEffect(this)">
+                <tr onclick="redirectToOption('${car.id}','${car.brand}', '${car.model}')" onmouseover="addHoverEffect(this)" onmouseout="removeHoverEffect(this)">
                     <td>${car.brand}</td>
                     <td>${car.model}</td>
                 </tr>

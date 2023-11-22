@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+	<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,7 +104,7 @@
         <img id="mainImage" src="img/mainmodel.png" alt="메인 모델 이미지"> 
         <div class="image-description">
           <p>설명1</p>
-            <button type="button" onclick="location.href='/CarCare/carList.car' ">시승신청 바로가기</button>
+            <button type="button" onclick="location.href='/CarCare/carList.car'">시승신청 바로가기</button>
         </div>
       </div>
     </div>
