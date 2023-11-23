@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
             480: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
-            1200: { slidesPerView: 1 },
         },
         watchSlidesProgress: true
     }); ////////////// swiper

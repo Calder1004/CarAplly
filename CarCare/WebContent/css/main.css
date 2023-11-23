@@ -63,7 +63,7 @@ a {
 .image-apply-button {
    position: absolute;
    top: 20%; /* 상단에서 50% 위치 */
-   left: 70%; /* 왼쪽에서 50% 위치 */
+   left: 50%; /* 왼쪽에서 50% 위치 */
    transform: translate(-50%, -50%); /* 중앙 정렬 */
    z-index: 99;
 }
