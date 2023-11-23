@@ -1,5 +1,6 @@
 package vo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CenterBean {
@@ -10,7 +11,7 @@ public class CenterBean {
     private String address;
 
     private List<CarListOptionBean> options;
-    private List<CarListBean> lists;
+    private List<Integer> optionsIds;
     
     public int getId() {
 		return id;
@@ -51,13 +52,16 @@ public class CenterBean {
 
     public void setOptions(List<CarListOptionBean> options) {
         this.options = options;
+        
+        optionsIds = new ArrayList<>();
+        for (CarListOptionBean option : options) {
+            optionsIds.add(option.getId());
+        }
+    }
+    
+    public List<Integer> getOptionsIds() {
+        return optionsIds;
     }
 
-    public List<CarListBean> getLists() {
-        return lists;
-    }
 
-    public void setLists(List<CarListBean> lists) {
-        this.lists = lists;
-    }
 }

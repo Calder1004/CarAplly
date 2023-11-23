@@ -19,6 +19,9 @@ public class CenterAction implements Action {
 		CenterListService centerlistsvc = new CenterListService();
 		center = centerlistsvc.selectCenterList();
         request.setAttribute("center", center);
+        System.out.println(request.getParameter("id"));
+        int optionId = Integer.parseInt(request.getParameter("id"));
+        request.setAttribute("optionid", optionId);
         forward = new ActionForward("centerList.jsp", false);
 		return forward;
 	}

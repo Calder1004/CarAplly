@@ -33,6 +33,7 @@ public class CarListBean {
     public void setOptions(List<CarListOptionBean> options) {
         this.options = options;
     }
+    
     @Override
     public String toString() {
     	// TODO Auto-generated method stub
