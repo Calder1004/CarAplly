@@ -60,13 +60,13 @@
   <body>
     <header>
       <div class="logo">
+        <!-- 홈 버튼 HTML -->
           <a href="main.jsp" class="home-button"
-            ><img src="img/logo_lexus.png" alt="logo"
+            ><img src="logo_lexus.png" alt="logo"
           /></a>
       </div>
 
       <ul class="nav">
-        <!-- 홈 버튼 HTML -->
         <li><a href="#">링크2</a></li>
         <li><a href="#">링크3</a></li>
         <li><a href="#">링크4</a></li>
@@ -75,3 +75,4 @@
     </header>
   </body>
 </html>
+
