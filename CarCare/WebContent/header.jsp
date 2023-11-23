@@ -6,58 +6,76 @@
     <meta charset="UTF-8" />
     <title>페이지 제목</title>
     <style>
-      * {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
+* {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 
-      .home-button {
-        padding: 31px 15px 18px;
-        margin-right: 100px;
-        border-radius: 50%;
-        transition: background-color 0.3s;
-      }
+.home-button {
+	padding: 56px 41px 43px;
+	margin-right: 100px;
+	border-radius: 50%;
+	transition: background-color 0.7s;
+}
 
-      .home-button:hover {
-        background-color: #252525; /* 푸터의 배경색과 일치 */
-      }
+.home-button:hover {
+	background-color: white;
+}
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: #252525; /* 푸터의 배경색과 일치 */
-      }
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: rgb(65, 63, 63); /* 푸터의 배경색과 일치시켜야 함 */
+}
 
-      .nav {
-        width: 100%;
-        height: 60px;
-        display: flex;
-        font-weight: bold;
-        justify-content: space-around;
-        align-items: center;
-        background-color: #f0f0f0;
-      }
+.nav {
+	width: 100%;
+	height: 45px;
+	display: flex;
+	font-weight: bold;
+	justify-content: space-around;
+	align-items: center;
+	background-color: whitesmoke;
+}
 
-      .nav li {
-        margin-right: 20px;
-      }
+.nav li {
+	margin-right: 40px;
+	position: relative;
+}
 
-      .nav a {
-        text-decoration: none;
-        color: rgb(113, 111, 111);
-        display: inline-block; 
-        transition: color 0.3s, transform 0.3s;
-      }
+.nav li::before {
+	content: "";
+	position: absolute;
+	bottom: 4;
+	left: 0;
+	width: 100%;
+	height: 25px; /*네모 효과의 크기 조절*/
+	border-radius: 7%; /* 타원으로 변경 */
+	background-color: rgb(14, 14, 14); /* 효과의 기본 색상, 테마에 맞게 수정해 */
+	transform: scaleX(0); /* 처음에는 안보이게 설정 */
+	transform-origin: bottom center;
+	transition: transform 0.3s ease-in-out;
+}
 
-      .nav a:hover {
-        color: rgb(169, 5, 5);
-        /* transform: skewX(30deg); */
-        transform: scale(1.5,1.5);
-      }
-    </style>
+.nav li:hover::before {
+	transform: scaleX(2.7); /* 타원이 확대되어 나타나도록 설정 */
+	background-color: rgb(75, 74, 74);; /* 네모의 색상 */
+}
+.nav a {
+	text-decoration: none;
+	color: gray;
+	display: inline-block;
+	transition: color 0.3s, transform 0.3s;
+}
+
+.nav a:hover {
+	color: white;
+	transform: scale(1.5, 1.5);
+}
+</style>
   </head>
   <body>
     <header>
@@ -76,3 +94,4 @@
     </header>
   </body>
 </html>
+
