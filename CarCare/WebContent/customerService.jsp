@@ -3,7 +3,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<title>고객센터</title>
+<title>고객지원</title>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

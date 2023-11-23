@@ -4,23 +4,23 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Insert title here</title>
+    <title>페이지 제목</title>
     <style>
       * {
         list-style: none;
         margin: 0;
         padding: 0;
       }
-      /* 홈 버튼 CSS 스타일링 */
+
       .home-button {
-        padding: 31px 15px 18px; /* 패딩으로 버튼 크기 조절 */
-        margin-right: 100px; /* 주변 요소와의 간격 */
+        padding: 31px 15px 18px;
+        margin-right: 100px;
         border-radius: 50%;
-        transition: background-color 0.3s; /* 마우스 오버시 배경색 변경 애니메이션 */
+        transition: background-color 0.3s;
       }
-      
+
       .home-button:hover {
-        background-color: #f7f7f7; /* 마우스 오버시 버튼 배경색 변경 */
+        background-color: #252525; /* 푸터의 배경색과 일치 */
       }
 
       header {
@@ -28,14 +28,14 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px;
+        background-color: #252525; /* 푸터의 배경색과 일치 */
       }
 
       .nav {
         width: 100%;
         height: 60px;
-        /* list-style: none; */
         display: flex;
-        font-weight:bold;
+        font-weight: bold;
         justify-content: space-around;
         align-items: center;
         background-color: #f0f0f0;
@@ -47,23 +47,24 @@
 
       .nav a {
         text-decoration: none;
-        color: black;
+        color: rgb(113, 111, 111);
+        display: inline-block; 
         transition: color 0.3s, transform 0.3s;
       }
 
       .nav a:hover {
-        color: #3498db;
-        transform: translateY(-5px);
+        color: rgb(169, 5, 5);
+        /* transform: skewX(30deg); */
+        transform: scale(1.5,1.5);
       }
     </style>
   </head>
   <body>
     <header>
       <div class="logo">
-        <!-- 홈 버튼 HTML -->
-          <a href="main.jsp" class="home-button"
-            ><img src="img/logo_lexus.png" alt="logo"
-          /></a>
+        <a href="main.jsp" class="home-button">
+          <img src="img/logo_lexus.png" alt="로고" />
+        </a>
       </div>
 
       <ul class="nav">
@@ -75,4 +76,3 @@
     </header>
   </body>
 </html>
-
