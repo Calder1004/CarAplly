@@ -62,7 +62,7 @@
       <div class="logo">
         <!-- 홈 버튼 HTML -->
           <a href="main.jsp" class="home-button"
-            ><img src="logo_lexus.png" alt="logo"
+            ><img src="img/logo_lexus.png" alt="logo"
           /></a>
       </div>
 
