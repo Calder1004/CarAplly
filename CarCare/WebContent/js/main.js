@@ -1,10 +1,10 @@
-$("document").ready(function(){
+document.addEventListener("DOMContentLoaded", function() {
 
-    const swiper = new Swiper(".swiper.content-swiper",{
+    const swiper = new Swiper(".swiper.content-swiper", {
         loop: true,
         // direction: "vertical"
-        mousewheel:{
-            livert: true
+        mousewheel: {
+            invert: true
         },
         autoplay: {
             delay: 5000
@@ -13,36 +13,38 @@ $("document").ready(function(){
         freeMode: true,
         spaceBetween: 20,
         // centeredSlides: true,
-        navigation:{
+        navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         },
-        pagination:{
+        pagination: {
             el: ".swiper-pagination",
             clickable: true,
             // type: "fraction"
         },
-        breakpoints:{
-            480: {slidesPerView: 1},
-            768: {slidesPerView: 2},
-            1024: {slidesPerView: 3},
-            1200: {slidesPerView: 1},
+        breakpoints: {
+            480: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1200: { slidesPerView: 1 },
         },
-        watchSlidesProgress:true
-    }) ////////////// swiper
-    $(".swiper").mouseover(function(){
-        // 변수명.오토플레이.스탑
-        swiper.autoplay.stop()
-    })
-    $(".swiper").mouseout(function(){
-        // 변수명.오토플레이.스타트
-        swiper.autoplay.start()
-    })
+        watchSlidesProgress: true
+    }); ////////////// swiper
 
-    const swiper2 = new Swiper(".swiper.banner-swiper",{
+    document.querySelectorAll(".swiper").forEach(function(el) {
+        el.addEventListener("mouseover", function() {
+            swiper.autoplay.stop();
+        });
+        el.addEventListener("mouseout", function() {
+            swiper.autoplay.start();
+        });
+    });
+
+    const swiper2 = new Swiper(".swiper.banner-swiper", {
         loop: true,
-        thumbs:{
+        thumbs: {
             swiper: swiper
         }
-    })
-}) ////////////// jquery
+    });
+
+}); ////////////// DOMContentLoaded

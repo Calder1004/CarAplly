@@ -190,7 +190,7 @@
       <footer class="site-footer">
          <div class="footer-content">
             <div class="footer-column">
-               <img src="img/logo_lexus.png" alt="Logo" class="footer-logo" />
+               <img src="img/logo/logo_lexus.png" alt="Logo" class="footer-logo" />
                <ul>
                   <li><a href="#">파트너 네트워크</a></li>
                   <li><a href="#">견적 내기</a></li>
@@ -212,16 +212,16 @@
                <h4>CarCare Social</h4>
                <ul class="social-media">
                   <li>
-                     <a href="https://www.facebook.com/"><img src="img/logo_facebook.png" alt="Facebook" /></a>
+                     <a href="https://www.facebook.com/"><img src="img/logo/logo_facebook.png" alt="Facebook" /></a>
                   </li>
                   <li>
-                     <a href="https://www.instagram.com"><img src="img/logo_instargram.png" alt="Instagram" /></a>
+                     <a href="https://www.instagram.com"><img src="img/logo/logo_instargram.png" alt="Instagram" /></a>
                   </li>
                   <li>
-                     <a href="https://www.youtube.com"><img src="img/logo_youtube.png" alt="YouTube" /></a>
+                     <a href="https://www.youtube.com"><img src="img/logo/logo_youtube.png" alt="YouTube" /></a>
                   </li>
                   <li>
-                     <a href="https://twitter.com"><img src="img/logo_twitter.png" alt="Twitter" /></a>
+                     <a href="https://twitter.com"><img src="img/logo/logo_twitter.png" alt="Twitter" /></a>
                   </li>
                </ul>
             </div>

@@ -81,7 +81,7 @@ header {
     <header>
       <div class="logo">
         <a href="main.jsp" class="home-button">
-          <img src="img/logo_lexus.png" alt="로고" />
+          <img src="img/logo/logo_lexus.png" alt="로고" />
         </a>
       </div>
 
