@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
    <head>
@@ -10,13 +9,6 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
       <script src="js/main.js"></script>
-      <script>
-         function changeLeftImage(imageSrc, description) {
-            document.getElementById("mainImage").src = imageSrc;
-            document.getElementById("mainImage").alt = description;
-            document.getElementById("mainImage").nextElementSibling.querySelector("p").innerText = description;
-         }
-      </script>
    </head>
    <body>
       <jsp:include page="header.jsp" />
@@ -47,61 +39,61 @@
       <!-- 작은 슬라이더 시작 -->
       <div class="swiper content-swiper">
          <div class="swiper-wrapper">
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car1_LC500.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car1_LC500.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car2_UX250s.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car2_UX250s.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car3_UX250.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car3_UX250.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car4_LS500.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car4_LS500.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car5_ES300.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car5_ES300.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car6_ES300.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car6_ES300.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car7_NX450.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car7_NX450.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car8_RX450.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car8_RX450.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car9_RX350.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car9_RX350.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
-            <div class="swiper-slide" onclick="changeLeftImage('img/carList/car10_RX450.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!');">
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/car10_RX450.png" alt="" /></a>
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
@@ -113,7 +105,7 @@
          <div class="swiper-pagination"></div>
       </div>
       <!-- 작은 슬라이더 끝 -->
-      <jsp:include page="footer.jsp"/> 
+      <jsp:include page="footer.jsp"/>
    </body>
 </html>
 	
