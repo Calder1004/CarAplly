@@ -56,14 +56,13 @@
     const dateStr = `${year}-${month}-${day}`;
     
     function submitForm() {
-        // YYYY-MM-DD 형식으로 변경
+       
         const selectedDate = dateStr;
         
         var form = document.createElement("form");
         form.method = "post";
-        form.action = "your_servlet_or_jsp_url"; // 수정 필요
+        form.action = "user.car"; 
 
-        // 히든 필드 추가
         var hiddenField = document.createElement("input");
         hiddenField.type = "hidden";
         hiddenField.name = "selectedDate";
@@ -80,6 +79,8 @@
         <label for="inputDate">Select a Date:</label>
         <input type="date" id="inputDate" name="selectedDate" required>
         <button type="submit">Submit</button>
+        <p>${id}</p>
+        <p>${optionId}</p>
     </form>
 </body>
 </html>

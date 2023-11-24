@@ -14,7 +14,9 @@ import action.CarListAction;
 import action.CarListOptionAction;
 import action.CenterAction;
 import action.TestDriveAction;
+import action.UserAction;
 import action.DateAction;
+import action.KaKaoAction;
 import vo.ActionForward;
 
 
@@ -69,6 +71,24 @@ public class CarController extends HttpServlet {
 		if(command.equals("/date.car") || command.equals("/date")) {
 			action = new DateAction();
 			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/user.car") || command.equals("/user")) {
+			action = new UserAction();
+			try {	
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/kakaoauth.car") || command.equals("/kakaoauth")) {
+			action = new KaKaoAction();
+			try {	
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
