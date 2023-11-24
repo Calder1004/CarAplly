@@ -6,76 +6,93 @@
     <meta charset="UTF-8" />
     <title>페이지 제목</title>
     <style>
-* {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
+      * {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
 
-.home-button {
-	padding: 56px 41px 43px;
-	margin-right: 100px;
-	border-radius: 50%;
-	transition: background-color 0.7s;
-}
+      .home-button {
+        padding: 43px 22px 34px;
+        margin-right: 80px;
+        border-radius: 20%;
+        transition: background-color 0.5s;
+      }
 
-.home-button:hover {
-	background-color: white;
-}
+      .home-button:hover {
+        background-color: white;
+      }
 
-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
-	background-color: rgb(65, 63, 63); /* 푸터의 배경색과 일치시켜야 함 */
-}
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: transparent; /* 배경을 투명하게 설정 */
+      }
 
-.nav {
-	width: 100%;
-	height: 45px;
-	display: flex;
-	font-weight: bold;
-	justify-content: space-around;
-	align-items: center;
-	background-color: whitesmoke;
-}
+      .nav {
+        width: 80%;
+        height: 45px;
+        display: flex;
+        font-weight: bold;
+        justify-content: space-around;
+        align-items: center;
+        background-color: whitesmoke;
+      }
 
-.nav li {
-	margin-right: 40px;
-	position: relative;
-}
+      .nav li {
+        margin-right: 40px;
+        position: relative;
+      }
 
-.nav li::before {
-	content: "";
-	position: absolute;
-	bottom: 4;
-	left: 0;
-	width: 100%;
-	height: 25px; /*네모 효과의 크기 조절*/
-	border-radius: 7%; /* 타원으로 변경 */
-	background-color: rgb(14, 14, 14); /* 효과의 기본 색상, 테마에 맞게 수정해 */
-	transform: scaleX(0); /* 처음에는 안보이게 설정 */
-	transform-origin: bottom center;
-	transition: transform 0.3s ease-in-out;
-}
+      .nav li:hover::before {
+        transform: scaleX(2.7);
+        background-color: rgb(171, 171, 171);
+      }
 
-.nav li:hover::before {
-	transform: scaleX(2.7); /* 타원이 확대되어 나타나도록 설정 */
-	background-color: rgb(75, 74, 74);; /* 네모의 색상 */
-}
-.nav a {
-	text-decoration: none;
-	color: gray;
-	display: inline-block;
-	transition: color 0.3s, transform 0.3s;
-}
+      .nav a {
+        text-decoration: none;
+        color: gray;
+        display: inline-block;
+        transition: color 0.2s, transform 0.2s;
+      }
 
-.nav a:hover {
-	color: white;
-	transform: scale(1.5, 1.5);
-}
-</style>
+      .nav a:hover {
+        color: black;
+        transform: scale(1.5, 1.5);
+      }
+
+      /* 드랍다운 스타일 */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: gray;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: color 0.2s;
+      }
+
+      .dropdown-content a:hover {
+        color: black;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -86,12 +103,25 @@ header {
       </div>
 
       <ul class="nav">
-        <li><a href="#">링크2</a></li>
-        <li><a href="#">링크3</a></li>
-        <li><a href="#">링크4</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">공지 사항</a>
+          <div class="dropdown-content">
+            <a href="#">공지 1</a>
+            <a href="#">공지 2</a>
+            <a href="#">공지 3</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">서비스 지원</a>
+          <div class="dropdown-content">
+            <a href="#">서비스 1</a>
+            <a href="#">서비스 2</a>
+            <a href="#">서비스 3</a>
+          </div>
+        </li>
+        <li><a href="#">시승신청 및 조회</a></li>
         <li><a href="customerService.jsp">고객지원</a></li>
       </ul>
     </header>
   </body>
 </html>
-
