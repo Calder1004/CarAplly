@@ -25,16 +25,16 @@
       <div class="swiper banner-swiper">
          <div class="swiper-wrapper">
             <div class="swiper-slide">
-               <a href="#"><img src="img/carList/LEXUS_CAR1.jpg" alt="1" /></a>
+               <a href="#"><img src="img/carList/LEXUS_CAR1.png" alt="1" /></a>
             </div>
             <div class="swiper-slide">
-               <a href="#"><img src="img/carList/LEXUS_CAR2.jpg" alt="1" /></a>
+               <a href="#"><img src="img/carList/LEXUS_CAR2.png" alt="1" /></a>
             </div>
             <div class="swiper-slide">
-               <a href="#"><img src="img/carList/LEXUS_CAR3.jpg" alt="1" /></a>
+               <a href="#"><img src="img/carList/LEXUS_CAR3.png" alt="1" /></a>
             </div>
             <div class="swiper-slide">
-               <a href="#"><img src="img/carList/LEXUS_CAR4.jpg" alt="1" /></a>
+               <a href="#"><img src="img/carList/LEXUS_CAR4.png" alt="1" /></a>
             </div>
          </div>
          <div class="swiper-button-next"></div>
