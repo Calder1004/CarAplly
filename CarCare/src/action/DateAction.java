@@ -18,10 +18,10 @@ public class DateAction implements Action {
         
         String selectedOptionIdString = request.getParameter("optionid");
         int optionId = (selectedOptionIdString != null && !selectedOptionIdString.isEmpty()) ? Integer.parseInt(selectedOptionIdString) : 0;
-
         
-        System.out.println(id);
-        System.out.println(optionId);
+        request.setAttribute("id", id);
+        request.setAttribute("optionId", optionId);
+        
         
         forward = new ActionForward("date.jsp", false);
         return forward;

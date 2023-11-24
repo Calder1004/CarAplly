@@ -11,6 +11,7 @@ import static db.dbConn.*;
 import vo.CarListBean;
 import vo.CarListOptionBean;
 import vo.CenterBean;
+import vo.KaKaoBean;
 import vo.TestDriveBean;
 public class CarDAO {
 	private static CarDAO instance;
@@ -120,12 +121,12 @@ public class CarDAO {
     	return centerlistarr;
     }
     
+    // 예약등록
     public int insertFormat(TestDriveBean tdb) {
 		PreparedStatement pstmt = null;
 		int insertTestDrive = 0;
 		String sql = "INSERT INTO schedule_drive (center_id, user_id, car_id, reservation_date, state) VALUES(?,?,?,?,?)";
-		try {
-			
+		try {			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, tdb.getCenterId());
 			pstmt.setInt(2,	tdb.getUserId());
@@ -147,5 +148,24 @@ public class CarDAO {
 		}
 		return insertTestDrive;
 	}
+    
+    // kakao 로그인 db 정보저장	
+    public int intoKaKao(KaKaoBean kkb) {
+    	PreparedStatement pstmt = null;
+    	int check = 0;
+    	String sql = "INSERT INTO kakao_table (k_number,k_name,k_email) VALUES(?,?,?)";
+    	try {
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setLong(1, kkb.getK_number());
+    		pstmt.setString(2,	kkb.getK_name());
+    		pstmt.setString(3, kkb.getK_email());
+    		check = pstmt.executeUpdate();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	} finally {
+    		close(pstmt);
+    	}
+    	return check;
+    }
 
 }

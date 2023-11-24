@@ -86,7 +86,7 @@
 <body>
 
 <c:if test="${not empty carListOption}">
-    <h2>Car List Option:</h2>
+    <h2>Car List Option</h2>
     <table>
         <thead>
             <tr>
@@ -102,7 +102,7 @@
                     <td>${option.cc}</td>
                     <td>${option.color}</td>
                     <td>${option.price}</td>
-                    <td>${option.km }</td>
+                    <td>${option.km}</td>
                 </tr>
             </c:forEach>
         </tbody>

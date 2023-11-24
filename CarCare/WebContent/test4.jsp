@@ -16,7 +16,7 @@
         <label for="userId">User ID:</label>
         <input type="text" id="userId" name="user_id" required><br>
         
-        <label for="carId">Car ID:</label>
+        <label for="carId">Car oPTION ID:</label>
         <input type="text" id="carId" name="car_id" required><br>
 
         <!-- date를 입력받음 -->
