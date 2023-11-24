@@ -84,9 +84,9 @@ public class CarController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}	
 		
-		if(command.equals("/kakaoauth.car") || command.equals("/kakaoauth")) {
+		if(command.equals("/kakao.car") || command.equals("/kakao")) {
 			action = new KaKaoAction();
 			try {	
 				forward = action.execute(request, response);

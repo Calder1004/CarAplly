@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	 <%
-			 
-	session.setAttribute("member_mid", "5235268");
-	response.sendRedirect("메인주소");
-	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +30,9 @@
 </script>
 </head>
 <body>
-<a href="javascript:kakaoLogin()"><img src="<c:url value='/img/kakao_login.png'/>" style="width: 200px"></a>
-<a href="https://kauth.kakao.com/oauth/authorize?client_id={cdbc95850fb915fdc7be3dde88a464ee}&redirect_uri=http://localhost:8084/kakaoauth.car?cmd=callback&response_type=code"><img height="38px" src="/img/kakao_login.png" /></a>	
+<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?
+client_id=6f31d4b7d1ae1e95eb6357159f3ee132&
+redirect_uri=http://localhost:8080/CarCare/kakao.car&response_type=code">
+<img src="img/kakao_login.png" style="height:60px"></a> 
 </body>
 </html>

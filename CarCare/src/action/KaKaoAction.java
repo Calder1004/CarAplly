@@ -13,8 +13,7 @@ public class KaKaoAction implements Action {
 		ActionForward forward = null;
 		String code = request.getParameter("code");
 		System.out.println(code);
-//		String accesstoken = KaKaoService.getAccessToken(code);
-//		KaKaoBean userInfo = KaKaoService.getuserInfo(accesstoken); 
+		String accesstoken = KaKaoService.getAccessToken(code);
 		return forward;
 	}
 	

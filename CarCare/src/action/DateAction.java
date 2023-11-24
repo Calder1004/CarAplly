@@ -23,6 +23,7 @@ public class DateAction implements Action {
         request.setAttribute("optionId", optionId);
         
         
+        
         forward = new ActionForward("date.jsp", false);
         return forward;
     }

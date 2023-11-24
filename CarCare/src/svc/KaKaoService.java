@@ -12,80 +12,47 @@ import java.util.ArrayList;
 
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
+import com.google.gson.*;
+import com.google.gson.JsonElement;
 
 import vo.KaKaoBean;
 
 public class KaKaoService {
-	public String getAccessToken (String authorize_code) {
-        String access_Token = "";
-        String refresh_Token = "";
-        String reqURL = "https://kauth.kakao.com/oauth/token";
- 
-        try {
-            URL url = new URL(reqURL);	
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
- 
-            //    POST ø‰√ª¿ª ¿ß«ÿ ±‚∫ª∞™¿Ã false¿Œ setDoOutput¿ª true∑Œ ∫Ø∞Ê¿ª «ÿ¡÷ººø‰
- 
-            conn.setRequestMethod("POST");
-            conn.setDoOutput(true);
- 
-            //    POST ø‰√ªø° « ø‰∑Œ ø‰±∏«œ¥¬ ∆ƒ∂ÛπÃ≈Õ Ω∫∆Æ∏≤¿ª ≈Î«ÿ ¿¸º€
-// BufferedWriter ∞£¥‹«œ∞‘ ∆ƒ¿œ¿ª ≤˜æÓº≠ ∫∏≥ª±‚∑Œ ≈‰≈´∞™¿ª πﬁæ∆ø¿±‚¿ß«ÿ ¿¸º€
+    public static String getAccessToken(String authorizeCode) {
+        String accessToken = "";
+        String refreshToken = "";
+        String reqURL = "https://kapi.kakao.com/v2/user/me";
 
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-            StringBuilder sb = new StringBuilder();
-            sb.append("grant_type=authorization_code");
-            sb.append("&client_id=31a78ed0030ac205ddf12b4382b1b74a");  //∫ª¿Œ¿Ã πﬂ±ﬁπﬁ¿∫ key
-            sb.append("&redirect_uri=http://localhost:8084");     // ∫ª¿Œ¿Ã º≥¡§«ÿ ≥ı¿∫ ∞Ê∑Œ
-            sb.append("&code=" + authorize_code);
-            bw.write(sb.toString());
-            bw.flush();
- 
-            //    ∞·∞˙ ƒ⁄µÂ∞° 200¿Ã∂Û∏È º∫∞¯
-// ø©±‚º≠ æ»µ«¥¬∞ÊøÏ∞° ∏π¿Ã ¿÷æÓº≠ « ºˆ »Æ¿Œ !! ** 
-            int responseCode = conn.getResponseCode();
-            System.out.println("responseCode : " + responseCode+"»Æ¿Œ");
- 
-            //    ø‰√ª¿ª ≈Î«ÿ æÚ¿∫ JSON≈∏¿‘¿« Response ∏ﬁºº¡ˆ ¿–æÓø¿±‚
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line = "";
-            String result = "";
- 
-            while ((line = br.readLine()) != null) {
-                result += line;
-            }
-            System.out.println("response body : " + result+"∞·∞˙");
- 
-            //    Gson ∂Û¿Ã∫Í∑Ø∏Æø° ∆˜«‘µ» ≈¨∑°Ω∫∑Œ JSON∆ƒΩÃ ∞¥√º ª˝º∫
-//            JSONParser parser = new JSONParser();
-//            JSONElement element = parser.parse(result);
-// 
-//            access_Token = element.getAsJsonObject().get("access_token").getAsString();
-//            refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
- 
-            System.out.println("access_token : " + access_Token);
-            System.out.println("refresh_token : " + refresh_Token);
- 
-            br.close();
-            bw.close();
+        try {
+            URL url = new URL(reqURL);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+            // ÏöîÏ≤≠ Îç∞Ïù¥ÌÑ∞ Ï†ÑÏÜ°
+            sendRequestData(conn, authorizeCode);
+
         } catch (IOException e) {
- 
             e.printStackTrace();
         }
- 
-        return access_Token;
+
+        return accessToken;
     }
 
-	public static KaKaoBean getuserInfo(String accesstoken) throws Exception {
-		ArrayList<Object> list = new ArrayList<Object>();
-		String requestUrl = "https://kapi.kakao.com/v2/user/me";
-		URL url = new URL(requestUrl);
-		HttpURLConnection con = (HttpURLConnection) url.openConnection();
-		con.setRequestMethod("GET");
-		con.setRequestProperty("Authorization", "Bearer " + accesstoken);
+    private static void sendRequestData(HttpURLConnection conn, String authorizeCode) throws IOException {
+        conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
 
-		return null;
-	}
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()))) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("grant_type=authorization_code");
+            sb.append("&client_id=6f31d4b7d1ae1e95eb6357159f3ee132");
+            sb.append("&redirect_uri=http://localhost:8084/CarCare/kakao.car");
+            sb.append("&code=").append(authorizeCode);
 
+            System.out.println("Request data: " + sb.toString());
+            bw.write(sb.toString());
+            bw.flush();
+            bw.close();
+            System.out.println(bw);
+        }
+    }
 }

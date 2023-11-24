@@ -49,38 +49,64 @@
     </style>
 
 <script>
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
-    const dateStr = `${year}-${month}-${day}`;
-    
-    function submitForm() {
-       
-        const selectedDate = dateStr;
-        
-        var form = document.createElement("form");
-        form.method = "post";
-        form.action = "user.car"; 
+const dateInput = document.getElementById('inputDate');
+const date = new Date();
+const year = date.getFullYear();
+const month = ('0' + (date.getMonth() + 1)).slice(-2);
+const day = ('0' + date.getDate()).slice(-2);
+const dateStr = `${year}-${month}-${day}`;
 
-        var hiddenField = document.createElement("input");
-        hiddenField.type = "hidden";
-        hiddenField.name = "selectedDate";
-        hiddenField.value = selectedDate;
-        form.appendChild(hiddenField);
+function submitForm() {
+    const selectedDateElement = document.getElementById("inputDate");
 
-        document.body.appendChild(form);
-        form.submit();
+    if (selectedDateElement) {
+        const selectedDate = selectedDateElement.value;
+        const selectedId = '${id}';
+        const selectedOptionId = '${optionId}';
+
+        if (!isNaN(selectedId)) {
+            var form = document.createElement("form");
+            form.method = "post";
+            form.action = "user.car";
+
+            var hiddenField = document.createElement("input");
+            hiddenField.type = "hidden";
+            hiddenField.name = "selectedDate";
+            hiddenField.value = selectedDate;
+            form.appendChild(hiddenField);
+
+            var idInput = document.createElement("input");
+            idInput.type = "hidden";
+            idInput.name = "id";
+            idInput.value = selectedId;
+            form.appendChild(idInput);
+
+            var optionIdsInput = document.createElement("input");
+            optionIdsInput.type = "hidden";
+            optionIdsInput.name = "optionid";
+            optionIdsInput.value = selectedOptionId;
+            form.appendChild(optionIdsInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        } else {
+            console.error("Invalid selectedId value:", selectedId);
+        }
+    } else {
+        console.error("Element with ID 'inputDate' not found.");
     }
+}
 </script>
 </head>
 <body>
-    <form onsubmit="event.preventDefault(); submitForm();">
-        <label for="inputDate">Select a Date:</label>
-        <input type="date" id="inputDate" name="selectedDate" required>
-        <button type="submit">Submit</button>
+<form id="myForm">
+    <label for="inputDate">날짜 선택:</label>
+	<input type="date" id="inputDate" name="selectedDate" required>
+	<input type="hidden" id="inputId" name="selectedId" required>
+    <input type="hidden" id="inputOptionId" name="selectedOptionId" required>
+    <button type="button" onclick="submitForm()">제출</button>
+</form>
         <p>${id}</p>
         <p>${optionId}</p>
-    </form>
 </body>
 </html>

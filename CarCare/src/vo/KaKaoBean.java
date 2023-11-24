@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.HashMap;
+
 public class KaKaoBean {
 	public long getK_number() {
 		return k_number;
@@ -19,6 +21,7 @@ public class KaKaoBean {
 	public void setK_email(String k_email) {
 		this.k_email = k_email;
 	}
+	
 	private long k_number;
 	private String k_name;
 	private String k_email;
