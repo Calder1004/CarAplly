@@ -86,8 +86,8 @@ header {
       </div>
 
       <ul class="nav">
-        <li><a href="#">링크2</a></li>
-        <li><a href="#">링크3</a></li>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">시승신청</a></li>
         <li><a href="#">링크4</a></li>
         <li><a href="customerService.jsp">고객지원</a></li>
       </ul>

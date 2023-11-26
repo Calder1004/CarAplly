@@ -10,35 +10,26 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
       <script src="js/main.js"></script>
-      <script>
-         function changeLeftImage(imageSrc, description) {
-            document.getElementById("mainImage").src = imageSrc;
-            document.getElementById("mainImage").alt = description;
-            document.getElementById("mainImage").nextElementSibling.querySelector("p").innerText = description;
-         }
-      </script>
+
    </head>
    <body>
       <jsp:include page="header.jsp" />
-
       <!-- 큰 슬라이더 시작-->
       <div class="swiper banner-swiper">
          <div class="swiper-wrapper">
             <div class="swiper-slide">
                <a href="#"><img src="img/carList/LEXUS_CAR1.jpg" alt="1" /></a>
             </div>
-            <div class="swiper-slide">                      
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/LEXUS_CAR2.jpg" alt="1" /></a>
-            </div>                                          
-            <div class="swiper-slide">                      
+            </div>
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/LEXUS_CAR3.jpg" alt="1" /></a>
-            </div>                                          
-            <div class="swiper-slide">                      
+            </div>
+            <div class="swiper-slide">
                <a href="#"><img src="img/carList/LEXUS_CAR4.jpg" alt="1" /></a>
-            </div>                                          
+            </div>
          </div>
-         <div class="swiper-button-next"></div>
-         <div class="swiper-button-prev"></div>
       </div>
       <!-- 큰 슬라이더 끝-->
       <div class="image-apply-button">
