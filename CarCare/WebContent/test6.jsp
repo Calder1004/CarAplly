@@ -20,6 +20,10 @@
             <th>Connected At:</th>
             <td>${connected_at}</td>
         </tr>
+            <tr>
+            <th>test:</th>
+            <td>${centerid}</td>
+        </tr>
     </table>
 </body>
 </html>

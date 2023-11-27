@@ -12,8 +12,8 @@ public class UserAction implements Action {
         ActionForward forward = null;
 
         String selectedIdString = request.getParameter("id");
-        int id = (selectedIdString != null && !selectedIdString.isEmpty()) ? Integer.parseInt(selectedIdString) : 0;
-        System.out.println("centerid: " + id);
+        int centerid = (selectedIdString != null && !selectedIdString.isEmpty()) ? Integer.parseInt(selectedIdString) : 0;
+        System.out.println("centerid: " + centerid);
 
         String date = request.getParameter("selectedDate");
         System.out.println("Date: " + date);
@@ -21,7 +21,7 @@ public class UserAction implements Action {
    
         String selectedOptionId = request.getParameter("optionid");
         System.out.println("Option ID: " + selectedOptionId);
-        request.setAttribute("id", id);
+        request.setAttribute("id", centerid);
         request.setAttribute("date", selectedOptionId);
         request.setAttribute("optionid", selectedOptionId);
         forward = new ActionForward("user.jsp", false);

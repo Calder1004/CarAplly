@@ -103,11 +103,11 @@
       </div>
 
       <ul class="nav">
-<<<<<<< HEAD
+
         <li><a href="#">홈</a></li>
         <li><a href="#">시승신청</a></li>
         <li><a href="#">링크4</a></li>
-=======
+
         <li class="dropdown">
           <a href="#" class="dropbtn">공지 사항</a>
           <div class="dropdown-content">
@@ -125,7 +125,6 @@
           </div>
         </li>
         <li><a href="#">시승신청 및 조회</a></li>
->>>>>>> 97d216ba684bb9fe49de0c567cf8f7378bba0db6
         <li><a href="customerService.jsp">고객지원</a></li>
       </ul>
     </header>

@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -161,11 +162,11 @@ public class CarDAO {
             System.out.println("Parameter 1 (id): " + kkb.getId());
             System.out.println("Parameter 2 (nickname): " + kkb.getName());
             System.out.println("Parameter 3 (connected_at): " + kkb.getConnected_at());
-    		
+            Instant instant = Instant.parse(kkb.getConnected_at());
             pstmt = con.prepareStatement(sql);
     		pstmt.setLong(1, kkb.getId());
     		pstmt.setString(2,	kkb.getName());
-    		pstmt.setString(3, kkb.getConnected_at());
+    		pstmt.setObject(3, instant);
     		check = pstmt.executeUpdate();
     		
     	      System.out.println("Query Executed: " + sql);
