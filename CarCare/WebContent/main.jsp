@@ -11,10 +11,6 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
       <script src="js/main.js"></script>
-<<<<<<< HEAD
-
-=======
->>>>>>> 97d216ba684bb9fe49de0c567cf8f7378bba0db6
    </head>
    <body>
       <jsp:include page="header.jsp" />

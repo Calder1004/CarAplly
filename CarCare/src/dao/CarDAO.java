@@ -150,16 +150,26 @@ public class CarDAO {
 	}
     
     // kakao 로그인 db 정보저장	
-    public int intoKaKao(KaKaoBean kkb) {
+    public long intoKaKao(KaKaoBean kkb) {
     	PreparedStatement pstmt = null;
-    	int check = 0;
-    	String sql = "INSERT INTO kakao_table (k_number,k_name,k_email) VALUES(?,?,?)";
+    	long check = 0;
+    	String sql = "INSERT INTO kakaouserinfos (id,nickname,connected_at) VALUES(?,?,?)";
     	try {
-    		pstmt = con.prepareStatement(sql);
-    		pstmt.setLong(1, kkb.getK_number());
-    		pstmt.setString(2,	kkb.getK_name());
-    		pstmt.setString(3, kkb.getK_email());
+    		
+            System.out.println("Before Query Execution - PreparedStatement Details:");
+            System.out.println("SQL: " + sql);
+            System.out.println("Parameter 1 (id): " + kkb.getId());
+            System.out.println("Parameter 2 (nickname): " + kkb.getName());
+            System.out.println("Parameter 3 (connected_at): " + kkb.getConnected_at());
+    		
+            pstmt = con.prepareStatement(sql);
+    		pstmt.setLong(1, kkb.getId());
+    		pstmt.setString(2,	kkb.getName());
+    		pstmt.setString(3, kkb.getConnected_at());
     		check = pstmt.executeUpdate();
+    		
+    	      System.out.println("Query Executed: " + sql);
+    	       System.out.println("Inserted Rows: " + check);
     	} catch (Exception e) {
     		e.printStackTrace();
     	} finally {

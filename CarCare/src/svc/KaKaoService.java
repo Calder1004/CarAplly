@@ -1,35 +1,76 @@
 package svc;
 
+import static db.dbConn.close;
+import static db.dbConn.commit;
+import static db.dbConn.getConnection;
+import static db.dbConn.rollback;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.json.simple.*;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import com.google.gson.*;
-import com.google.gson.JsonElement;
+import org.json.simple.parser.ParseException;
 
+import dao.CarDAO;
 import vo.KaKaoBean;
 
 public class KaKaoService {
-    public static String getAccessToken(String authorizeCode) {
+    public static String getAccessToken(String authorizeCode) throws ParseException {
         String accessToken = "";
         String refreshToken = "";
-        String reqURL = "https://kapi.kakao.com/v2/user/me";
-
+        String reqURL = "https://kauth.kakao.com/oauth/token";
+        
         try {
             URL url = new URL(reqURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            System.out.println(conn);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+            StringBuilder sb = new StringBuilder();
+            
+            sb.append("grant_type=authorization_code");
+            sb.append("&client_id=31a78ed0030ac205ddf12b4382b1b74a");
+            sb.append("&redirect_uri=http://localhost:8084/CarCare/kakao.car");
+            sb.append("&code=" + authorizeCode);
+            
+            bw.write(sb.toString());
+            bw.flush();
+            bw.close();
+            
+            int responseCode = conn.getResponseCode();
+//            System.out.println("responseCode = " + responseCode);
+            
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line = "";
+            String result = "";
+            while ((line = br.readLine()) != null) {
+                result += line;
+            }
+//            System.out.println("result = " + result);
+            
+            JSONParser parser = new JSONParser();
+            JSONObject elem = (JSONObject) parser.parse(result);
 
-            // 요청 데이터 전송
-            sendRequestData(conn, authorizeCode);
+            String access_token = elem.get("access_token").toString();
+            String refresh_token = elem.get("refresh_token").toString();
+//            System.out.println("refresh_token = " + refresh_token);
+//            System.out.println("access_token = " + access_token);
+            accessToken = access_token;
 
+            br.close();
+            bw.close();
+            
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,22 +78,80 @@ public class KaKaoService {
         return accessToken;
     }
 
-    private static void sendRequestData(HttpURLConnection conn, String authorizeCode) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setDoOutput(true);
+    public Map<String, Object> getUserInfo(String access_token) throws IOException {
+        String host = "https://kapi.kakao.com/v2/user/me";
+        Map<String, Object> result = new HashMap<>();
+        try {
+            URL url = new URL(host);
 
-        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()))) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("grant_type=authorization_code");
-            sb.append("&client_id=6f31d4b7d1ae1e95eb6357159f3ee132");
-            sb.append("&redirect_uri=http://localhost:8084/CarCare/kakao.car");
-            sb.append("&code=").append(authorizeCode);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Authorization", "Bearer " + access_token);
+            conn.setRequestMethod("GET");
 
-            System.out.println("Request data: " + sb.toString());
-            bw.write(sb.toString());
-            bw.flush();
-            bw.close();
-            System.out.println(bw);
+            int responseCode = conn.getResponseCode();
+//            System.out.println("responseCode1 = " + responseCode);
+
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line = "";
+            String res = "";
+            while((line=br.readLine())!=null)
+            {
+                res+=line;
+            }
+
+//            System.out.println("res = " + res);
+
+
+            JSONParser parser = new JSONParser();
+            JSONObject obj = (JSONObject) parser.parse(res);
+//            JSONObject kakao_account = (JSONObject) obj.get("kakao_account");
+            JSONObject properties = (JSONObject) obj.get("properties");
+
+
+            String id = obj.get("id").toString();
+            String connected_at = obj.get("connected_at").toString();
+            String nickname = properties.get("nickname").toString();
+
+            result.put("id", id);
+            result.put("nickname", nickname);
+            result.put("connected_at", connected_at);
+
+            br.close();
+
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
         }
+
+        return result;
+    }
+    
+    public boolean insertUser(KaKaoBean kkb) {
+        CarDAO carDAO = CarDAO.getInstance();
+        Connection con = getConnection();
+        carDAO.setConnection(con);
+        boolean isSuccess = false;
+        long insertUser = carDAO.intoKaKao(kkb);
+
+        kkb.setId(insertUser);
+
+        try {
+            if (insertUser > 0) {
+                commit(con);
+                isSuccess = true;
+            } else {
+                rollback(con);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(con);
+        }
+
+        System.out.println("Insert success: " + isSuccess);
+        System.out.println("Inserted TestDrive ID: " + kkb.getId());
+
+        return isSuccess;
     }
 }
