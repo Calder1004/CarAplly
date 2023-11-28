@@ -32,9 +32,11 @@
          </div>
       </div>
       <!-- 큰 슬라이더 끝-->
+      
       <div class="image-apply-button">
          <button type="button" onclick="location.href='/CarCare/carList.car'">시승 신청 바로가기</button>
       </div>
+      
       <!-- 작은 슬라이더 시작 -->
       <div class="swiper content-swiper">
          <div class="swiper-wrapper">
