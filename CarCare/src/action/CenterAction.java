@@ -11,19 +11,29 @@ import vo.CenterBean;
 
 public class CenterAction implements Action {
 
-	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		ActionForward forward = null;
-		ArrayList<CenterBean> center;
-		CenterListService centerlistsvc = new CenterListService();
-		center = centerlistsvc.selectCenterList();
-        request.setAttribute("center", center);
-        System.out.println(request.getParameter("id"));
-        int optionId = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("optionid", optionId);
-        forward = new ActionForward("centerList.jsp", false);
-		return forward;
-	}
+    private ArrayList<CenterBean> getCenterList() throws Exception {
+        CenterListService centerListService = new CenterListService();
+        return centerListService.selectCenterList();
+    }
 
+    @Override
+    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            request.setCharacterEncoding("utf-8");
+            ActionForward forward = null;
+
+            ArrayList<CenterBean> centerList = getCenterList();
+            request.setAttribute("centerList", centerList);
+
+            int optionId = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("optionid", optionId);
+
+            forward = new ActionForward("centerList.jsp", false);
+
+            return forward;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; 
+        }
+    }
 }

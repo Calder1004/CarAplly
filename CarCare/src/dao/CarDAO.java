@@ -146,6 +146,27 @@ public class CarDAO {
 		return insertTestDrive;
 	}
     
+    // 중복등록 체크
+    public boolean isUserDupliCate(long userId) {
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	boolean check = false;
+    	
+    	try {
+    		String sql = "SELECT id FROM kakaouserinfos WHERE id = ?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setLong(1, userId);
+    		rs = pstmt.executeQuery();
+    		
+    		check = rs.next();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	} finally {
+    		close(rs);
+    		close(pstmt);
+    	}
+    	return check;
+    }
     // kakao 로그인 db 정보저장	
     public long intoKaKao(KaKaoBean kkb) {
     	PreparedStatement pstmt = null;
