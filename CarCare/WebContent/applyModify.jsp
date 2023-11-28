@@ -13,7 +13,7 @@ body {
 	font-family: "Arial", sans-serif;
 	color: #333;
 	background-color: #f4f4f4;
-	margin: auto 150px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -115,19 +115,19 @@ button:hover {
 	</section>
 
 	<form id="testDriveForm">
-		<h2>확인 및 수정</h2>
+		<h2>시승 예약 조회</h2>
 
-		<label for="carModel">차량 선택:</label> <select id="carModel"
-			name="carModel" required>
-			<option value="ls">LS</option>
-			<option value="es">ES</option>
-			<option value="rx">RX</option>
-			<!-- 추가 차량 옵션 -->
-		</select> <label for="location">시승 장소:</label> <input type="text" id="location"
-			name="location" required /> <label for="name">이름:</label> <input
-			type="text" id="name" name="name" required /> <label for="phone">연락처:</label>
-		<input type="tel" id="phone" name="phone" required /> <label
-			for="email">이메일:</label> <input type="email" id="email" name="email" />
+		<label for="location">시승 장소:</label>
+		<input type="text" id="location" name="location"/>
+		
+		<label for="name">이름:</label>
+		<input type="text" id="name" name="name"/>
+		
+		<label for="phone">연락처:</label>
+		<input type="tel" id="phone" name="phone"/>
+		
+		<label for="email">이메일:</label>
+		<input type="email" id="email" name="email" />
 
 		<button type="submit">확인Home</button>
 	</form>
