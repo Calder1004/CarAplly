@@ -17,10 +17,14 @@ public class TestDriveAction implements Action {
 	        request.setCharacterEncoding("utf-8");
 	        ActionForward forward = null;
 
-	        int centerId = Integer.parseInt(request.getParameter("center_id"));
-	        int userId = Integer.parseInt(request.getParameter("user_id"));
-	        int carId = Integer.parseInt(request.getParameter("car_id"));
+	        int centerId = Integer.parseInt(request.getParameter("centerid"));
+	        long kakaouserId = Long.parseLong((String)request.getParameter("kakaoid"));
+	        int caroptionId = Integer.parseInt(request.getParameter("optionid"));
 	        String dateString = request.getParameter("date");
+	        System.out.println("centerId:"+centerId);
+	        System.out.println("kakaouserId:" + kakaouserId);
+	        System.out.println("caroptionId:" + caroptionId);
+	        System.out.println("date:" + dateString);
 
 	        Date date = null;
 	        try {
@@ -29,14 +33,14 @@ public class TestDriveAction implements Action {
 	            date = new java.sql.Date(utilDate.getTime());
 	        } catch (Exception e) {
 	            e.printStackTrace();
-	            System.err.println("DEBUG: Invalid date string - " + dateString);
+	            System.err.println("date문제잇으면발생: - " + dateString);
 	        }
 	        System.out.println("CenterID: " + centerId +
-	                   ", UserID: " + userId +
-	                   ", CarID: " + carId +
+	                   ", UserID: " + kakaouserId +
+	                   ", CarID: " + caroptionId +
 	                   ", Date: " + dateString);
 	        TestDriveService service = new TestDriveService();
-	        TestDriveBean tdb = new TestDriveBean(centerId, userId, carId, date);
+	        TestDriveBean tdb = new TestDriveBean(centerId, kakaouserId, caroptionId, date);
 	        service.insertCarTest(tdb);
 	        forward = new ActionForward("main.jsp", false);
 	        return forward;

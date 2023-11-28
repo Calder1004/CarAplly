@@ -1,11 +1,10 @@
 package action;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import svc.KaKaoService;
 import vo.ActionForward;
@@ -19,9 +18,9 @@ public class KaKaoAction implements Action {
 
         try {
             String code = request.getParameter("code");
+            
             String accessToken = KaKaoService.getAccessToken(code);
-            String optionid = request.getParameter("optionid");
-            System.out.println(optionid);
+           
             KaKaoService ks = new KaKaoService();
             Map<String, Object> userInfo = ks.getUserInfo(accessToken);
 	     
@@ -34,9 +33,8 @@ public class KaKaoAction implements Action {
 //            System.out.println("id:" + id);
 //            System.out.println("nickname:" + nickname);
 //            System.out.println("connected_at:" + connected_at);
-
             KaKaoBean kkb = new KaKaoBean(id,nickname,connected_at);
-
+            
 //            System.out.println("KaKaoBean Data:");
 //            for (java.lang.reflect.Field field : KaKaoBean.class.getDeclaredFields()) {
 //                field.setAccessible(true);

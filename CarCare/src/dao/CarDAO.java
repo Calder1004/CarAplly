@@ -126,16 +126,16 @@ public class CarDAO {
     public int insertFormat(TestDriveBean tdb) {
 		PreparedStatement pstmt = null;
 		int insertTestDrive = 0;
-		String sql = "INSERT INTO schedule_drive (center_id, user_id, car_id, reservation_date, state) VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO schedule_drive (center_id, kakaouser_id, car_option_id, reservation_date, state) VALUES(?,?,?,?,?)";
 		try {			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, tdb.getCenterId());
-			pstmt.setInt(2,	tdb.getUserId());
+			pstmt.setLong(2,tdb.getKakaouserId());
 			pstmt.setInt(3, tdb.getCarId());
 			pstmt.setDate(4, tdb.getReservationDate());
 			pstmt.setBoolean(5, tdb.isState());
 	        System.out.println("Before Query Execution - CenterID: " + tdb.getCenterId() +
-	                ", UserID: " + tdb.getUserId() +
+	                ", UserID: " + tdb.getKakaouserId() +
 	                ", CarID: " + tdb.getCarId() +
 	                ", ReservationDate: " + tdb.getReservationDate() +
 	                ", State: " + tdb.isState());	
