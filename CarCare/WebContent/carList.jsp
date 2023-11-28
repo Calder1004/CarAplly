@@ -23,7 +23,7 @@
         table {
             border-collapse: collapse;
             width: 50%;
-            margin: 20px auto;
+            margin: 40px auto;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -31,7 +31,7 @@
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 12px;
+            padding: 50px;
         }
 
         th {
@@ -86,23 +86,34 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-    <h1>Car List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Brand</th>
-                <th>Model</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="car" items="${carList}">
-                <tr onclick="redirectToOption('${car.id}','${car.brand}', '${car.model}')" onmouseover="addHoverEffect(this)" onmouseout="removeHoverEffect(this)">
-                    <td>${car.brand}</td>
-                    <td>${car.model}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+
+   <h1>Car List</h1>
+<table>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Model Images</th>
+        </tr>
+          <tbody>
+        <c:forEach var="car" items="${carList}">
+          <tr onclick="redirectToOption('${car.id}','${car.brand}', '${car.model}')"
+              onmouseover="addHoverEffect(this)"
+              onmouseout="removeHoverEffect(this)">
+            <td>${car.brand}</td>
+            <td>${car.model}</td>
+            <td>
+              <img src="img/carList/${car.model}.png"
+                   alt="${car.model} Image 1" style="width: 420px; height: 250px;">
+            </td>
+          </tr>
+        </c:forEach>
+    </tbody>
+</table>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>
+
+
+
+
+
