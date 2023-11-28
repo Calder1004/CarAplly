@@ -14,7 +14,14 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
+}
 
+h1 {
+	background-color: #333;
+	color: white;
+	padding: 20px;
+	margin: 0;
+	text-align: center;
 }
 
 form {
@@ -103,6 +110,7 @@ button:hover {
 </head>
 <body>
 	<jsp:include page="header.jsp" />
+	<h1>Apply Modify</h1>
 	<form id="myForm">
 		<label for="inputDate">날짜 선택:</label> <input type="date"
 			id="inputDate" name="selectedDate" required> <input

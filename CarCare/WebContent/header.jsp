@@ -142,7 +142,7 @@ header {
 				<li class="dropdown"><a href="#" type="button"
 					onclick="location.href='/CarCare/carList.car'">시승 신청</a>
 					<div class="dropdown-content">
-						<a href="applyModify.jsp">조회 및 조회</a></li>
+						<a href="applyModify.jsp">조회 및 수정</a></li>
 
 				<li class="dropdown"><a href="#" class="dropbtn">서비스 지원</a>
 					<div class="dropdown-content">
