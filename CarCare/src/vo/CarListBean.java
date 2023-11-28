@@ -1,8 +1,8 @@
 package vo;
 
-import java.util.List;
-
 public class CarListBean {
+	
+	public CarListBean() {}
 	
 	public int getId() {
 		return id;
@@ -10,9 +10,7 @@ public class CarListBean {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public CarListBean() {
-	    }
+
 	public String getBrand() {
 		return brand;
 	}
@@ -26,13 +24,13 @@ public class CarListBean {
 		this.model = model;
 	}
     
-	public List<CarListOptionBean> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<CarListOptionBean> options) {
-        this.options = options;
-    }
+//	public List<CarListOptionBean> getOptions() {
+//        return options;
+//    }
+//
+//    public void setOptions(List<CarListOptionBean> options) {
+//        this.options = options;
+//    }
     
     @Override
     public String toString() {
@@ -40,11 +38,9 @@ public class CarListBean {
     	return "brand:" + brand + "model:" + model;
     }
     
-	private List<CarListOptionBean> options;
+//	private List<CarListOptionBean> options;
 	
 	int id;
-
-
 	String brand;
 	String model;
 	

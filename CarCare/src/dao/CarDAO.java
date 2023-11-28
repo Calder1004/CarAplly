@@ -59,10 +59,10 @@ public class CarDAO {
 	}
 	
 	// 자동차 모델 옵션 조회
-    public List<CarListOptionBean> getCarOptionList(String brand, String model) {
+    public ArrayList<CarListOptionBean> getCarOptionList(String brand, String model) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        List<CarListOptionBean> carlistoptionarr = new ArrayList<CarListOptionBean>();
+        ArrayList<CarListOptionBean> carlistoptionarr = new ArrayList<CarListOptionBean>();
         String sql = "SELECT * FROM car_option_view WHERE brand = ? AND model = ?";
 
         try {
@@ -136,8 +136,7 @@ public class CarDAO {
 			pstmt.setBoolean(5, tdb.isState());
 
 			insertTestDrive = pstmt.executeUpdate();
-			System.out.println(insertTestDrive);
-			System.out.println("DEBUG: SQL Query - " + pstmt.toString());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

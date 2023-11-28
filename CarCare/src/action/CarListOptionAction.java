@@ -1,6 +1,5 @@
 package action;
 
-import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,8 +22,8 @@ public class CarListOptionAction implements Action {
         ActionForward forward = null;
 
         try {
-            String brand = URLDecoder.decode(request.getParameter("brand"), "UTF-8");
-            String model = URLDecoder.decode(request.getParameter("model"), "UTF-8");
+            String brand = request.getParameter("brand");
+            String model = request.getParameter("model");
 
             ArrayList<CarListOptionBean> carListOption = getCarListOption(brand, model);
 

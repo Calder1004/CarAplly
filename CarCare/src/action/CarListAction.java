@@ -22,10 +22,11 @@ public class CarListAction implements Action {
         ActionForward forward = null;
 
         try {
-            ArrayList<CarListBean> carList = getCarList();
+            ArrayList<CarListBean> carList = getCarList(); // service 에서 getCarList 함수 호출
             request.setAttribute("carList", carList);
+            
             forward = new ActionForward("carList.jsp", false);
-
+        
         } catch (Exception e) {
             e.printStackTrace();
         }
