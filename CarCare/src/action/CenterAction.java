@@ -24,9 +24,9 @@ public class CenterAction implements Action {
 
 		ArrayList<CenterBean> center = getCenterList(); // service 할당;
         
-		int optionId = Integer.parseInt(request.getParameter("id"));
+		int optionId = Integer.parseInt(request.getParameter("id")); // 자동차 OptionId를 파라미터 값으로 받음
         
-        request.setAttribute("center", center);
+        request.setAttribute("center", center); // 빈에 저장된 center 목록들을 내려줌
         request.setAttribute("optionid", optionId);
         
         forward = new ActionForward("centerList.jsp", false);

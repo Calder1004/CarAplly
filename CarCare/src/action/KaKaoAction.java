@@ -37,7 +37,7 @@ public class KaKaoAction implements Action {
             String code = request.getParameter("code");
             getKaKaoUserInfoAndInsertUser(request, code);
 
-            forward = new ActionForward("test6.jsp", false);
+            forward = new ActionForward("testdrive.jsp", false);
 
         } catch (Exception e) {
             e.printStackTrace();

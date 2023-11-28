@@ -22,8 +22,8 @@ public class CarListAction implements Action {
         ActionForward forward = null;
 
         try {
-            ArrayList<CarListBean> carList = getCarList(); // service 에서 getCarList 함수 호출
-            request.setAttribute("carList", carList);
+            ArrayList<CarListBean> carList = getCarList(); // service 에서 getCarList 함수 호출/빈에 할당
+            request.setAttribute("carList", carList); // set으로 내려줌
             
             forward = new ActionForward("carList.jsp", false);
         

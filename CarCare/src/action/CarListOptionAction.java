@@ -13,8 +13,8 @@ public class CarListOptionAction implements Action {
 	
 	//service Á¢±ÙºÎ 
     private ArrayList<CarListOptionBean> getCarListOption(String brand, String model) throws Exception {
-        CarListOptionService carListosv = new CarListOptionService();
-        return (ArrayList<CarListOptionBean>) carListosv.selectOptionCarList(brand, model);
+        CarListOptionService svc = new CarListOptionService();
+        return (ArrayList<CarListOptionBean>) svc.selectOptionCarList(brand, model);
     }
 
     @Override
