@@ -110,8 +110,7 @@ button:hover {
 			type="hidden" id="inputOptionId" name="selectedOptionId" required>
 		<button type="button" onclick="submitForm()">제출</button>
 	</form>
-	<p>${id}</p>
-	<p>${optionId}</p>
+
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

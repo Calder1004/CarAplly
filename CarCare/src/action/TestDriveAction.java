@@ -21,26 +21,20 @@ public class TestDriveAction implements Action {
 	        long kakaouserId = Long.parseLong((String)request.getParameter("kakaoid"));
 	        int caroptionId = Integer.parseInt(request.getParameter("optionid"));
 	        String dateString = request.getParameter("date");
+	        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	        
+	        java.util.Date utilDate = formatter.parse(dateString); // Parse the date using java.util.Date
+	        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+	        
 	        System.out.println("centerId:"+centerId);
 	        System.out.println("kakaouserId:" + kakaouserId);
 	        System.out.println("caroptionId:" + caroptionId);
 	        System.out.println("date:" + dateString);
+	        
 
-	        Date date = null;
-	        try {
-	            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-	            java.util.Date utilDate = dateFormat.parse(dateString);
-	            date = new java.sql.Date(utilDate.getTime());
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            System.err.println("date문제잇으면발생: - " + dateString);
-	        }
-	        System.out.println("CenterID: " + centerId +
-	                   ", UserID: " + kakaouserId +
-	                   ", CarID: " + caroptionId +
-	                   ", Date: " + dateString);
+	
 	        TestDriveService service = new TestDriveService();
-	        TestDriveBean tdb = new TestDriveBean(centerId, kakaouserId, caroptionId, date);
+	        TestDriveBean tdb = new TestDriveBean(centerId, kakaouserId, caroptionId, sqlDate);
 	        service.insertCarTest(tdb);
 	        forward = new ActionForward("main.jsp", false);
 	        return forward;

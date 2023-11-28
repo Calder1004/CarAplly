@@ -134,11 +134,7 @@ public class CarDAO {
 			pstmt.setInt(3, tdb.getCarId());
 			pstmt.setDate(4, tdb.getReservationDate());
 			pstmt.setBoolean(5, tdb.isState());
-	        System.out.println("Before Query Execution - CenterID: " + tdb.getCenterId() +
-	                ", UserID: " + tdb.getKakaouserId() +
-	                ", CarID: " + tdb.getCarId() +
-	                ", ReservationDate: " + tdb.getReservationDate() +
-	                ", State: " + tdb.isState());	
+
 			insertTestDrive = pstmt.executeUpdate();
 			System.out.println(insertTestDrive);
 			System.out.println("DEBUG: SQL Query - " + pstmt.toString());
@@ -156,21 +152,14 @@ public class CarDAO {
     	long check = 0;
     	String sql = "INSERT INTO kakaouserinfos (id,nickname,connected_at) VALUES(?,?,?)";
     	try {
-    		
-            System.out.println("Before Query Execution - PreparedStatement Details:");
-            System.out.println("SQL: " + sql);
-            System.out.println("Parameter 1 (id): " + kkb.getId());
-            System.out.println("Parameter 2 (nickname): " + kkb.getName());
-            System.out.println("Parameter 3 (connected_at): " + kkb.getConnected_at());
+
             Instant instant = Instant.parse(kkb.getConnected_at());
             pstmt = con.prepareStatement(sql);
     		pstmt.setLong(1, kkb.getId());
     		pstmt.setString(2,	kkb.getName());
     		pstmt.setObject(3, instant);
     		check = pstmt.executeUpdate();
-    		
-    	      System.out.println("Query Executed: " + sql);
-    	       System.out.println("Inserted Rows: " + check);
+
     	} catch (Exception e) {
     		e.printStackTrace();
     	} finally {

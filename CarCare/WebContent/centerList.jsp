@@ -87,7 +87,7 @@
                         <td>${center.number}</td>
                     </tr>
                 </c:forEach>
-                <td>${optionid}</td>
+
             </tbody>
         </table>
     </c:if>
