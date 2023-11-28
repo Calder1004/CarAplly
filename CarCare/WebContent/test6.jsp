@@ -63,18 +63,6 @@
             <td>${nickname}</td>
         </tr>
         <tr>
-            <th>Connected At:</th>
-            <td>${connected_at}</td>
-        </tr>
-        <tr>
-            <th>Center ID:</th>
-            <td>${centerid}</td>
-        </tr>
-        <tr>
-            <th>Option ID:</th>
-            <td>${optionid}</td>
-        </tr>
-        <tr>
             <th>Date:</th>
             <td>${date}</td>
         </tr>
@@ -87,8 +75,6 @@
         <input type="hidden" name="centerid" value="${centerid}">
         <input type="hidden" name="optionid" value="${optionid}">
         <input type="hidden" name="date" value="${date}">
-        
-        <!-- Add any additional fields as needed for test drive approval -->
         
         <input type="submit" value="Submit Test Drive Request">
     </form>
