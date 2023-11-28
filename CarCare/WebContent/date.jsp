@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Input Example</title>
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -99,6 +100,7 @@ function submitForm() {
 </script>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <form id="myForm">
     <label for="inputDate">날짜 선택:</label>
 	<input type="date" id="inputDate" name="selectedDate" required>
@@ -108,5 +110,6 @@ function submitForm() {
 </form>
         <p>${id}</p>
         <p>${optionId}</p>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

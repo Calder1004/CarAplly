@@ -51,20 +51,12 @@
          .footer-column ul li a:hover {
             color: #fff;
          }
-         /* .footer-column:nth-last-child(1) {
-            text-align: center;
-            position: relative;
-         } */
+
          .social-media a img {
             width: 20px;
             height: 20px;
             margin: 0 5px;
          }
-
-         /* .social-media {
-            position: absolute;
-            left: 48px;
-         } */
 
          .footer-bottom {
             display: flex;

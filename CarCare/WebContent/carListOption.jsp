@@ -13,7 +13,7 @@
             padding: 0;
         }
 
-        h2 {
+        h1 {
             background-color: #333;
             color: white;
             padding: 20px;
@@ -45,25 +45,6 @@
             cursor: pointer;
         }
 
-        a {
-            display: inline-block;
-            padding: 8px 16px;
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-
-        a:hover {
-            background-color: #45a049;
-        }
-
-        p {
-            text-align: center;
-            color: #666;
-            margin-top: 20px;
-        }
     </style>
 
     <script>
@@ -84,9 +65,9 @@
     </script>
 </head>
 <body>
-
+<jsp:include page="header.jsp" />
 <c:if test="${not empty carListOption}">
-    <h2>Car List Option</h2>
+    <h1>Car List Option</h1>
     <table>
         <thead>
             <tr>
@@ -113,5 +94,6 @@
     <p>옵션 선택이 없습니다.</p>
 </c:if>
 
+<jsp:include page="footer.jsp"/>
 </body>
 </html>	

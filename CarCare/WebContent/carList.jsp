@@ -43,19 +43,6 @@
             color: white;
             cursor: pointer;
         }
-
-        a {
-            display: inline-block;
-            padding: 8px 16px;
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 4px;
-        }
-
-        a:hover {
-            background-color: #45a049;
-        }
     </style>
 
     <script>
@@ -98,6 +85,7 @@
     </script>
 </head>
 <body>
+<jsp:include page="header.jsp" />
     <h1>Car List</h1>
     <table>
         <thead>
@@ -115,5 +103,6 @@
             </c:forEach>
         </tbody>
     </table>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -13,7 +13,7 @@
             text-align: center;
         }
 
-        h2 {
+        h1 {
             background-color: #333;
             color: white;
             padding: 20px;
@@ -42,19 +42,6 @@
             background-color: #f5f5f5;
         }
 
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-
-        a:hover {
-            background-color: #45a049;
-        }
     </style>
 
 <script>
@@ -81,8 +68,9 @@
 </script>
 </head>
 <body>
+<jsp:include page="header.jsp" />
     <c:if test="${not empty center}">
-        <h2>Center List</h2>
+        <h1>Center List</h1>
         <table>
             <thead>
                 <tr>
@@ -103,6 +91,7 @@
             </tbody>
         </table>
     </c:if>
+<jsp:include page="footer.jsp"/>
 </body>
 
 </html>
