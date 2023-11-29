@@ -76,7 +76,7 @@
         <input type="hidden" name="optionid" value="${optionid}">
         <input type="hidden" name="date" value="${date}">
         
-        <input type="submit" value="Submit Test Drive Request">
+        <input type="submit" value="예약신청">
     </form>
 </body>
 </html>
