@@ -108,7 +108,7 @@ button:hover {
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<h1>Apply Modify</h1>
+	<h1>Drive-Reservation</h1>
 	<section>
 		<h2>선택한 차량</h2>
 		<img src="http://placehold.it/300X200" />

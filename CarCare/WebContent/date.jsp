@@ -30,6 +30,7 @@ form {
 	padding: 20px;
 	background-color: white;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	min-height: 200px;
 }
 
 label {
@@ -48,6 +49,7 @@ button {
 	background-color: #4CAF50;
 	color: white;
 	padding: 10px 20px;
+	margin-top: 40px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -110,10 +112,10 @@ button:hover {
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<h1>Apply Modify</h1>
+	<h1>Apply Date</h1>
 	<form id="myForm">
-		<label for="inputDate">날짜 선택:</label> <input type="date"
-			id="inputDate" name="selectedDate" required> <input
+		<label for="inputDate">시승 날짜 선택:</label> <input
+			type="date" id="inputDate" name="selectedDate" required> <input
 			type="hidden" id="inputId" name="selectedId" required> <input
 			type="hidden" id="inputOptionId" name="selectedOptionId" required>
 		<button type="button" onclick="submitForm()">제출</button>
