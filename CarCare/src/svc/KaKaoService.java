@@ -34,7 +34,6 @@ public class KaKaoService {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
-//            System.out.println(conn);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
             StringBuilder sb = new StringBuilder();
             
@@ -48,7 +47,6 @@ public class KaKaoService {
             bw.close();
             
             int responseCode = conn.getResponseCode();
-//            System.out.println("responseCode = " + responseCode);
             
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line = "";
@@ -56,15 +54,12 @@ public class KaKaoService {
             while ((line = br.readLine()) != null) {
                 result += line;
             }
-//            System.out.println("result = " + result);
             
             JSONParser parser = new JSONParser();
             JSONObject elem = (JSONObject) parser.parse(result);
 
             String access_token = elem.get("access_token").toString();
             String refresh_token = elem.get("refresh_token").toString();
-//            System.out.println("refresh_token = " + refresh_token);
-//            System.out.println("access_token = " + access_token);
             accessToken = access_token;
 
             br.close();
@@ -89,8 +84,6 @@ public class KaKaoService {
             conn.setRequestMethod("GET");
 
             int responseCode = conn.getResponseCode();
-//            System.out.println("responseCode1 = " + responseCode);
-
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line = "";
@@ -100,12 +93,9 @@ public class KaKaoService {
                 res+=line;
             }
 
-//            System.out.println("res = " + res);
-
 
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject) parser.parse(res);
-//            JSONObject kakao_account = (JSONObject) obj.get("kakao_account");
             JSONObject properties = (JSONObject) obj.get("properties");
 
 
@@ -132,6 +122,9 @@ public class KaKaoService {
         Connection con = getConnection();
         carDAO.setConnection(con);
         boolean isSuccess = false;
+        
+        if(!carDAO.isUserDupliCate(kkb.getId())) {
+        
         long insertUser = carDAO.intoKaKao(kkb);
 
         kkb.setId(insertUser);
@@ -152,6 +145,7 @@ public class KaKaoService {
         System.out.println("Insert success: " + isSuccess);
         System.out.println("Inserted TestDrive ID: " + kkb.getId());
 
+        }
         return isSuccess;
-    }
+       }
 }

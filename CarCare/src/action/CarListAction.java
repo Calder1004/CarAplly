@@ -11,18 +11,26 @@ import vo.CarListBean;
 
 public class CarListAction implements Action {
 
-    @Override
-    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ActionForward forward = null;
-        ArrayList<CarListBean> carList;
-
+	// service 접근부 
+    private ArrayList<CarListBean> getCarList() throws Exception {
         CarListService carListService = new CarListService();
-        carList = carListService.selectCarList();
+        return carListService.selectCarList();
+    }
 
-        request.setAttribute("carList", carList);
-        forward = new ActionForward("carList.jsp", false);
+    @Override
+    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+        ActionForward forward = null;
+
+        try {
+            ArrayList<CarListBean> carList = getCarList(); // service 에서 getCarList 함수 호출/빈에 할당
+            request.setAttribute("carList", carList); // set으로 내려줌
+            
+            forward = new ActionForward("carList.jsp", false);
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return forward;
     }
-
 }

@@ -9,9 +9,6 @@ public class CenterBean {
 	private String name;
     private String number;
     private String address;
-
-    private List<CarListOptionBean> options;
-    private List<Integer> optionsIds;
     
     public int getId() {
 		return id;
@@ -45,23 +42,5 @@ public class CenterBean {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public List<CarListOptionBean> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<CarListOptionBean> options) {
-        this.options = options;
-        
-        optionsIds = new ArrayList<>();
-        for (CarListOptionBean option : options) {
-            optionsIds.add(option.getId());
-        }
-    }
-    
-    public List<Integer> getOptionsIds() {
-        return optionsIds;
-    }
-
 
 }
