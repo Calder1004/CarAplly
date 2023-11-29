@@ -12,9 +12,9 @@ public class CenterListService {
 	public ArrayList<CenterBean> selectCenterList() throws Exception {
 		ArrayList<CenterBean> centerlist = null;
 		Connection con = getConnection(); 
-		CarDAO carDAO = CarDAO.getInstance();
-		carDAO.setConnection(con);
-		centerlist = carDAO.getCenterList();
+		CarDAO dao = CarDAO.getInstance();
+		dao.setConnection(con);
+		centerlist = dao.getCenterList();
 		close(con);
 		return centerlist;
 	}

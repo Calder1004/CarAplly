@@ -15,14 +15,14 @@ public class KaKaoAction implements Action {
     private void getKaKaoUserInfoAndInsertUser(HttpServletRequest request, String code) throws Exception {
         String accessToken = KaKaoService.getAccessToken(code);
         KaKaoService svc = new KaKaoService();
-        Map<String, Object> userInfo = svc.getUserInfo(accessToken);
+        Map<String, Object> userInfo = svc.KaKaogetUserInfo(accessToken);
 
         long id = Long.parseLong((String) userInfo.get("id"));
         String nickname = (String) userInfo.get("nickname");
         String connected_at = (String) userInfo.get("connected_at");
 
         KaKaoBean kkb = new KaKaoBean(id, nickname, connected_at);
-        svc.insertUser(kkb);
+        svc.insertKaKaoUser(kkb);
 
         request.setAttribute("kakaoid", id);
         request.setAttribute("nickname", nickname);

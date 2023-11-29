@@ -38,27 +38,22 @@
             background-color: #f2f2f2;
         }
 
-        tr:hover {
-            background-color: #3498db;
-            color: white;
-            cursor: pointer;
-        }
+
     </style>
 
     <script>
-        function redirectToOption(id,brand, model) {
+        function redirectToOption(id,brand,model) {
 
             var form = document.createElement("form");
             form.method = "post";
             form.action = "carListOption.car";
-            
+         
             var IdInput = document.createElement("input");
             IdInput.type = "hidden";
             IdInput.name = "id";
             IdInput.value = id;
             form.appendChild(IdInput);
 
-           
             var brandInput = document.createElement("input");
             brandInput.type = "hidden";
             brandInput.name = "brand";

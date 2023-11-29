@@ -87,7 +87,6 @@
                         <td>${center.number}</td>
                     </tr>
                 </c:forEach>
-
             </tbody>
         </table>
     </c:if>

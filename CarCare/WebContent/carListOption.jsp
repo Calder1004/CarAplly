@@ -87,6 +87,7 @@ tr:hover {
 					<th>Color</th>
 					<th>Price</th>
 					<th>km</th>
+					<th>grade</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -96,6 +97,7 @@ tr:hover {
 						<td>${option.color}</td>
 						<td>${option.price}</td>
 						<td>${option.km}</td>
+						<td>${option.grade }</td>	
 					</tr>
 				</c:forEach>
 			</tbody>
