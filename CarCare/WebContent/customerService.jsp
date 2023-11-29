@@ -31,7 +31,7 @@
 
 <style>
 body {
-	background-color: #f5f5f5;
+	background-color: #f0f0f0;
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
@@ -138,6 +138,7 @@ textarea {
 </style>
 </head>
 <body>
+	<jsp:include page="header.jsp" />
 	<div class="customer-service">
 		<h1 class="title">고객센터</h1>
 
@@ -189,6 +190,7 @@ textarea {
 			<button type="submit">문의하기</button>
 		</form>
 	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
 
