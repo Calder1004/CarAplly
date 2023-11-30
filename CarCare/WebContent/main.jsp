@@ -9,6 +9,7 @@
       <title>main page</title>
       <link rel="stylesheet" href="css/main.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
       <script src="js/main.js"></script>
    </head>
@@ -59,7 +60,9 @@
               </div>
             </div>
             <div class="swiper-slide">
+            `   <a href="#"><img src="img/carList/car4_LS500.png" alt="" /></a>
                <a href="#"><img src="img/carList/LS500.png" alt="" /></a>
+
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>

@@ -57,6 +57,28 @@
             form.method = "post";
             form.action = "carListOption.car";
 
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 50px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+    </style>
+
+    <script>
+        function redirectToOption(id,brand,model) {
+
+            var form = document.createElement("form");
+            form.method = "post";
+            form.action = "carListOption.car";
+         
             var IdInput = document.createElement("input");
             IdInput.type = "hidden";
             IdInput.name = "id";

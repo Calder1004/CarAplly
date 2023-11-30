@@ -102,11 +102,9 @@ button:hover {
 				document.body.appendChild(form);
 				form.submit();
 			} else {
-				console.error("Invalid selectedId value:", selectedId);
+				console.error("검증되지 안음:", selectedId);
 			}
-		} else {
-			console.error("Element with ID 'inputDate' not found.");
-		}
+		} 
 	}
 </script>
 </head>
@@ -114,10 +112,10 @@ button:hover {
 	<jsp:include page="header.jsp" />
 	<h1>Apply Date</h1>
 	<form id="myForm">
-		<label for="inputDate">시승 날짜 선택:</label> <input
-			type="date" id="inputDate" name="selectedDate" required> <input
-			type="hidden" id="inputId" name="selectedId" required> <input
-			type="hidden" id="inputOptionId" name="selectedOptionId" required>
+		<label for="inputDate">시승 날짜 선택:</label> 
+			<input type="date" id="inputDate" name="selectedDate" required> 
+			<input type="hidden" id="inputId" name="selectedId" required> 
+			<input type="hidden" id="inputOptionId" name="selectedOptionId" required>
 		<button type="button" onclick="submitForm()">제출</button>
 	</form>
 

@@ -174,7 +174,7 @@ public class CarDAO {
     	String sql = "INSERT INTO kakaouserinfos (id,nickname,connected_at) VALUES(?,?,?)";
     	try {
 
-            Instant instant = Instant.parse(kkb.getConnected_at());
+            Instant instant = Instant.parse(kkb.getConnected_at()); 
             pstmt = con.prepareStatement(sql);
     		pstmt.setLong(1, kkb.getId());
     		pstmt.setString(2,	kkb.getName());
