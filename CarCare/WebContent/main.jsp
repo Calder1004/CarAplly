@@ -90,7 +90,7 @@
             </div>
             <div class="swiper-slide">
                <a href="#"><img src="img/carList/RX350h.png" alt="" /></a>
-               <div class="tooltip">
+               <div class="tooltip">'
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
             </div>
