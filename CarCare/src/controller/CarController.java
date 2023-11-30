@@ -18,6 +18,7 @@ import action.KaKaoAction;
 import action.TestDriveAction;
 import action.UserAction;
 import admin.action.AdminCheckAction;
+import admin.action.AdminDriveSelectAction;
 import vo.ActionForward;
 
 
@@ -115,6 +116,14 @@ public class CarController extends HttpServlet {
 			}
 		}
 		
+		if(command.equals("/adminSelect.car") || command.equals("/adminSelect")) {
+			action = new AdminDriveSelectAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {

@@ -5,6 +5,10 @@ import static db.dbConn.close;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import admin.vo.AdminDriveSelectBean;
+import vo.CenterBean;
 
 
 public class AdminDAO {
@@ -47,5 +51,36 @@ public class AdminDAO {
     		close(pstmt);
     	}
         return check;
+    }
+    
+    public ArrayList<AdminDriveSelectBean> driveSlt() {
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	String sql = "SELECT * FROM driveselects";
+    	ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
+    	try {
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    	while(rs.next()) {
+    		AdminDriveSelectBean bean = new AdminDriveSelectBean();
+    		bean.setId(rs.getInt("id"));
+    		bean.setDate(rs.getDate("reservation_date"));
+    		bean.setModel(rs.getString("name"));
+    		bean.setName(rs.getString("nickname"));
+    		bean.setCc(rs.getInt("cc"));
+    		bean.setColor(rs.getString("color"));
+    		bean.setGrade(rs.getString("grade"));
+    		bean.setKm(rs.getInt("km"));
+    		bean.setPrice(rs.getString("price"));
+    		bean.setState(rs.getBoolean("state"));
+    		list.add(bean);
+    	}
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	} finally {
+    		close(rs);
+    		close(pstmt);
+    	}
+		return list;
     }
 }
