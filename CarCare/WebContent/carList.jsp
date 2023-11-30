@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
         }
-
         h1 {
             background-color: #333;
             color: white;
@@ -24,7 +23,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            padding: 20px;
+            padding: 35px;
         }
 
         .catalog-item {
@@ -37,48 +36,28 @@
         .catalog-item:hover {
             background-color: rgb(127, 126, 126);
             color: white;
+            transform: scale(1.05);
         }
 
         .catalog-item img {
-            width: 100%;
-            height: 200px;
+            width: 110%;
+            height: 285px;
             object-fit: cover;
         }
 
         .catalog-item-description {
             text-align: center;
             padding: 10px;
+            
         }
     </style>
-
-    <script>
+	
+	<script>
         function redirectToOption(id, brand, model) {
             var form = document.createElement("form");
             form.method = "post";
             form.action = "carListOption.car";
 
-        }
-
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 50px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-
-    </style>
-
-    <script>
-        function redirectToOption(id,brand,model) {
-
-            var form = document.createElement("form");
-            form.method = "post";
-            form.action = "carListOption.car";
-         
             var IdInput = document.createElement("input");
             IdInput.type = "hidden";
             IdInput.name = "id";
@@ -100,7 +79,7 @@
             document.body.appendChild(form);
             form.submit();
         }
-    </script>
+    </script>    
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -120,4 +99,3 @@
 <jsp:include page="footer.jsp"/>
 </body>
 </html>
-

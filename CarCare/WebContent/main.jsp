@@ -60,9 +60,7 @@
               </div>
             </div>
             <div class="swiper-slide">
-            `   <a href="#"><img src="img/carList/car4_LS500.png" alt="" /></a>
-               <a href="#"><img src="img/carList/LS500.png" alt="" /></a>
-
+               <a href="#"><img src="img/carList/LS500.png" alt="" /></a>	
                <div class="tooltip">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eveniet enim deserunt ea labore hic!</p>
               </div>
