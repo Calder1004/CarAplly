@@ -23,7 +23,7 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px;
-	background-color: transparent; /* 배경을 투명하게 설정 */
+	background-color:  white; /* 배경을 투명하게 설정 */
 }
 
 .nav {

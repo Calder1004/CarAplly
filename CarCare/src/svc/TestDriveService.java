@@ -6,11 +6,11 @@ import vo.TestDriveBean;
 
 public class TestDriveService {
     public boolean insertCarTest(TestDriveBean tdb) {
-        CarDAO carDAO = CarDAO.getInstance();
+        CarDAO dao = CarDAO.getInstance();
         Connection con = getConnection();
-        carDAO.setConnection(con);
+        dao.setConnection(con);
         boolean isSuccess = false;
-        int insertTestDriven = carDAO.insertFormat(tdb);
+        int insertTestDriven = dao.insertFormat(tdb);
 
         tdb.setId(insertTestDriven);
 

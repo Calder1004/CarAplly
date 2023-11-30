@@ -3,7 +3,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 ul {
@@ -15,7 +15,7 @@ a {
 	color: #000;
 }
 body{
-	font-family: Arial, sans-serif;
+
 	background-color: #f0f0f0;
 }
 

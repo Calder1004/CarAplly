@@ -13,10 +13,12 @@ import action.Action;
 import action.CarListAction;
 import action.CarListOptionAction;
 import action.CenterAction;
-import action.TestDriveAction;
-import action.UserAction;
 import action.DateAction;
 import action.KaKaoAction;
+import action.TestDriveAction;
+import action.UserAction;
+import admin.action.AdminCheckAction;
+import admin.action.AdminDriveSelectAction;
 import vo.ActionForward;
 
 
@@ -41,6 +43,7 @@ public class CarController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
+	
 		if(command.equals("/carList.car") || command.equals("/carList")) {
 			action = new CarListAction();
 			try {
@@ -97,6 +100,24 @@ public class CarController extends HttpServlet {
 		
 		if(command.equals("/testdrive.car") || command.equals("/testdrive")) {
 			action = new TestDriveAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+			
+		if(command.equals("/adminCheck.car") || command.equals("/adminCheck")) {
+			action = new AdminCheckAction();
+			try {
+				forward = action.execute(request, response);	
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/adminSelect.car") || command.equals("/adminSelect")) {
+			action = new AdminDriveSelectAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

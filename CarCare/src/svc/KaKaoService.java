@@ -73,7 +73,7 @@ public class KaKaoService {
         return accessToken;
     }
 
-    public Map<String, Object> getUserInfo(String access_token) throws IOException {
+    public Map<String, Object> KaKaogetUserInfo(String access_token) throws IOException {
         String host = "https://kapi.kakao.com/v2/user/me";
         Map<String, Object> result = new HashMap<>();
         try {
@@ -117,15 +117,15 @@ public class KaKaoService {
         return result;
     }
     
-    public boolean insertUser(KaKaoBean kkb) {
-        CarDAO carDAO = CarDAO.getInstance();
+    public boolean insertKaKaoUser(KaKaoBean kkb) {
+        CarDAO dao = CarDAO.getInstance();
         Connection con = getConnection();
-        carDAO.setConnection(con);
+        dao.setConnection(con);
         boolean isSuccess = false;
         
-        if(!carDAO.isUserDupliCate(kkb.getId())) {
+        if(!dao.isUserDupliCate(kkb.getId())) {
         
-        long insertUser = carDAO.intoKaKao(kkb);
+        long insertUser = dao.intoKaKao(kkb);
 
         kkb.setId(insertUser);
 
