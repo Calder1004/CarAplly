@@ -71,7 +71,7 @@ public class AdminDAO {
     		bean.setColor(rs.getString("color"));
     		bean.setGrade(rs.getString("grade"));
     		bean.setKm(rs.getInt("km"));
-    		bean.setPrice(rs.getString("price"));
+    		bean.setPrice(rs.getDouble("price"));
     		bean.setState(rs.getBoolean("state"));
     		list.add(bean);
     	}
@@ -84,10 +84,9 @@ public class AdminDAO {
 		return list;
     }
     
-    public int updateSch(AdminDriveSelectBean bean) {
+    public int updateSch(int id,AdminDriveSelectBean bean) {
     	PreparedStatement pstmt = null;
     	String sql = "UPDATE driveselects SET reservation_date=?, name=?,cc=?,color=?,grade=?,km=?,price=?,state=? WHERE id = ?";
-    	ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
     	int check = 0;
     	try {
     		pstmt = con.prepareStatement(sql);
@@ -96,8 +95,10 @@ public class AdminDAO {
     		pstmt.setInt(3,bean.getCc());
     		pstmt.setString(4,bean.getColor());
     		pstmt.setString(5,bean.getGrade());
-    		pstmt.setString(6,bean.getPrice());
-    		pstmt.setBoolean(7,bean.isState());
+    		pstmt.setInt(6, bean.getKm());
+    		pstmt.setDouble(7,bean.getPrice());
+    		pstmt.setInt(8, bean.isState() ? 1 : 0);
+    		pstmt.setInt(9, id);
     		check = pstmt.executeUpdate();
     	} catch (Exception e) {
     		e.printStackTrace();
@@ -105,5 +106,39 @@ public class AdminDAO {
     		close(pstmt);
     	}
     	return check;
+    }
+    
+    public AdminDriveSelectBean selectDataById(int id) {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        AdminDriveSelectBean bean = null;
+
+        try {
+            String sql = "SELECT * FROM driveselects WHERE id=?";
+            System.out.println("Debug: SQL Query: " + sql); 
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            
+            if (rs.next()) {
+                bean = new AdminDriveSelectBean();
+                bean.setId(rs.getInt("id"));
+                bean.setDate(rs.getDate("reservation_date"));
+                bean.setName(rs.getString("name"));
+                bean.setCc(rs.getInt("cc"));
+                bean.setColor(rs.getString("color"));
+                bean.setGrade(rs.getString("grade"));
+                bean.setKm(rs.getInt("km"));
+                bean.setPrice(rs.getDouble("price"));
+                bean.setState(rs.getBoolean("state"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+
+        return bean;
     }
 }

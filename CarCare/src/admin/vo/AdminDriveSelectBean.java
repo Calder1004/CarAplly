@@ -5,6 +5,19 @@ import java.sql.Date;
 
 public class AdminDriveSelectBean {
 	public AdminDriveSelectBean() {}
+	public AdminDriveSelectBean(int id, Date date, String model, String name, int cc, String color, String grade,
+			int km, double price, boolean state) {
+		this.id = id;
+		this.date = date;
+		this.model = model;
+		this.name = name;
+		this.cc = cc;
+		this.color = color;
+		this.grade = grade;
+		this.km = km;
+		this.price = price;
+		this.state = state;
+	}
 	public int getId() {
 		return id;
 	}
@@ -53,10 +66,10 @@ public class AdminDriveSelectBean {
 	public void setKm(int km) {
 		this.km = km;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public boolean isState() {
@@ -74,7 +87,7 @@ public class AdminDriveSelectBean {
 	private String color;
 	private String grade;
 	private int km;
-	private String price;
+	private double price;
 	private boolean state;
 
 	

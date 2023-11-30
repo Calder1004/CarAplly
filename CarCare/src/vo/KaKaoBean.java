@@ -12,8 +12,6 @@ public class KaKaoBean {
         this.connected_at = connected_at;
     }
 
-    // 세터 메서드는 필요에 따라 추가
-
     public long getId() {
         return id;
     }

@@ -1,5 +1,6 @@
 package admin.action;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,9 +22,20 @@ public class AdminUpdateAction implements Action {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		AdminUpdateService svc = new AdminUpdateService();
-		AdminDriveSelectBean bean = svc.admUpd(id);
-		ActionForward forward = new ActionForward("dashboard.jsp",false);
-		return forward;
+		AdminDriveSelectBean bean = new AdminDriveSelectBean();
+			bean.setDate(Date.valueOf(request.getParameter("reservation_date")));
+			bean.setName(request.getParameter("name"));
+			bean.setCc(Integer.parseInt(request.getParameter("cc")));
+			bean.setColor(request.getParameter("color"));
+			bean.setGrade(request.getParameter("grade"));
+			bean.setPrice(Double.parseDouble(request.getParameter("price")));
+			bean.setState(Boolean.parseBoolean(request.getParameter("state")));
+		boolean result = svc.admUpd(id, bean);
+	    if (result) {
+            return new ActionForward("dashboard.jsp", false);
+        } else {
+            return new ActionForward("admindenied.jsp", false);
+        }
 	}
 
 }

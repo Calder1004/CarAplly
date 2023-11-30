@@ -13,7 +13,7 @@ public class AdminService {
         Connection con = getConnection();
         AdminDAO dao = AdminDAO.getInstance();
         dao.setConnection(con);  
-        
+    
 		return dao.usrVld(username, password);
 	}
 }

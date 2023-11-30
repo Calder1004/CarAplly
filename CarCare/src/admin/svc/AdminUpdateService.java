@@ -4,15 +4,16 @@ import java.sql.Connection;
 import admin.dao.AdminDAO;
 import admin.vo.AdminDriveSelectBean;
 
+
 import static db.dbConn.*;
 public class AdminUpdateService {
 	
-	public boolean admUpd(AdminDriveSelectBean bean) {
+	public boolean admUpd(int id, AdminDriveSelectBean bean) {
 		boolean access = false;
 		Connection con = getConnection();
 		AdminDAO dao = AdminDAO.getInstance();
 		dao.setConnection(con);
-		int upd = dao.updateSch(bean); 
+		int upd = dao.updateSch(id,bean); 
 		
 		if(upd >0 ) {
 			commit(con);
@@ -23,4 +24,16 @@ public class AdminUpdateService {
 		close(con);
 		return access;
 	}
+	
+    public AdminDriveSelectBean getAdminData(int id) {
+        Connection con = getConnection();
+        AdminDAO dao = AdminDAO.getInstance();
+        dao.setConnection(con);
+
+        AdminDriveSelectBean bean = dao.selectDataById(id);
+
+        close(con);
+
+        return bean;
+    }
 }
