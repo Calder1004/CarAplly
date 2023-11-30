@@ -9,7 +9,7 @@ import admin.svc.AdminService;
 import vo.ActionForward;
 
 public class AdminCheckAction implements Action {
-
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
