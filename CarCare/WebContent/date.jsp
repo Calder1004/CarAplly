@@ -154,57 +154,6 @@ button:hover {
 	background-color: #333;
 }
 </style>
-<<<<<<< HEAD
-=======
-
-<script>
-	const dateInput = document.getElementById('inputDate');
-	const date = new Date();
-	const year = date.getFullYear();
-	const month = ('0' + (date.getMonth() + 1)).slice(-2);
-	const day = ('0' + date.getDate()).slice(-2);
-	const dateStr = `${year}-${month}-${day}`;
-
-	function submitForm() {
-		const selectedDateElement = document.getElementById("inputDate");
-
-		if (selectedDateElement) {
-			const selectedDate = selectedDateElement.value;
-			const selectedId = '${id}';
-			const selectedOptionId = '${optionId}';
-
-			if (!isNaN(selectedId)) {
-				var form = document.createElement("form");
-				form.method = "post";
-				form.action = "user.car";
-
-				var hiddenField = document.createElement("input");
-				hiddenField.type = "hidden";
-				hiddenField.name = "selectedDate";
-				hiddenField.value = selectedDate;
-				form.appendChild(hiddenField);
-
-				var idInput = document.createElement("input");
-				idInput.type = "hidden";
-				idInput.name = "id";
-				idInput.value = selectedId;
-				form.appendChild(idInput);
-
-				var optionIdsInput = document.createElement("input");
-				optionIdsInput.type = "hidden";
-				optionIdsInput.name = "optionid";
-				optionIdsInput.value = selectedOptionId;
-				form.appendChild(optionIdsInput);
-
-				document.body.appendChild(form);
-				form.submit();
-			} else {
-				console.error("검증되지 안음:", selectedId);
-			}
-		} 
-	}
-</script>
->>>>>>> aff687856a9e676ed3cbbb662b15aeeb31b4c948
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -235,19 +184,11 @@ button:hover {
 	</div>
 
 	<form id="myForm">
-<<<<<<< HEAD
 		<label for="inputDate"></label> <input type="date"
 			id="inputDate" name="selectedDate" required> <input
 			type="hidden" id="inputId" name="selectedId" required> <input
 			type="hidden" id="inputOptionId" name="selectedOptionId" required>
 		<button type="button" onclick="submitForm()">다음</button>
-=======
-		<label for="inputDate">시승 날짜 선택:</label> 
-			<input type="date" id="inputDate" name="selectedDate" required> 
-			<input type="hidden" id="inputId" name="selectedId" required> 
-			<input type="hidden" id="inputOptionId" name="selectedOptionId" required>
-		<button type="button" onclick="submitForm()">제출</button>
->>>>>>> aff687856a9e676ed3cbbb662b15aeeb31b4c948
 	</form>
 
 	<script>
