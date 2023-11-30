@@ -71,26 +71,52 @@
     <style>
     /* ... (previous styles) ... */
 
-    .data-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+          .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-    .data-table th, .data-table td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
+        .data-table th, .data-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
 
-    .data-table th {
-        background-color: #333;
-        color: white;
-    }
+        .data-table th {
+            background-color: #333;
+            color: white;
+        }
 
-    .data-table tbody tr:nth-child(even) {
-        background-color: #f5f5dc;
-    }
+        .data-table tbody tr:nth-child(even) {
+            background-color: #f5f5dc;
+        }
+
+        .data-table td .btn-container {
+            display: flex;
+        }
+
+        .data-table td .btn-container input[type="button"] {
+            margin-right: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .data-table td .btn-container input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        .data-table td .btn-container input[type="button"]:last-child {
+            background-color: #f44336;
+        }
+
+        .data-table td .btn-container input[type="button"]:last-child:hover {
+            background-color: #d32f2f;
+        }
 </style>
 </head>
 <body>
@@ -98,8 +124,8 @@
         <div class="left">
             <h2>${userRole} 님</h2>
             <ul>
-                <li><a href="adminSelect.car">[1]예약관리</a></li>
-                <li><a href="#">[2]모델등록</a></li>
+                <li><a href="adminSelect.car">[1]예약조회</a></li>
+                <li><a href="adminUpdate.car">[2]예약관리</a></li>
                 <li><a href="#">[3]모델조회</a></li>   
             </ul>
         </div>
@@ -122,6 +148,7 @@
                             <th>KM</th>
                             <th>가격</th>
                             <th>예약상태</th>
+                            <th>관리</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,6 +164,14 @@
                                 <td>${select.km}</td>
                                 <td>${select.price}</td>
                                 <td>${select.state}</td>
+                                <td>
+                                <div class="btn-container">
+                                <form action="">
+                                	<input type="button" value="수정"></input>
+                                	<input type="button" value="삭제"></input>
+                                </form>
+                                </div>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>

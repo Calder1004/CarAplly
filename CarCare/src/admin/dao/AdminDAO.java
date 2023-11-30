@@ -83,4 +83,27 @@ public class AdminDAO {
     	}
 		return list;
     }
+    
+    public int updateSch(AdminDriveSelectBean bean) {
+    	PreparedStatement pstmt = null;
+    	String sql = "UPDATE driveselects SET reservation_date=?, name=?,cc=?,color=?,grade=?,km=?,price=?,state=? WHERE id = ?";
+    	ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
+    	int check = 0;
+    	try {
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setDate(1,bean.getDate());
+    		pstmt.setString(2,bean.getName());
+    		pstmt.setInt(3,bean.getCc());
+    		pstmt.setString(4,bean.getColor());
+    		pstmt.setString(5,bean.getGrade());
+    		pstmt.setString(6,bean.getPrice());
+    		pstmt.setBoolean(7,bean.isState());
+    		check = pstmt.executeUpdate();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	} finally {
+    		close(pstmt);
+    	}
+    	return check;
+    }
 }

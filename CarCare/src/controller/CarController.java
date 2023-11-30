@@ -19,6 +19,7 @@ import action.TestDriveAction;
 import action.UserAction;
 import admin.action.AdminCheckAction;
 import admin.action.AdminDriveSelectAction;
+import admin.action.AdminUpdateAction;
 import vo.ActionForward;
 
 
@@ -120,6 +121,15 @@ public class CarController extends HttpServlet {
 			action = new AdminDriveSelectAction();
 			try {
 				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/adminUpdate.car") || command.equals("/adminUpdate")) {
+			action = new AdminUpdateAction();
+			try {
+				forward = action.execute(request,response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
