@@ -19,6 +19,7 @@ public class KaKaoAction implements Action {
 
         long id = Long.parseLong((String) userInfo.get("id"));
         String nickname = (String) userInfo.get("nickname");
+       System.out.println(nickname);
         String connected_at = (String) userInfo.get("connected_at");
 
         KaKaoBean kkb = new KaKaoBean(id, nickname, connected_at);

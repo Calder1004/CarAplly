@@ -84,25 +84,26 @@ public class KaKaoService {
             conn.setRequestMethod("GET");
 
             int responseCode = conn.getResponseCode();
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
             String line = "";
             String res = "";
             while((line=br.readLine())!=null)
             {
                 res+=line;
             }
+            System.out.println(res);
 
 
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject) parser.parse(res);
+            System.out.println(obj);
             JSONObject properties = (JSONObject) obj.get("properties");
-
+            System.out.println(properties);
 
             String id = obj.get("id").toString();
             String connected_at = obj.get("connected_at").toString();
             String nickname = properties.get("nickname").toString();
-
+            System.out.println(nickname);
             result.put("id", id);
             result.put("nickname", nickname);
             result.put("connected_at", connected_at);

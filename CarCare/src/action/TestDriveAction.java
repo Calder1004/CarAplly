@@ -29,11 +29,14 @@ public class TestDriveAction implements Action {
 		            long kakaouserId = Long.parseLong(request.getParameter("kakaoid"));
 		            int caroptionId = Integer.parseInt(request.getParameter("optionid"));
 		            String dateString = request.getParameter("date");
-
+		            System.out.println(centerId);
+		            System.out.println(kakaouserId);
+		            System.out.println(caroptionId);
+		            System.out.println(dateString);
 		            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		            java.util.Date utilDate = formatter.parse(dateString);
 		            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-
+		            System.out.println();
 		            insertTestDrive(centerId, kakaouserId, caroptionId, sqlDate);
 
 		            forward = new ActionForward("main.jsp", false);
