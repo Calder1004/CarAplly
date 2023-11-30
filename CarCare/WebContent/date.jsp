@@ -1,22 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Date Input Example</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>시승 날짜예약 페이지</title>
 <style>
 body {
-	font-family: 'Arial', sans-serif;
-	background-color: #f4f4f4;
+	font-family: "Arial", sans-serif;
+	background-color: #f0f0f0;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
 
-h1 {
+body>h1 {
 	background-color: #333;
 	color: white;
 	padding: 20px;
@@ -24,103 +23,349 @@ h1 {
 	text-align: center;
 }
 
-form {
-	margin: 20px auto;
-	width: 50%;
-	padding: 20px;
-	background-color: white;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	min-height: 200px;
+.calendar-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 2em auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* 모서리 둥글게 하는 부분과 일치하도록 */
 }
 
-label {
-	display: block;
-	margin-bottom: 10px;
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f7f7f7;
+  color: #333;
 }
 
-input[type="date"] {
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 15px;
-	box-sizing: border-box;
+.calendar-header h1 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
 }
+
+.navigation-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7일간의 주를 표시 */
+  text-align: center;
+}
+
+.day-header {
+  padding: 5px 0;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.day {
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.day:hover {
+  background-color: #e9e9e9;
+}
+
+.day:not(.empty) {
+  /* 날짜가 있는 셀에만 스타일 적용 */
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* 마지막 열의 오른쪽 테두리 제거 */
+.day:nth-child(7n) {
+  border-right: none;
+}
+
+/* 선택된 날짜 스타일 */
+.day.selected {
+  background-color: #333;
+  color: white;
+}
+
+/* 마지막 행의 하단 테두리 제거 */
+.day:last-child, .day:nth-last-child(-n+7) {
+  border-bottom: none;
+}
+
+
+.jump-to-container {
+  margin-top: 1em;
+  padding: 0.5em;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jump-to-container select {
+  margin: 0 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.jump-to-container button {
+  margin-left: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.jump-to-container button:hover {
+  background-color: #555;
+}
+
 
 button {
-	background-color: #4CAF50;
+	background-color: #000;
 	color: white;
 	padding: 10px 20px;
-	margin-top: 40px;
 	border: none;
-	border-radius: 4px;
+	border-radius: 5px;
 	cursor: pointer;
+	font-size: 16px;
+	margin-bottom: 25px;
 }
 
 button:hover {
-	background-color: #45a049;
+	background-color: #333;
 }
 </style>
-
-<script>
-	const dateInput = document.getElementById('inputDate');
-	const date = new Date();
-	const year = date.getFullYear();
-	const month = ('0' + (date.getMonth() + 1)).slice(-2);
-	const day = ('0' + date.getDate()).slice(-2);
-	const dateStr = `${year}-${month}-${day}`;
-
-	function submitForm() {
-		const selectedDateElement = document.getElementById("inputDate");
-
-		if (selectedDateElement) {
-			const selectedDate = selectedDateElement.value;
-			const selectedId = '${id}';
-			const selectedOptionId = '${optionId}';
-
-			if (!isNaN(selectedId)) {
-				var form = document.createElement("form");
-				form.method = "post";
-				form.action = "user.car";
-
-				var hiddenField = document.createElement("input");
-				hiddenField.type = "hidden";
-				hiddenField.name = "selectedDate";
-				hiddenField.value = selectedDate;
-				form.appendChild(hiddenField);
-
-				var idInput = document.createElement("input");
-				idInput.type = "hidden";
-				idInput.name = "id";
-				idInput.value = selectedId;
-				form.appendChild(idInput);
-
-				var optionIdsInput = document.createElement("input");
-				optionIdsInput.type = "hidden";
-				optionIdsInput.name = "optionid";
-				optionIdsInput.value = selectedOptionId;
-				form.appendChild(optionIdsInput);
-
-				document.body.appendChild(form);
-				form.submit();
-			} else {
-				console.error("Invalid selectedId value:", selectedId);
-			}
-		} else {
-			console.error("Element with ID 'inputDate' not found.");
-		}
-	}
-</script>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
 	<h1>Apply Date</h1>
+	<div class="calendar-container">
+		<div class="jump-to-container">
+			Jump To: <select id="month-select">
+				<!-- Month options will be generated by JavaScript -->
+			</select> <select id="year-select">
+				<!-- Year options will be generated by JavaScript -->
+			</select>
+		</div>
+		<div class="calendar-header">
+			<button class="navigation-button" id="prev-month">&lt;</button>
+			<h1 id="month-year">April 2045</h1>
+			<button class="navigation-button" id="next-month">&gt;</button>
+		</div>
+		<div class="calendar-grid">
+			<div class="day-header">Sun</div>
+			<div class="day-header">Mon</div>
+			<div class="day-header">Tue</div>
+			<div class="day-header">Wed</div>
+			<div class="day-header">Thu</div>
+			<div class="day-header">Fri</div>
+			<div class="day-header">Sat</div>
+			<!-- Days will be generated by JavaScript -->
+		</div>
+	</div>
+
 	<form id="myForm">
-		<label for="inputDate">시승 날짜 선택:</label> <input
-			type="date" id="inputDate" name="selectedDate" required> <input
+		<label for="inputDate"></label> <input type="date"
+			id="inputDate" name="selectedDate" required> <input
 			type="hidden" id="inputId" name="selectedId" required> <input
 			type="hidden" id="inputOptionId" name="selectedOptionId" required>
-		<button type="button" onclick="submitForm()">제출</button>
+		<button type="button" onclick="submitForm()">다음</button>
 	</form>
 
+	<script>
+            const now = new Date();
+            let currentYear = now.getFullYear();
+            let currentMonth = now.getMonth();
+            let selectedDate = new Date(currentYear, currentMonth, now.getDate());
+
+            const monthYearHeading = document.getElementById("month-year");
+            const prevMonthButton = document.getElementById("prev-month");
+            const nextMonthButton = document.getElementById("next-month");
+            const monthSelect = document.getElementById("month-select");
+            const yearSelect = document.getElementById("year-select");
+            const calendarGrid = document.querySelector(".calendar-grid");
+
+            function updateCalendar(year, month) {
+                calendarGrid.innerHTML = "";
+                const date = new Date(year, month);
+                const options = { year: "numeric", month: "long" };
+                monthYearHeading.textContent = date.toLocaleString("ko-KR", options);
+
+                // Calculate the first day of the month
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                // Calculate the number of days in the month
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                // Add empty slots to start the first week on the correct day of the week
+                for (let i = 0; i < firstDayOfMonth; i++) {
+                    const emptyCell = document.createElement("div");
+                    emptyCell.classList.add("day", "empty");
+                    calendarGrid.appendChild(emptyCell);
+                }
+
+                // Populate the days of the month
+                for (let day = 1; day <= daysInMonth; day++) {
+			        const dayCell = document.createElement("div");
+			        dayCell.classList.add("day");
+			        dayCell.textContent = day;
+			        dayCell.addEventListener("click", function () {
+			            document.querySelectorAll(".day").forEach((d) => d.classList.remove("selected"));
+			            dayCell.classList.add("selected");
+			            selectedDate = new Date(year, month, day);
+			            updateSelectedDateInForm(); // 이 함수 호출로 인해 폼 필드가 업데이트됩니다.
+			        });
+			        calendarGrid.appendChild(dayCell);
+			    }
+
+                // Highlight the current day
+                if (month === now.getMonth() && year === now.getFullYear()) {
+                    const currentDay = now.getDate();
+                    const currentDayCell = calendarGrid.children[firstDayOfMonth + currentDay - 1];
+                    currentDayCell.classList.add("selected");
+                }
+
+                const days = calendarGrid.querySelectorAll(".day:not(.empty)");
+                days.forEach((dayCell) => {
+                    dayCell.addEventListener("click", function () {
+                        selectedDate = new Date(year, month, dayCell.textContent);
+                        updateSelectedDateInForm();
+                    });
+                });
+            }
+
+            function updateSelectedDateInForm() {
+                const inputDate = document.getElementById("inputDate");
+                const offset = selectedDate.getTimezoneOffset();
+                const adjustedDate = new Date(selectedDate.getTime() - (offset*60000));
+                inputDate.value = adjustedDate.toISOString().split("T")[0];
+            }
+
+            function populateDropdowns() {
+                // Populate the month dropdown
+                for (let month = 0; month < 12; month++) {
+                    const option = document.createElement("option");
+                    option.value = month;
+                    option.textContent = new Date(0, month).toLocaleString("default", { month: "long" });
+                    monthSelect.appendChild(option);
+                }
+                monthSelect.value = currentMonth;
+
+                // Populate the year dropdown
+                const yearRange = 10; // or more if needed
+                for (let year = currentYear - yearRange; year <= currentYear + yearRange; year++) {
+                    const option = document.createElement("option");
+                    option.value = year;
+                    option.textContent = year;
+                    yearSelect.appendChild(option);
+                }
+                yearSelect.value = currentYear;
+            }
+
+            function attachNavigationHandlers() {
+                prevMonthButton.addEventListener("click", () => { 
+                    if (currentMonth === 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    } else {
+                        currentMonth--;
+                    }
+                    updateCalendar(currentYear, currentMonth);
+                });
+
+                nextMonthButton.addEventListener("click", () => {
+                    if (currentMonth === 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    } else {
+                        currentMonth++;
+                    }
+                    updateCalendar(currentYear, currentMonth);
+                });
+
+                monthSelect.addEventListener("change", () => {
+                    currentMonth = parseInt(monthSelect.value);
+                    updateCalendar(currentYear, currentMonth);
+                });
+
+                yearSelect.addEventListener("change", () => {
+                    currentYear = parseInt(yearSelect.value);
+                    updateCalendar(currentYear, currentMonth);
+                });
+            }
+
+            // Initialize calendar
+            updateCalendar(currentYear, currentMonth);
+            populateDropdowns();
+            attachNavigationHandlers();
+
+            // 폼 제출 함수
+
+
+
+            function submitForm() {
+                const selectedDateElement = document.getElementById("inputDate");
+
+                if (selectedDateElement) {
+                    const selectedDate = selectedDateElement.value;
+
+                    // 서버 측에서 생성된 ID와 옵션 ID를 클라이언트 코드에 전달하기 위해 미리 정의된 변수나 데이터 속성을 사용합니다.
+                    const selectedId = document.getElementById("inputId").value;
+                    const selectedOptionId = document.getElementById("inputOptionId").value;
+
+                    var form = document.createElement("form");
+                    form.method = "post";
+                    form.action = "user.car";
+
+                    var hiddenField = document.createElement("input");
+                    hiddenField.type = "hidden";
+                    hiddenField.name = "selectedDate";
+                    hiddenField.value = selectedDate;
+                    form.appendChild(hiddenField);
+
+                    var idInput = document.createElement("input");
+                    idInput.type = "hidden";
+                    idInput.name = "id";
+                    idInput.value = selectedId;
+                    form.appendChild(idInput);
+
+                    var optionIdsInput = document.createElement("input");
+                    optionIdsInput.type = "hidden";
+                    optionIdsInput.name = "optionid";
+                    optionIdsInput.value = selectedOptionId;
+                    form.appendChild(optionIdsInput);
+
+                    document.body.appendChild(form);
+                    form.submit();
+                } else {
+                    console.error("Element with ID 'inputDate' not found.");
+                }
+            }
+
+			
+            // 제출 버튼에 클릭 이벤트 리스너 추가
+            document.addEventListener('DOMContentLoaded', (event) => {
+			    document.querySelector("button[type='button']").addEventListener("click", submitForm);
+			});
+        </script>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
