@@ -16,8 +16,7 @@ public class AdminUpdateFormAction implements Action{
 		ActionForward forward = null;
 		String idParameter = request.getParameter("id");
 		int id = (idParameter != null && !idParameter.isEmpty()) ? Integer.parseInt(idParameter) : 0;
-		System.out.println("idParameter: " + idParameter); // 디버깅용 출력
-		System.out.println("id: " + id);
+
         AdminUpdateService svc = new AdminUpdateService();
         AdminDriveSelectBean bean = svc.getAdminData(id);
         

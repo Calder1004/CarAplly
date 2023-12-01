@@ -273,6 +273,10 @@ a:hover {
 							<input type="text" id="editDate"name="reservation_date" value="${bean.name}">
 							<label for="editDate">CC</label> 
 							<input type="text" id="editDate"name="reservation_date" value="${bean.cc}">
+							<label for="editDate">km</label> 
+							<input type="text" id="editDate"name="reservation_date" value="${bean.km}">
+							<label for="editDate">Price</label> 
+							<input type="text" id="editDate"name="reservation_date" value="${bean.price}">
 							<button type="submit">수정</button>
 						</form>
 					</div>

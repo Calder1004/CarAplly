@@ -115,7 +115,6 @@ public class AdminDAO {
 
         try {
             String sql = "SELECT * FROM driveselects WHERE id=?";
-            System.out.println("Debug: SQL Query: " + sql); 
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, id);
             rs = pstmt.executeQuery();
@@ -124,7 +123,8 @@ public class AdminDAO {
                 bean = new AdminDriveSelectBean();
                 bean.setId(rs.getInt("id"));
                 bean.setDate(rs.getDate("reservation_date"));
-                bean.setName(rs.getString("name"));
+                bean.setModel(rs.getString("name"));
+                bean.setName(rs.getString("nickname"));
                 bean.setCc(rs.getInt("cc"));
                 bean.setColor(rs.getString("color"));
                 bean.setGrade(rs.getString("grade"));
