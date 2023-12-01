@@ -16,13 +16,13 @@ public class UserAction implements Action {
         int centerid = (selectedIdString != null && !selectedIdString.isEmpty()) ? Integer.parseInt(selectedIdString) : 0;
 
         String date = request.getParameter("selectedDate");
-        String optionId = request.getParameter("optionid");
+        String optionId = request.getParameter("optionId");
 
         HttpSession session = request.getSession();
 
         session.setAttribute("centerid", centerid);
         session.setAttribute("date", date);
-        session.setAttribute("optionid", optionId);
+        session.setAttribute("optionId", optionId);
         
         forward = new ActionForward("user.jsp", false);
         

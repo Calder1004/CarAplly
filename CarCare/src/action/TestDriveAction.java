@@ -24,15 +24,14 @@ public class TestDriveAction implements Action {
 		        try {
 		            request.setCharacterEncoding("utf-8");
 		            ActionForward forward = null;
-
 		            int centerId = Integer.parseInt(request.getParameter("centerid"));
+		            System.out.println("센터:"+centerId);
 		            long kakaouserId = Long.parseLong(request.getParameter("kakaoid"));
-		            int caroptionId = Integer.parseInt(request.getParameter("optionid"));
+		            System.out.println("카카오유저아이디:"+kakaouserId);
+		            int caroptionId = Integer.parseInt(request.getParameter("optionId"));
+		            System.out.println("옵션:"+caroptionId);
 		            String dateString = request.getParameter("date");
-		            System.out.println(centerId);
-		            System.out.println(kakaouserId);
-		            System.out.println(caroptionId);
-		            System.out.println(dateString);
+		            
 		            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		            java.util.Date utilDate = formatter.parse(dateString);
 		            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());

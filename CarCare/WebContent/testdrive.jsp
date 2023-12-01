@@ -72,7 +72,7 @@
         </tr>
         <tr>
             <th>optionid:</th>
-            <td>${optionid}</td>
+            <td>${optionId}</td>
         </tr>
 
     </table>
@@ -82,9 +82,8 @@
         <input type="hidden" name="nickname" value="${nickname}">
         <input type="hidden" name="connected_at" value="${connected_at}">
         <input type="hidden" name="centerid" value="${centerid}">
-        <input type="hidden" name="optionid" value="${optionid}">
+        <input type="hidden" name="optionId" value="${optionId}">
         <input type="hidden" name="date" value="${date}">
-        
         <input type="submit" value="예약신청">
     </form>
 </body>

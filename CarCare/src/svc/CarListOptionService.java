@@ -11,8 +11,8 @@ import vo.CarListOptionBean;
 
 public class CarListOptionService {
 	
-	   public List<CarListOptionBean> selectOptionCarList(String brand, String model) throws Exception {
-	        List<CarListOptionBean> carListOption = null; 
+	   public ArrayList<CarListOptionBean> selectOptionCarList(String brand, String model) throws Exception {
+	        ArrayList<CarListOptionBean> carListOption = null; 
 	        Connection con = getConnection();
 	        CarDAO carDAO = CarDAO.getInstance();
 	        carDAO.setConnection(con);

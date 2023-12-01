@@ -45,7 +45,7 @@
     </style>
 
 <script>
-    function submitForm(id, optionid) {
+    function submit(id, optionId) {
         var form = document.createElement("form");
         form.method = "post";
         form.action = "date.car";
@@ -58,8 +58,8 @@
 
         var optionIdsInput = document.createElement("input");
         optionIdsInput.type = "hidden";
-        optionIdsInput.name = "optionid";
-        optionIdsInput.value = optionid; 
+        optionIdsInput.name = "optionId";
+        optionIdsInput.value = optionId; 
         form.appendChild(optionIdsInput);
 
         document.body.appendChild(form);
@@ -81,7 +81,7 @@
             </thead>
             <tbody>
                 <c:forEach var="center" items="${center}">
-                    <tr class="centerRow" onclick="submitForm('${center.id}', '${optionid}')">
+                    <tr class="centerRow" onclick="submit('${center.id}', '${optionId}')">
                         <td>${center.name}</td>
                         <td>${center.address}</td>
                         <td>${center.number}</td>

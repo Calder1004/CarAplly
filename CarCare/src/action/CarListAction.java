@@ -13,8 +13,8 @@ public class CarListAction implements Action {
 
 	// service Á¢±ÙºÎ 
     private ArrayList<CarListBean> getCarList() throws Exception {
-        CarListService carListService = new CarListService();
-        return carListService.selectCarList();
+        CarListService svc = new CarListService();
+        return svc.selectCarList();
     }
 
     @Override

@@ -95,7 +95,7 @@ button:hover {
 
             var optionIdsInput = document.createElement("input");
             optionIdsInput.type = "hidden";
-            optionIdsInput.name = "optionid";
+            optionIdsInput.name = "optionId";
             optionIdsInput.value = selectedOptionId;
             form.appendChild(optionIdsInput);
 

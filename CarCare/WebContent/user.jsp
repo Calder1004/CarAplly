@@ -9,13 +9,11 @@
 </head>
 <body>
 
-<c:out value="${sessionScope.centerid}" />
-<c:out value="${sessionScope.date}" />
-<c:out value="${sessionScope.optionid}" />
+
 
 <c:set var="clientId" value="31a78ed0030ac205ddf12b4382b1b74a" />
 <c:set var="redirectUri" value="http://localhost:8084/CarCare/kakao.car" />
-<c:set var="kakaoAuthUrl" value="https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&centerid=${sessionScope.centerid}&date=${sessionScope.date}&optionid=${sessionScope.optionid}" />
+<c:set var="kakaoAuthUrl" value="https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&centerid=${sessionScope.centerid}&date=${sessionScope.date}&optionid=${sessionScope.optionId}" />
 
 <script type="text/javascript">
     window.onload = function() {

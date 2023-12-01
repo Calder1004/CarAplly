@@ -17,15 +17,14 @@ public class KaKaoAction implements Action {
         KaKaoService svc = new KaKaoService();
         Map<String, Object> userInfo = svc.KaKaogetUserInfo(accessToken);
 
-        long id = Long.parseLong((String) userInfo.get("id"));
+        long kakaoid = Long.parseLong((String) userInfo.get("id"));
         String nickname = (String) userInfo.get("nickname");
-       System.out.println(nickname);
         String connected_at = (String) userInfo.get("connected_at");
 
-        KaKaoBean kkb = new KaKaoBean(id, nickname, connected_at);
+        KaKaoBean kkb = new KaKaoBean(kakaoid, nickname, connected_at);
         svc.insertKaKaoUser(kkb);
 
-        request.setAttribute("kakaoid", id);
+        request.setAttribute("kakaoid", kakaoid);
         request.setAttribute("nickname", nickname);
         request.setAttribute("connected_at", connected_at);
     }
