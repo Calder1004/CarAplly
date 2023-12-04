@@ -56,7 +56,7 @@ public class AdminDAO {
     public ArrayList<AdminDriveSelectBean> driveSlt() {
     	PreparedStatement pstmt = null;
     	ResultSet rs = null;
-    	String sql = "SELECT * FROM driveselects";
+    	String sql = "SELECT * FROM drive_schedule_view3";
     	ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
     	try {
     		pstmt = con.prepareStatement(sql);
@@ -64,8 +64,8 @@ public class AdminDAO {
     	while(rs.next()) {
     		AdminDriveSelectBean bean = new AdminDriveSelectBean();
     		bean.setId(rs.getInt("id"));
-    		bean.setDate(rs.getDate("reservation_date"));
-    		bean.setModel(rs.getString("name"));
+    		bean.setDate(rs.getDate("date"));
+    		bean.setModel(rs.getString("model"));
     		bean.setName(rs.getString("nickname"));
     		bean.setCc(rs.getInt("cc"));
     		bean.setColor(rs.getString("color"));
@@ -86,19 +86,34 @@ public class AdminDAO {
     
     public int updateSch(int id,AdminDriveSelectBean bean) {
     	PreparedStatement pstmt = null;
-    	String sql = "UPDATE driveselects SET reservation_date=?, name=?,cc=?,color=?,grade=?,km=?,price=?,state=? WHERE id = ?";
+    	String sql = "UPDATE schedule_drive" + 
+    	        " INNER JOIN kakaouserinfos ON schedule_drive.kakaouser_id = kakaouserinfos.id" + 
+    	        " INNER JOIN car_options ON schedule_drive.car_option_id = car_options.id" + 
+    	        " INNER JOIN cars ON car_options.car_id = cars.id" + 
+    	        " SET" + 
+    	        " schedule_drive.reservation_date = ?," + 
+    	        " cars.name = ?," + 
+    	        " kakaouserinfos.nickname = ?," + 
+    	        " car_options.cc = ?," + 
+    	        " car_options.color = ?," + 
+    	        " car_options.grade = ?," + 
+    	        " car_options.km = ?," + 
+    	        " car_options.price = ?," + 
+    	        " schedule_drive.state = ?" + 
+    	        " WHERE schedule_drive.id = ?";
     	int check = 0;
     	try {
     		pstmt = con.prepareStatement(sql);
     		pstmt.setDate(1,bean.getDate());
-    		pstmt.setString(2,bean.getName());
-    		pstmt.setInt(3,bean.getCc());
-    		pstmt.setString(4,bean.getColor());
-    		pstmt.setString(5,bean.getGrade());
-    		pstmt.setInt(6, bean.getKm());
-    		pstmt.setDouble(7,bean.getPrice());
-    		pstmt.setInt(8, bean.isState() ? 1 : 0);
-    		pstmt.setInt(9, id);
+    		pstmt.setString(2,bean.getModel());
+    		pstmt.setString(3, bean.getName());
+    		pstmt.setInt(4,bean.getCc());
+    		pstmt.setString(5,bean.getColor());
+    		pstmt.setString(6,bean.getGrade());
+    		pstmt.setInt(7, bean.getKm());
+    		pstmt.setDouble(8,bean.getPrice());
+    		pstmt.setInt(9, bean.isState() ? 1 : 0);
+    		pstmt.setInt(10, id);
     		check = pstmt.executeUpdate();
     	} catch (Exception e) {
     		e.printStackTrace();
@@ -108,13 +123,14 @@ public class AdminDAO {
     	return check;
     }
     
-    public AdminDriveSelectBean selectDataById(int id) {
+    // id값에 맞는 데이터 선택
+    public AdminDriveSelectBean datachSlt(int id) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         AdminDriveSelectBean bean = null;
 
         try {
-            String sql = "SELECT * FROM driveselects WHERE id=?";
+            String sql = "SELECT * FROM drive_schedule_view3 WHERE id=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, id);
             rs = pstmt.executeQuery();
@@ -122,8 +138,8 @@ public class AdminDAO {
             if (rs.next()) {
                 bean = new AdminDriveSelectBean();
                 bean.setId(rs.getInt("id"));
-                bean.setDate(rs.getDate("reservation_date"));
-                bean.setModel(rs.getString("name"));
+                bean.setDate(rs.getDate("date"));
+                bean.setModel(rs.getString("model"));
                 bean.setName(rs.getString("nickname"));
                 bean.setCc(rs.getInt("cc"));
                 bean.setColor(rs.getString("color"));

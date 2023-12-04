@@ -30,7 +30,7 @@ public class AdminUpdateService {
         AdminDAO dao = AdminDAO.getInstance();
         dao.setConnection(con);
 
-        AdminDriveSelectBean bean = dao.selectDataById(id);
+        AdminDriveSelectBean bean = dao.datachSlt(id);
 
         close(con);
 

@@ -19,17 +19,36 @@ public class AdminUpdateAction implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		int id = Integer.parseInt(request.getParameter("id"));
+		request.setCharacterEncoding("UTF-8");
+				int id = Integer.parseInt(request.getParameter("id"));
+				Date date = Date.valueOf(request.getParameter("date"));
+				String model = request.getParameter("model");
+				String name = request.getParameter("name");
+				int cc = Integer.parseInt(request.getParameter("cc"));
+				String color = request.getParameter("color");
+				String grade = request.getParameter("grade");
+				int km = Integer.parseInt(request.getParameter("km"));
+				double price = Double.parseDouble(request.getParameter("price"));
+				boolean state = Boolean.parseBoolean(request.getParameter("state"));
+
+				/*
+				 * System.out.println(id); System.out.println(date); System.out.println(cc);
+				 * System.out.println(model); System.out.println(color);
+				 * System.out.println(grade); System.out.println(price);
+				 * System.out.println(state);
+				 */
 		AdminUpdateService svc = new AdminUpdateService();
 		AdminDriveSelectBean bean = new AdminDriveSelectBean();
-			bean.setDate(Date.valueOf(request.getParameter("reservation_date")));
-			bean.setName(request.getParameter("name"));
-			bean.setCc(Integer.parseInt(request.getParameter("cc")));
-			bean.setColor(request.getParameter("color"));
-			bean.setGrade(request.getParameter("grade"));
-			bean.setPrice(Double.parseDouble(request.getParameter("price")));
-			bean.setState(Boolean.parseBoolean(request.getParameter("state")));
+			bean.setId(id);
+			bean.setDate(date);
+			bean.setModel(model);
+			bean.setName(name);
+			bean.setCc(cc);
+			bean.setColor(color);
+			bean.setGrade(grade);
+			bean.setKm(km);
+			bean.setPrice(price);
+			bean.setState(state);
 		boolean result = svc.admUpd(id, bean);
 	    if (result) {
             return new ActionForward("dashboard.jsp", false);

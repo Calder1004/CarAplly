@@ -199,10 +199,8 @@ a:hover {
 		<div class="left">
 			<h2>${userRole}님</h2>
 			<ul>
-				<li><a href="adminSelect.car">[1]예약조회</a></li>
-				<li><a href="adminUpdate.car">[2]예약관리</a></li>
-				<li><a href="#">[3]모델조회</a></li>
-				<li><a href="#">[4]모델등록</a><li>
+				<li><a href="adminSelect.car">[1]예약조회 및 관리</a></li>
+				<li><a href="#">[2]모델조회 및 등록</a></li>
 			</ul>
 		</div>
 		<div class="right">
@@ -262,21 +260,27 @@ a:hover {
 				<p class="welcometo">예약번호: ${bean.id},${bean.name}님이 대기중입니다.</p>
 				<div class="modal" id="editModal">
 					<div class="modal-content">
-						<form id="editForm" action="AdminUpdateAction.car" method="post">
+						<form id="editForm" action="adminUpdate.car" method="post">
 							<label for="editId">예약번호:</label> 
-							<input type="text" id="editId" name="id" value="${bean.id}">
+							<input type="text" id="editId" name="id" value="${bean.id}" readonly>
 							<label for="editDate">날짜:</label> 
-							<input type="text" id="editDate"name="reservation_date" value="${bean.date}">
-							<label for="editDate">모델:</label> 
-							<input type="text" id="editDate"name="reservation_date" value="${bean.model}">
-							<label for="editDate">이름:</label> 
-							<input type="text" id="editDate"name="reservation_date" value="${bean.name}">
-							<label for="editDate">CC</label> 
-							<input type="text" id="editDate"name="reservation_date" value="${bean.cc}">
-							<label for="editDate">km</label> 
-							<input type="text" id="editDate"name="reservation_date" value="${bean.km}">
-							<label for="editDate">Price</label> 
-							<input type="text" id="editDate"name="reservation_date" value="${bean.price}">
+							<input type="text" id="editDate"name="date" value="${bean.date}">
+							<label for="editModel">모델:</label> 
+							<input type="text" id="editModel"name="model" value="${bean.model}">
+							<label for="editName">이름:</label> 
+							<input type="text" id="editName"name="name" value="${bean.name}" readonly>
+							<label for="editCc">CC</label> 
+							<input type="text" id="editCc"name="cc" value="${bean.cc}">
+							<label for="editColor">Color</label> 
+							<input type="text" id="editColor"name="color" value="${bean.color}">
+							<label for="editGrade">Grade</label> 
+							<input type="text" id="editGrade"name="grade" value="${bean.grade}">
+							<label for="editKm">km</label> 
+							<input type="text" id="editKm"name="km" value="${bean.km}">
+							<label for="editPrcie">Price</label> 
+							<input type="text" id="editPrice"name="price" value="${bean.price}">
+							<label for="editPrcie">State</label> 
+							<input type="text" id="editState"name="state" value="${bean.state}">
 							<button type="submit">수정</button>
 						</form>
 					</div>
