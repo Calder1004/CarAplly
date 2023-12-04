@@ -29,7 +29,7 @@ public class AdminDAO {
         this.con = con;
     }
     
-    // function :: AdminuserValid check
+    // 관리자 검증
     public boolean usrVld(String username, String password) {
     	PreparedStatement pstmt = null;
     	ResultSet rs = null;
@@ -53,10 +53,11 @@ public class AdminDAO {
         return check;
     }
     
+    // 시승신청 조회
     public ArrayList<AdminDriveSelectBean> driveSlt() {
     	PreparedStatement pstmt = null;
     	ResultSet rs = null;
-    	String sql = "SELECT * FROM drive_schedule_view3";
+    	String sql = "SELECT * FROM drive_schedule_view";
     	ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
     	try {
     		pstmt = con.prepareStatement(sql);
@@ -84,6 +85,7 @@ public class AdminDAO {
 		return list;
     }
     
+    // 시승신청 업데이트
     public int updateSch(int id,AdminDriveSelectBean bean) {
     	PreparedStatement pstmt = null;
     	String sql = "UPDATE schedule_drive" + 
@@ -130,7 +132,7 @@ public class AdminDAO {
         AdminDriveSelectBean bean = null;
 
         try {
-            String sql = "SELECT * FROM drive_schedule_view3 WHERE id=?";
+            String sql = "SELECT * FROM drive_schedule_view WHERE id=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, id);
             rs = pstmt.executeQuery();

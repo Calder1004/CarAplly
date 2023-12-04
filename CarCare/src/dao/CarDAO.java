@@ -61,26 +61,30 @@ public class CarDAO {
 	}
 	
 	// 자동차 모델 옵션 조회
-    public ArrayList<CarListOptionBean> getCarOptionList(String brand, String model) {
+    public ArrayList<CarListOptionBean> getCarOptionList(int carId,String brand, String model) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         ArrayList<CarListOptionBean> list = new ArrayList<CarListOptionBean>();
-        String sql = "SELECT * FROM car_option_view WHERE brand = ? AND model = ?";
+        String sql = "SELECT * FROM car_option_view WHERE car_id=? AND brand = ? AND model=? ";
 
         try {
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, brand);
-            pstmt.setString(2, model);
+            // 파라미터값 할당
+            pstmt.setInt(1, carId); 
+            pstmt.setString(2, brand); 
+            pstmt.setString(3, model); 
+            
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 CarListOptionBean bean = new CarListOptionBean();
-                bean.setId(rs.getInt("id"));
+                bean.setCar_id(rs.getInt("car_id"));
                 bean.setColor(rs.getString("color"));
                 bean.setCc(rs.getInt("cc"));
                 bean.setKm(rs.getInt("km"));
                 bean.setPrice(rs.getString("price"));
                 bean.setGrade(rs.getString("grade"));
+                bean.setId(rs.getInt("id"));
                 list.add(bean);
             }
         } catch (Exception e) {

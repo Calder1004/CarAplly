@@ -91,7 +91,7 @@
             <img src="img/carList/${car.model}.png" alt="${car.model} Image">
             <div class="catalog-item-description">
                 <p>${car.id}</p>
-                <p>${car.brand} - ${car.model}</p>
+                
             </div>
         </div>
     </c:forEach>

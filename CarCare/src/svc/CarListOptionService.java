@@ -11,12 +11,12 @@ import vo.CarListOptionBean;
 
 public class CarListOptionService {
 	
-	   public ArrayList<CarListOptionBean> selectOptionCarList(String brand, String model) throws Exception {
+	   public ArrayList<CarListOptionBean> selectOptionCarList(int carId, String brand, String model) throws Exception {
 	        ArrayList<CarListOptionBean> carListOption = null; 
 	        Connection con = getConnection();
 	        CarDAO carDAO = CarDAO.getInstance();
 	        carDAO.setConnection(con);
-	        carListOption = carDAO.getCarOptionList(brand, model);
+	        carListOption = carDAO.getCarOptionList(carId,brand, model);
 	        close(con);
 	        return carListOption;
 	    }

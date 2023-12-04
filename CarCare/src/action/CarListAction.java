@@ -18,8 +18,9 @@ public class CarListAction implements Action {
     }
 
     @Override
-    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-        ActionForward forward = null;
+    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	request.setCharacterEncoding("utf-8");
+    	ActionForward forward = null;
 
         try {
             ArrayList<CarListBean> carList = getCarList(); // service 에서 getCarList 함수 호출/빈에 할당

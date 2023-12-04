@@ -39,8 +39,16 @@ public class CarListBean {
     }
     
 //	private List<CarListOptionBean> options;
+    public int getCarId() {
+    	return carId;
+    }
+    
+    public void setCarId(int carId) {
+    	this.carId = carId;
+    }
 	
 	int id;
+	int carId;
 	String brand;
 	String model;
 	

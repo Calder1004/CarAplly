@@ -12,21 +12,23 @@ import vo.CarListOptionBean;
 public class CarListOptionAction implements Action {
 	
 	//service Á¢±ÙºÎ 
-    private ArrayList<CarListOptionBean> getCarListOption(String brand, String model) throws Exception {
+    private ArrayList<CarListOptionBean> getCarListOption(int carId,String brand,String model) throws Exception {
         CarListOptionService svc = new CarListOptionService();
-        return svc.selectOptionCarList(brand, model);
+        return svc.selectOptionCarList(carId,brand, model);
     }
 
     @Override
-    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-        ActionForward forward = null;
-
+    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        
+    	request.setCharacterEncoding("utf-8");
+    	ActionForward forward = null;
         try {
+        	int carId = Integer.parseInt(request.getParameter("id"));
             String brand = request.getParameter("brand");
             String model = request.getParameter("model");
 
-            ArrayList<CarListOptionBean> carListOption = getCarListOption(brand, model);
-
+            ArrayList<CarListOptionBean> carListOption = getCarListOption(carId,brand, model);
+            
             request.setAttribute("carListOption", carListOption);
             forward = new ActionForward("carListOption.jsp", false);
 
