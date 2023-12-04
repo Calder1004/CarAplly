@@ -98,8 +98,8 @@ public class AdminDAO {
                 " cars.name = ?," + 
                 " kakaouserinfos.nickname = ?," +
                 " schedule_drive.state = ?," + 
-                " schedule_drive.car_option_id = ?" +  
-                " WHERE schedule_drive.id = ?";
+                " schedule_drive.car_option_id = ?"+  
+                " WHERE schedule_drive.id = ? ";
     	int check = 0;
     	try {
     		pstmt = con.prepareStatement(sql);

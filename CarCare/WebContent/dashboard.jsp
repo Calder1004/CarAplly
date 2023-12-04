@@ -18,6 +18,7 @@
 	padding: 0;
 	list-style-type: none;
 	text-decoration: none;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
@@ -31,7 +32,22 @@ a:hover {
 
 .container {
 	display: flex;
+
 }
+
+  .btn-container input[type="submit"] {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #4CAF50; /* 수정 버튼 배경색 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+  }
+
+  .btn-container input[type="submit"]:hover {
+    background-color: #45a049; /* 수정 버튼 hover 시 배경색 */
+  }
 
 .left {
 	width: 150px;
@@ -73,7 +89,7 @@ a:hover {
 }
 </style>
 <style>
-/* ... (previous styles) ... */
+
 .data-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -120,6 +136,7 @@ a:hover {
 .data-table td .btn-container input[type="button"]:last-child:hover {
 	background-color: #d32f2f;
 }
+
 
 <style>
     .modal {
@@ -172,22 +189,17 @@ a:hover {
         background-color: #4CAF50;
         color: white;
         border: none;
-        border-radius: 3px;
+        border-radius: 20px;
         cursor: pointer;
-        padding: 8px;
+        padding: 8px 16px;
+        transition: background-color 0.3s ease;
     }
 
     .edit-btn:hover {
         background-color: #45a049;
     }
-
-    .edit-row:hover {
-        background-color: #f0f0f0;
-    }
     
-    .welcometo {
-    	text-align:center;
-    }
+
 </style>
 
 </style>
@@ -257,7 +269,6 @@ a:hover {
 				</div>
 			</c:if>
 			<c:if test="${ bean != null}">
-				<p class="welcometo">예약번호: ${bean.id},${bean.name},님이 대기중입니다.</p>
 				<div class="modal" id="editModal">
 					<div class="modal-content">
 						<form id="editForm" action="adminUpdate.car" method="post">
@@ -278,26 +289,26 @@ a:hover {
 							    <option value="8">NX350h</option>
 							    <option value="9">NX450h+</option>
 							</select> -->
-							<label for="editOptionId">옵션변경:</label>
+							<label for="editOptionId">모델/옵션변경:</label>
 							<select name="carId" id="editOptionId">
-							    <option selected>옵션선택</option>
-							    <option value="1">ID:1 COLOR:SONIC IRIDIUM : CC 3456 : KM:9 PRICE:174030.00</option>
-							    <option value="2">ID:2 GRAPHITE BLAK</option>
-							    <option value="3">ID:3 LUNAR LUSTER</option>
-							    <option value="4">ID:4 SONIC TITANIUM</option>
-							    <option value="5">ID:5 SONIC QUARTZ</option>
-							    <option value="6">ID:6 HEAT BLUE CONTRAS</option>
-							    <option value="7">ID:7 GRAPAHITE BLACK</option>
-							    <option value="8">ID:8 DEEP BLUE MIKA</option>
-							    <option value="9">ID:9 SONIC COOPER</option>
+							    <option selected>모델/옵션선택</option>
+							    <option value="1">모델:LS500 색상:SONIC IRIDIUM  #CC 3456 : #KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
+							    <option value="2">모델:LS500 색상:GRAPHITE BLAK </option>
+							    <option value="3">모델:ES300 색상:LUNAR LUSTER</option>
+							    <option value="4">모델:ES300 색상:SONIC TITANIUM</option>
+							    <option value="5">모델:ES300H 색상:SONIC QUARTZ</option>
+							    <option value="6">Option ID:6 색상:HEAT BLUE CONTRAS</option>
+							    <option value="7">Option ID:7 색상:GRAPAHITE BLACK</option>
+							    <option value="8">Option ID:8 색상:DEEP BLUE MIKA</option>
+							    <option value="9">Option ID:9 색상:SONIC COOPER</option>
 							</select>
-							<label for="editModel">모델:</label> 
+							<label for="editModel">현재 모델:</label> 
 							<input type="text" id="editModel"name="model" value="${bean.model}" readonly>
 							<label for="editName">이름:</label> 
 							<input type="text" id="editName"name="name" value="${bean.name}" readonly>
 							<label for="editPrcie">State</label> 
 							<input type="text" id="editState"name="state" value="${bean.state}">
-							<button type="submit">수정</button>
+							<button type="submit" class="edit-btn">수정</button>
 						</form>
 					</div>
 				</div>
