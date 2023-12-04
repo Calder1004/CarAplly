@@ -265,17 +265,31 @@ a:hover {
 							<input type="text" id="editId" name="id" value="${bean.id}" readonly>
 							<label for="editDate">예약날짜:</label> 
 							<input type="text" id="editDate"name="date" value="${bean.date}">
+<!-- 							<label for="editOptionId">모델변경:</label>
+							<select name="carIds" id="editOptionId">
+							    <option selected>모델선택</option>
+							    <option value="1">LS500H</option>
+							    <option value="2">LS500</option>
+							    <option value="3">ES300</option>
+							    <option value="4">ES300h</option>
+							    <option value="5">RX350h</option>
+							    <option value="6">RX500h</option>
+							    <option value="7">RZ450e</option>
+							    <option value="8">NX350h</option>
+							    <option value="9">NX450h+</option>
+							</select> -->
 							<label for="editOptionId">옵션변경:</label>
 							<select name="carId" id="editOptionId">
-							    <option value="${bean.carId}" selected>선택된 번호 : ${bean.carId}번</option>
-							    <option value="2">2번</option>
-							    <option value="3">3번</option>
-							    <option value="4">4번</option>
-							    <option value="5">5번</option>
-							    <option value="6">6번</option>
-							    <option value="7">7번</option>
-							    <option value="8">8번</option>
-							    <option value="9">9번</option>
+							    <option selected>옵션선택</option>
+							    <option value="1">ID:1 COLOR:SONIC IRIDIUM : CC 3456 : KM:9 PRICE:174030.00</option>
+							    <option value="2">ID:2 GRAPHITE BLAK</option>
+							    <option value="3">ID:3 LUNAR LUSTER</option>
+							    <option value="4">ID:4 SONIC TITANIUM</option>
+							    <option value="5">ID:5 SONIC QUARTZ</option>
+							    <option value="6">ID:6 HEAT BLUE CONTRAS</option>
+							    <option value="7">ID:7 GRAPAHITE BLACK</option>
+							    <option value="8">ID:8 DEEP BLUE MIKA</option>
+							    <option value="9">ID:9 SONIC COOPER</option>
 							</select>
 							<label for="editModel">모델:</label> 
 							<input type="text" id="editModel"name="model" value="${bean.model}" readonly>

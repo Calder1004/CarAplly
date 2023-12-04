@@ -65,7 +65,7 @@ public class AdminDAO {
     	while(rs.next()) {
     		AdminDriveSelectBean bean = new AdminDriveSelectBean();
     		bean.setId(rs.getInt("id"));
-    		bean.setCarId(rs.getInt("car_id"));
+    		bean.setCarId(rs.getInt("option_id"));
     		bean.setDate(rs.getDate("date"));
     		bean.setModel(rs.getString("model"));
     		bean.setName(rs.getString("nickname"));
@@ -98,7 +98,7 @@ public class AdminDAO {
                 " cars.name = ?," + 
                 " kakaouserinfos.nickname = ?," +
                 " schedule_drive.state = ?," + 
-                " car_options.car_id = ?" +  
+                " schedule_drive.car_option_id = ?" +  
                 " WHERE schedule_drive.id = ?";
     	int check = 0;
     	try {
@@ -134,7 +134,7 @@ public class AdminDAO {
             if (rs.next()) {
                 bean = new AdminDriveSelectBean();
                 bean.setId(rs.getInt("id"));
-                bean.setCarId(rs.getInt("car_id"));
+                bean.setCarId(rs.getInt("option_id"));
                 bean.setDate(rs.getDate("date"));
                 bean.setModel(rs.getString("model"));
                 bean.setName(rs.getString("nickname"));
