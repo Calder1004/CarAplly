@@ -79,7 +79,15 @@ public class AdminDriveSelectBean {
 		this.state = state;
 	}
 	
+	public int getCarId() {
+		return carId;
+	}
+	public void setCarId(int carId) {
+		this.carId = carId;
+	}
+
 	private int id;
+	private int carId;
 	private Date date;
 	private String model;
 	private String name;

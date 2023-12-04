@@ -257,28 +257,30 @@ a:hover {
 				</div>
 			</c:if>
 			<c:if test="${ bean != null}">
-				<p class="welcometo">예약번호: ${bean.id},${bean.name}님이 대기중입니다.</p>
+				<p class="welcometo">예약번호: ${bean.id},${bean.name},님이 대기중입니다.</p>
 				<div class="modal" id="editModal">
 					<div class="modal-content">
 						<form id="editForm" action="adminUpdate.car" method="post">
 							<label for="editId">예약번호:</label> 
 							<input type="text" id="editId" name="id" value="${bean.id}" readonly>
-							<label for="editDate">날짜:</label> 
+							<label for="editDate">예약날짜:</label> 
 							<input type="text" id="editDate"name="date" value="${bean.date}">
+							<label for="editOptionId">옵션변경:</label>
+							<select name="carId" id="editOptionId">
+							    <option value="${bean.carId}" selected>선택된 번호 : ${bean.carId}번</option>
+							    <option value="2">2번</option>
+							    <option value="3">3번</option>
+							    <option value="4">4번</option>
+							    <option value="5">5번</option>
+							    <option value="6">6번</option>
+							    <option value="7">7번</option>
+							    <option value="8">8번</option>
+							    <option value="9">9번</option>
+							</select>
 							<label for="editModel">모델:</label> 
-							<input type="text" id="editModel"name="model" value="${bean.model}">
+							<input type="text" id="editModel"name="model" value="${bean.model}" readonly>
 							<label for="editName">이름:</label> 
 							<input type="text" id="editName"name="name" value="${bean.name}" readonly>
-							<label for="editCc">CC</label> 
-							<input type="text" id="editCc"name="cc" value="${bean.cc}">
-							<label for="editColor">Color</label> 
-							<input type="text" id="editColor"name="color" value="${bean.color}">
-							<label for="editGrade">Grade</label> 
-							<input type="text" id="editGrade"name="grade" value="${bean.grade}">
-							<label for="editKm">km</label> 
-							<input type="text" id="editKm"name="km" value="${bean.km}">
-							<label for="editPrcie">Price</label> 
-							<input type="text" id="editPrice"name="price" value="${bean.price}">
 							<label for="editPrcie">State</label> 
 							<input type="text" id="editState"name="state" value="${bean.state}">
 							<button type="submit">수정</button>

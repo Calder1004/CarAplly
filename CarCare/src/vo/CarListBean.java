@@ -23,22 +23,13 @@ public class CarListBean {
 	public void setModel(String model) {
 		this.model = model;
 	}
-    
-//	public List<CarListOptionBean> getOptions() {
-//        return options;
-//    }
-//
-//    public void setOptions(List<CarListOptionBean> options) {
-//        this.options = options;
-//    }
-    
+
     @Override
     public String toString() {
     	// TODO Auto-generated method stub
     	return "brand:" + brand + "model:" + model;
     }
-    
-//	private List<CarListOptionBean> options;
+
     public int getCarId() {
     	return carId;
     }
