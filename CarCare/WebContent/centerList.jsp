@@ -17,6 +17,7 @@ h1 {
 	color: white;
 	padding: 20px;
 	margin: 0;
+	text-align: center;
 }
 
 .popup-wrapper {
