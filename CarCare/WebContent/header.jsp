@@ -140,9 +140,7 @@ header {
 				<li><a href="main.jsp">HOME</a></li>
 
 				<li><a href="#" type="button" onclick="location.href='/CarCare/carList.car'">시승 신청</a></li>
-				
-				<li><a href="applyModify.jsp">시승 예약 조회</a></li>
-
+			
 				<li class="dropdown"><a href="#" class="dropbtn">서비스 지원</a>
 					<div class="dropdown-content">
 						<a href="#">서비스 프로그램</a> <a href="#">서비스 캠페인</a> <a href="#">차량안내ㆍ교육</a>
