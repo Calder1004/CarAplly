@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="img/favicon.ico">
 <title>시승 신청</title>
 <!-- 스타일시트 및 기타 메타 태그는 여기에 추가 -->
 
@@ -117,16 +118,10 @@ button:hover {
 	<form id="testDriveForm">
 		<h2>시승 예약 조회</h2>
 
-		<label for="location">시승 장소:</label>
-		<input type="text" id="location" name="location"/>
-		
-		<label for="name">이름:</label>
-		<input type="text" id="name" name="name"/>
-		
-		<label for="phone">연락처:</label>
-		<input type="tel" id="phone" name="phone"/>
-		
-		<label for="email">이메일:</label>
+		<label for="location">시승 장소:</label> <input type="text" id="location"
+			name="location" /> <label for="name">이름:</label> <input type="text"
+			id="name" name="name" /> <label for="phone">연락처:</label> <input
+			type="tel" id="phone" name="phone" /> <label for="email">이메일:</label>
 		<input type="email" id="email" name="email" />
 
 		<button type="submit">확인Home</button>

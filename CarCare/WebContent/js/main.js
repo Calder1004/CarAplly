@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // swiper2, banner-swiper 시작
     const swiper2 = new Swiper(".swiper.banner-swiper", {
         loop: true,
-       
+        autoplay: {
+            delay: 3000, // 자동 슬라이드 쇼를 위한 시간 지연
+        },
       
     }); // swiper2, banner-swiper 끝
 });

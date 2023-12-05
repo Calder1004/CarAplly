@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Dashboard</title>
+<link rel="shortcut icon" href="img/favicon.ico">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">

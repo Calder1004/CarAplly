@@ -3,6 +3,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
+<link rel="shortcut icon" href="img/favicon.ico">
 <title>고객센터</title>
 
 <script>

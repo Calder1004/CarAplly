@@ -7,6 +7,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=Chrome" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>main page</title>
+      <link rel="shortcut icon" href="img/favicon.ico">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
       <link rel="stylesheet" href="css/main.css" />
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -29,6 +30,9 @@
             </div>
             <div class="swiper-slide">
                <a href="#"><img src="img/carList/LEXUS_CAR4.jpg" alt="1" /></a>
+            </div>
+            <div class="swiper-slide">
+               <a href="#"><img src="img/carList/LEXUS_CAR5.jpg" alt="1" /></a>
             </div>
          </div>
       </div>
