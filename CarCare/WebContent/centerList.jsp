@@ -4,6 +4,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon" href="img/favicon.ico">
 <style>
 body {
 	font-family: 'Arial', sans-serif;
@@ -72,17 +73,18 @@ h1 {
 .center-list th:last-child, .center-list td:last-child {
 	background-color: #e2e2e2;
 }
+
 .center-list th {
-  width: 15%;
+	width: 15%;
 }
 
 .center-list th:nth-child(2) {
-  width: 60%;
+	width: 60%;
 }
 
 .center-list th:last-child, .center-list td:last-child {
-  width: 10%;
-  text-align: center;
+	width: 10%;
+	text-align: center;
 }
 
 .submit-button {

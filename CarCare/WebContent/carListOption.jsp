@@ -5,25 +5,25 @@
 
 <html>
 <head>
+<link rel="shortcut icon" href="img/favicon.ico">
 <style>
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f0f0f0;
 	margin: 0;
 	padding: 0;
-
 }
 
 p.no-option {
-    min-height: 400px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    background-color: #f0f0f0;
-    margin: 20px 0;
-    color: #333;
+	min-height: 400px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: #f0f0f0;
+	margin: 20px 0;
+	color: #333;
 }
 
 h1 {
@@ -97,7 +97,7 @@ tr:hover {
 						<td>${option.color}</td>
 						<td>${option.price}</td>
 						<td>${option.km}</td>
-						<td>${option.grade }</td>	
+						<td>${option.grade }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -105,7 +105,9 @@ tr:hover {
 	</c:if>
 
 	<c:if test="${empty carListOption}">
-		<p class="no-option">옵션 선택이 없습니다.<br>현재 확인 중입니다.</p>
+		<p class="no-option">
+			옵션 선택이 없습니다.<br>현재 확인 중입니다.
+		</p>
 	</c:if>
 
 	<jsp:include page="footer.jsp" />
