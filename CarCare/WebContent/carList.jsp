@@ -27,10 +27,12 @@
         }
 
         .catalog-item {
-            width: 30%;
+            width: 31%;
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            transition: transform 0.2s;
+            overflow: hidden;
         }
 
         .catalog-item:hover {
@@ -40,12 +42,13 @@
         }
 
         .catalog-item img {
-            width: 110%;
-            height: 285px;
+            width: 100%;
+            height: 280px;
             object-fit: cover;
         }
 
         .catalog-item-description {
+        	width: 100%;
             text-align: center;
             padding: 10px;
             

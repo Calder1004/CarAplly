@@ -7,8 +7,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=Chrome" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>main page</title>
-      <link rel="stylesheet" href="css/main.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="css/main.css" />
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
       <script src="js/main.js"></script>
@@ -33,10 +33,6 @@
          </div>
       </div>
       <!-- 큰 슬라이더 끝-->
-      
-      <div class="image-apply-button">
-         <button type="button" onclick="location.href='/CarCare/carList.car'">시승 신청 바로가기</button>
-      </div>
       
       <!-- 작은 슬라이더 시작 -->
       <div class="swiper content-swiper">
