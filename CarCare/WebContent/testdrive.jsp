@@ -66,14 +66,7 @@
             <th>Date:</th>
             <td>${date}</td>
         </tr>
-         <tr>
-            <th>centerid:</th>
-            <td>${centerid}</td>
-        </tr>
-        <tr>
-            <th>optionid:</th>
-            <td>${optionId}</td>
-        </tr>
+
 
     </table>
 

@@ -34,7 +34,19 @@ a:hover {
 	display: flex;
 
 }
+	    .btn-container input[type="submit"][value="삭제"] {
+        margin-right: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: #f44336; /* 삭제 버튼 배경색 */
+        color: white;
+        border: none;
+        border-radius: 3px;
+    }
 
+    .btn-container input[type="submit"][value="삭제"]:hover {
+        background-color: #d32f2f; /* 삭제 버튼 hover 시 배경색 */
+    }
   .btn-container input[type="submit"] {
     margin-right: 5px;
     padding: 5px 10px;
@@ -252,13 +264,15 @@ a:hover {
 									<td>${select.state}</td>
 									<td>
 										<div class="btn-container">
-											<form action="AdminUpdateForm.car" method=post>
+											<form action="adminUpdateForm.car" method=post>
 												<input type="hidden" name="id"
-													value="${String.valueOf(select.id)}"> <input
-													type="submit" value="수정">
+													value="${String.valueOf(select.id)}"> 
+												<input type="submit" value="수정">
 											</form>
-											<form action="">
-												<input type="button" value="삭제"></input>
+											<form action="adminDelete.car">
+												<input type="hidden" name="id" value="${String.valueOf(select.id)}">
+												</input>
+												<input type="submit" value="삭제">
 											</form>
 										</div>
 									</td>

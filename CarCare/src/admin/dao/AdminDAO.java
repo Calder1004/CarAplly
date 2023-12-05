@@ -1,6 +1,6 @@
 package admin.dao;
 
-import static db.dbConn.close;
+import static client.db.dbConn.close;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import admin.vo.AdminDriveSelectBean;
-import vo.CenterBean;
 
 
 public class AdminDAO {
@@ -153,5 +152,24 @@ public class AdminDAO {
         }
 
         return bean;
+    }
+    
+    // 시승신청 리스트 삭제
+    public int removelst(int id) {
+    	PreparedStatement pstmt = null;
+    	String sql = "DELETE FROM schedule_drive WHERE id = ?;";
+    	int count = 0;
+    	
+    	try {	
+    		pstmt=con.prepareStatement(sql);
+    		pstmt.setInt(1, id);
+    		count = pstmt.executeUpdate();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		System.out.println("Error:" + e);
+    	} finally {
+    		close(pstmt);
+    	}
+    	return count;
     }
 }

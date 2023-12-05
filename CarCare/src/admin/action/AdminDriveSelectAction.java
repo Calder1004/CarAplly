@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import action.Action;
 import admin.svc.AdminDriveSelectService;
 import admin.vo.AdminDriveSelectBean;
-import vo.ActionForward;
+import client.action.Action;
+import client.vo.ActionForward;
 
 
 public class AdminDriveSelectAction implements Action {

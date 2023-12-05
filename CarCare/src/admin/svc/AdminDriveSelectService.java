@@ -1,6 +1,6 @@
 package admin.svc;
 
-import static db.dbConn.*;
+import static client.db.dbConn.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;

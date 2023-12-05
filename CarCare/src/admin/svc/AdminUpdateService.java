@@ -1,11 +1,10 @@
 package admin.svc;
+import static client.db.dbConn.*;
+
 import java.sql.Connection;
 
 import admin.dao.AdminDAO;
 import admin.vo.AdminDriveSelectBean;
-
-
-import static db.dbConn.*;
 public class AdminUpdateService {
 	
 	public boolean admUpd(int id,AdminDriveSelectBean bean) {
