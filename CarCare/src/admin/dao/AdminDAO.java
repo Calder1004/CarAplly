@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import admin.vo.AdminDriveSelectBean;
+import admin.vo.AdminProductSelectBean;
 
 
 public class AdminDAO {
@@ -15,7 +16,7 @@ public class AdminDAO {
 	// setting
     private static AdminDAO instance;
     private Connection con;
-    private AdminDAO() {}
+    private AdminDAO() {} // 외부에서 인스턴스 생성을 막음
 
     public static AdminDAO getInstance() {
         if (instance == null) {
@@ -172,4 +173,37 @@ public class AdminDAO {
     	}
     	return count;
     }
+    
+    // 관리자 상품 목록 조회
+	public ArrayList<AdminProductSelectBean> admPrdSlt() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM car_adminlist_view";
+		AdminProductSelectBean bean = null;
+		ArrayList<AdminProductSelectBean> list = new ArrayList<AdminProductSelectBean>();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean = new AdminProductSelectBean();
+				bean.setId(rs.getInt("id"));
+				bean.setCarId(rs.getInt("car_id"));
+				bean.setBrand(rs.getString("brand"));
+				bean.setModel(rs.getString("model"));
+				bean.setColor(rs.getString("color"));
+				bean.setCc(rs.getInt("cc"));
+				bean.setKm(rs.getInt("km"));
+				bean.setPrice(rs.getDouble("price"));
+				bean.setGrade(rs.getString("grade"));
+				list.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return list;
+	}
 }

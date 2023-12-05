@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import admin.action.AdminDeleteAction;
+import admin.action.AdminDriveSelectAction;
+import admin.action.AdminProductSelectAction;
+import admin.action.AdminUpdateAction;
+import admin.action.AdminUpdateFormAction;
 import admin.action.AdminVaildAction;
 import client.action.Action;
 import client.action.CarListAction;
@@ -19,10 +24,6 @@ import client.action.KaKaoAction;
 import client.action.TestDriveAction;
 import client.action.UserAction;
 import client.vo.ActionForward;
-import admin.action.AdminDeleteAction;
-import admin.action.AdminDriveSelectAction;
-import admin.action.AdminUpdateAction;
-import admin.action.AdminUpdateFormAction;
 
 
 @WebServlet("*.car")
@@ -39,9 +40,9 @@ public class CarController extends HttpServlet {
 	
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String RequestURI = request.getRequestURI();
-		String contextPath = request.getContextPath();
-		String command = RequestURI.substring(contextPath.length());
+		String RequestURI = request.getRequestURI(); // URI 정보 얻어옴
+		String contextPath = request.getContextPath(); // 파일 경로 얻어옴
+		String command = RequestURI.substring(contextPath.length()); //uri에 파일경로매칭
 
 		ActionForward forward = null;
 		Action action = null;
@@ -154,6 +155,15 @@ public class CarController extends HttpServlet {
 		
 		if(command.equals("/adminDelete.car") || command.equals("/adminDelete")) {
 			action = new AdminDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(command.equals("/adminProductSelect.car") || command.equals("/adminProductSelect")) {
+			action = new AdminProductSelectAction();
 			try {
 				forward = action.execute(request, response);
 			} catch(Exception e) {

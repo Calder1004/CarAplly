@@ -17,8 +17,8 @@ public class AdminDeleteAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id")); 
 		// ¼­ºñ½º 
 		AdminDeleteService svc = new AdminDeleteService();
-		boolean isdelete = svc.removetdl(id);
-		if(!isdelete) {
+		boolean useDelete = svc.removetdl(id);
+		if(!useDelete) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
