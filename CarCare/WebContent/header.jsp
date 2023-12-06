@@ -19,11 +19,16 @@
 }
 
 header {
+	position: fixed;
+	top: 0;
+	left: 0;
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
-	background-color:  white; /* 배경을 투명하게 설정 */
+	padding: 13px;
+	background-color: white;
+	z-index: 1000;
 }
 
 .nav {
@@ -68,7 +73,7 @@ header {
 	padding: 10px;
 }
 
-.nav a:hover {
+.nav a img:hover {
 	color: black;
 	transform: scale(1.05);
 }
@@ -91,7 +96,6 @@ header {
 	/* 드롭다운의 중심을 정확히 위치시키기 위해 X축 기준으로 -50% 이동 */
 	border-radius: 5px;
 	opacity: 0.9;
-	
 }
 
 .dropdown-content a {
@@ -105,17 +109,20 @@ header {
 	margin-bottom: 10px;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+.dropdown-content a:nth-child(1) {
+	border-top: none;
+}
 
 .dropdown-content a:first-child::before {
-  content: ''; /* 가상 요소의 내용을 비움 */
-  display: block; /* 블록 레벨 요소로 만듦 */
-  height: 1px; /* 테두리의 높이 */
-  background-color: rgba(0, 0, 0, 0.1); /* 테두리 색상을 옅게 설정 */
-  width: 70%; /* 너비를 70%로 설정 */
-  margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 중앙 정렬 */
-  position: absolute; /* 부모 요소(.dropdown-content a)에 대해 절대 위치 설정 */
-  top: 0; /* 상단에서 0의 위치 */
-  left: 15%; /* 왼쪽에서 15%의 위치 (100% - 70%)/2 */
+	content: ''; /* 가상 요소의 내용을 비움 */
+	display: block; /* 블록 레벨 요소로 만듦 */
+	height: 1px; /* 테두리의 높이 */
+	background-color: rgba(0, 0, 0, 0.1); /* 테두리 색상을 옅게 설정 */
+	width: 70%; /* 너비를 70%로 설정 */
+	margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 중앙 정렬 */
+	position: absolute; /* 부모 요소(.dropdown-content a)에 대해 절대 위치 설정 */
+	top: 0; /* 상단에서 0의 위치 */
+	left: 15%; /* 왼쪽에서 15%의 위치 (100% - 70%)/2 */
 }
 
 .dropdown-content a:hover {
@@ -139,8 +146,9 @@ header {
 			<div class="nav-group left">
 				<li><a href="main.jsp">HOME</a></li>
 
-				<li><a href="#" type="button" onclick="location.href='/CarCare/carList.car'">시승 신청</a></li>
-			
+				<li><a href="#" type="button"
+					onclick="location.href='/CarCare/carList.car'">시승 신청</a></li>
+
 				<li class="dropdown"><a href="#" class="dropbtn">서비스 지원</a>
 					<div class="dropdown-content">
 						<a href="#">서비스 프로그램</a> <a href="#">서비스 캠페인</a> <a href="#">차량안내ㆍ교육</a>
@@ -151,7 +159,8 @@ header {
 
 				<li class="dropdown"><a href="#" class="dropbtn">공지 사항</a>
 					<div class="dropdown-content">
-						<a href="#">회사 소개</a> <a href="#">뉴스 & 이벤트</a> <a href="#">인재 채용</a>
+						<a href="#">회사 소개</a> <a href="#">뉴스 & 이벤트</a> <a href="#">인재
+							채용</a>
 					</div></li>
 				<li><a href="customerService.jsp">고객 센터</a></li>
 			</div>
