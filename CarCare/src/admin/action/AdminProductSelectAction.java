@@ -16,8 +16,9 @@ public class AdminProductSelectAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		AdminProductSelectService svc = new AdminProductSelectService();
-		ArrayList<AdminProductSelectBean> productList = svc.getAdminProductList(); 
-		System.out.println(productList);
+		ArrayList<AdminProductSelectBean> prdList = svc.getAdminProductList(); 
+		request.setAttribute("prdList",prdList);
+		forward = new ActionForward("dashboard.jsp",false);
 		return forward;
 	}
 	

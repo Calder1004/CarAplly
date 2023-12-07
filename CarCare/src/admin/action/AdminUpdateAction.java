@@ -13,10 +13,6 @@ import client.vo.ActionForward;
 
 public class AdminUpdateAction implements Action {
 	
-//	public ArrayList<AdminDriveSelectBean> getAdminUpdate() throws Exception{
-//		
-//	}
-	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
@@ -26,11 +22,8 @@ public class AdminUpdateAction implements Action {
 		Date date = Date.valueOf(request.getParameter("date"));
 		String model = request.getParameter("model");
 		String name = request.getParameter("name");
-
-
 		boolean state = Boolean.parseBoolean(request.getParameter("state"));
-		System.out.println("state:"+state);
-			 
+	
 		AdminUpdateService svc = new AdminUpdateService();
 		AdminDriveSelectBean bean = new AdminDriveSelectBean();
 			bean.setId(id);

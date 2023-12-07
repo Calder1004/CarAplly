@@ -35,7 +35,7 @@ a:hover {
 	display: flex;
 
 }
-	    .btn-container input[type="submit"][value="삭제"] {
+.btn-container input[type="submit"][value="삭제"] {
         margin-right: 5px;
         padding: 5px 10px;
         cursor: pointer;
@@ -45,10 +45,11 @@ a:hover {
         border-radius: 3px;
     }
 
-    .btn-container input[type="submit"][value="삭제"]:hover {
+.btn-container input[type="submit"][value="삭제"]:hover {
         background-color: #d32f2f; /* 삭제 버튼 hover 시 배경색 */
     }
-  .btn-container input[type="submit"] {
+    
+.btn-container input[type="submit"] {
     margin-right: 5px;
     padding: 5px 10px;
     cursor: pointer;
@@ -58,7 +59,7 @@ a:hover {
     border-radius: 3px;
   }
 
-  .btn-container input[type="submit"]:hover {
+ .btn-container input[type="submit"]:hover {
     background-color: #45a049; /* 수정 버튼 hover 시 배경색 */
   }
 
@@ -212,9 +213,45 @@ a:hover {
         background-color: #45a049;
     }
     
+        .data-table-prdList {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .data-table-prdList th, .data-table-prdList td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .data-table-prdList th {
+        background-color: #333;
+        color: white;
+    }
 
 </style>
+<style>
+    .data-table-prdList {
+        width: 90%; /* 전체 화면의 90%만 차지하도록 수정 */
+        margin: 20px auto; /* 가운데 정렬 및 위 아래 여백 추가 */
+        border: 1px solid #ddd; /* 테두리 추가 */
+        border-collapse: collapse;
+    }
 
+    .data-table-prdList th, .data-table-prdList td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .data-table-prdList th {
+        background-color: #333;
+        color: white;
+    }
+
+
+</style>
 </style>
 
 
@@ -225,7 +262,7 @@ a:hover {
 			<h2>${userRole}님</h2>
 			<ul>
 				<li><a href="adminSelect.car">[1]예약조회 및 관리</a></li>
-				<li><a href="#">[2]모델조회 및 등록</a></li>
+				<li><a href="adminProductSelect.car">[2]모델조회 및 등록</a></li>
 			</ul>
 		</div>
 		<div class="right">
@@ -321,13 +358,40 @@ a:hover {
 							<input type="text" id="editModel"name="model" value="${bean.model}" readonly>
 							<label for="editName">이름:</label> 
 							<input type="text" id="editName"name="name" value="${bean.name}" readonly>
-							<label for="editPrcie">State</label> 
+							<label for="editState">예약상태</label> 
 							<input type="text" id="editState"name="state" value="${bean.state}">
 							<button type="submit" class="edit-btn">수정</button>
 						</form>
 					</div>
 				</div>
 			</c:if>
+				<c:if test="${prdList != null and prdList != ''}">
+				    <table class="data-table-prdList">
+				        <thead>
+				            <tr>
+				                <th>모델</th>
+				                <th>색상</th>
+				                <th>CC</th>
+				                <th>KM</th>
+				                <th>가격</th>
+				                <th>등급</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <c:forEach var="items" items="${prdList}">
+				                <tr>
+				                    <td>${items.model}</td>
+				                    <td>${items.color}</td>
+				                    <td>${items.cc}</td>
+				                    <td>${items.km}</td>
+				                    <td>${items.price}</td>
+				                    <td>${items.grade}</td>
+				                </tr>
+				            </c:forEach>
+				        </tbody>
+				    </table>
+				</c:if>
+			</div>
 		</div>
 </body>
 </html>

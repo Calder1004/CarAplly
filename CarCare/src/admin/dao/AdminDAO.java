@@ -36,8 +36,6 @@ public class AdminDAO {
     	String sql = "SELECT * FROM admin WHERE username=? AND password=?";
     	boolean check = false;
     	try {
-    	    System.out.println("Username: " + username);
-    	    System.out.println("Password: " + password);
     	 pstmt = con.prepareStatement(sql);
 		 pstmt.setString(1, username);
 	     pstmt.setString(2, password);
@@ -156,7 +154,7 @@ public class AdminDAO {
     }
     
     // 시승신청 리스트 삭제
-    public int removelst(int id) {
+    public int removeLst(int id) {
     	PreparedStatement pstmt = null;
     	String sql = "DELETE FROM schedule_drive WHERE id = ?;";
     	int count = 0;
@@ -184,7 +182,7 @@ public class AdminDAO {
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				bean = new AdminProductSelectBean();
 				bean.setId(rs.getInt("id"));
 				bean.setCarId(rs.getInt("car_id"));
@@ -205,5 +203,32 @@ public class AdminDAO {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	// 관리자 상품 등록
+	public int insertPrd() {
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into car_brands (id,name) values(?,?)";
+		String sql2 = "insert into cars (id,car_brand_id,name) values(?,?,?)"; // car_brand_id refer car_brands.id
+		String sql3 = "insert into car_options (id,car_id,color,cc,km,price,grade) values(?,?,?,?,?,?,?)"; // car_id refer cars.id
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			pstmt = con.prepareStatement(sql2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			pstmt = con.prepareStatement(sql3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
 	}
 }

@@ -1,7 +1,7 @@
 package admin.vo;
 
 public class AdminProductSelectBean {
-	
+	public AdminProductSelectBean() {}
 	public int getId() {
 		return id;
 	}

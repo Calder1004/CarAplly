@@ -25,6 +25,7 @@ public class AdminDriveSelectAction implements Action {
 		
 		ArrayList<AdminDriveSelectBean> list = getAdminDriveSelect();
 		request.setAttribute("list", list);
+		list.toString();
 		forward = new ActionForward("dashboard.jsp", false);
 		
 		return forward;

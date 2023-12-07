@@ -1,6 +1,6 @@
 package admin.svc;
 
-import static client.db.dbConn.getConnection;
+import static client.db.dbConn.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ public class AdminProductSelectService {
 		AdminDAO dao = AdminDAO.getInstance(); // 싱글톤 패턴의 일환, 클래스의 인스턴스를 얻어옴
 		dao.setConnection(con);
 		list = dao.admPrdSlt();
+		close(con);
 		return list;
 	}
 }
