@@ -143,7 +143,7 @@ header {
 
 		<ul class="nav">
 			<div class="nav-group left">
-				<li><a href="main.jsp">HOME</a></li>
+				<li><a href="main.jsp">홈</a></li>
 
 				<li><a href="#" type="button"
 					onclick="location.href='/CarCare/carList.car'">시승 신청</a></li>

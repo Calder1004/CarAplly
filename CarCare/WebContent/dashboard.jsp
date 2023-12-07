@@ -263,10 +263,7 @@ a:hover {
 			<ul>
 				<li><a href="adminSelect.car">[1]예약조회 및 관리</a></li>
 				<li><a href="adminProductSelect.car">[2]등록된 자동차 조회</a></li>
-				<li><a href="adminBrandWriteForm.car">[3]브랜드 등록</a></li>
-				<li><a href="adminModelWriteForm.car">[4]모델 등록</a></li>
-				<li><a href="adminCarOptionWriteForm.car">[5]자동차 옵션 등록</a>
-				<li><a href="adminBrandSelect.car">[6]브랜드조회테스트</a><li>
+				<li><a href="adminBrandWrite.car">[3]자동차 상품 등록</a><li>
 			</ul>
 		</div>
 		<div class="right">

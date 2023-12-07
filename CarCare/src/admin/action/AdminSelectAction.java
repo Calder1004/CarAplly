@@ -9,7 +9,7 @@ import admin.svc.AdminProductWriteService;
 import client.action.Action;
 import client.vo.ActionForward;
 
-public class AdminBrandSelectAction implements Action{
+public class AdminSelectAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
