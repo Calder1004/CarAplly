@@ -12,6 +12,10 @@
 	padding: 0;
 }
 
+body {
+    padding-top: 70px;
+  }
+  
 .home-button {
 	padding: 43px 22px 34px;
 	margin-right: 80px;
