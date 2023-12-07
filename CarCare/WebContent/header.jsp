@@ -12,6 +12,10 @@
 	padding: 0;
 }
 
+body {
+    padding-top: 70px;
+  }
+  
 .home-button {
 	padding: 43px 22px 34px;
 	margin-right: 80px;
@@ -19,11 +23,16 @@
 }
 
 header {
+	position: fixed;
+	top: 0;
+	left: 0;
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
-	background-color:  white; /* 배경을 투명하게 설정 */
+	padding: 13px;
+	background-color: white;
+	z-index: 1000;
 }
 
 .nav {
@@ -41,13 +50,13 @@ header {
 }
 
 .nav-group.left {
-	flex-grow: 1; /* 왼쪽 그룹이 가능한 공간을 채우도록 함 */
-	justify-content: flex-start; /* 왼쪽 정렬 */
+	flex-grow: 1;
+	justify-content: flex-start;
 }
 
 .nav-group.right {
 	flex-grow: 1;
-	justify-content: flex-end; /* 오른쪽 정렬 */
+	justify-content: flex-end;
 }
 
 .nav li {
@@ -70,10 +79,9 @@ header {
 
 .nav a:hover {
 	color: black;
-	transform: scale(1.05);
+	transform: scale(1.03);
 }
 
-/* 드랍다운 스타일 */
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -85,13 +93,11 @@ header {
 	background-color: whitesmoke;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 100;
-	padding-top: 20px; /* 드롭다운의 상단 여백 추가 */
-	left: 50%; /* 왼쪽에서 50%만큼 드롭다운을 이동시킴 */
+	padding-top: 20px;
+	left: 50%;
 	transform: translateX(-50%);
-	/* 드롭다운의 중심을 정확히 위치시키기 위해 X축 기준으로 -50% 이동 */
 	border-radius: 5px;
-	opacity: 0.9;
-	
+	opacity: 0.95;
 }
 
 .dropdown-content a {
@@ -107,15 +113,15 @@ header {
 }
 
 .dropdown-content a:first-child::before {
-  content: ''; /* 가상 요소의 내용을 비움 */
-  display: block; /* 블록 레벨 요소로 만듦 */
-  height: 1px; /* 테두리의 높이 */
-  background-color: rgba(0, 0, 0, 0.1); /* 테두리 색상을 옅게 설정 */
-  width: 70%; /* 너비를 70%로 설정 */
-  margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 중앙 정렬 */
-  position: absolute; /* 부모 요소(.dropdown-content a)에 대해 절대 위치 설정 */
-  top: 0; /* 상단에서 0의 위치 */
-  left: 15%; /* 왼쪽에서 15%의 위치 (100% - 70%)/2 */
+	content: '';
+	display: block;
+	height: 1px;
+	background-color: rgba(0, 0, 0, 0.1);
+	width: 70%;
+	margin: 0 auto;
+	position: absolute; /* 부모 요소(.dropdown-content a */
+	top: 0;
+	left: 15%;
 }
 
 .dropdown-content a:hover {
@@ -139,8 +145,9 @@ header {
 			<div class="nav-group left">
 				<li><a href="main.jsp">HOME</a></li>
 
-				<li><a href="#" type="button" onclick="location.href='/CarCare/carList.car'">시승 신청</a></li>
-			
+				<li><a href="#" type="button"
+					onclick="location.href='/CarCare/carList.car'">시승 신청</a></li>
+
 				<li class="dropdown"><a href="#" class="dropbtn">서비스 지원</a>
 					<div class="dropdown-content">
 						<a href="#">서비스 프로그램</a> <a href="#">서비스 캠페인</a> <a href="#">차량안내ㆍ교육</a>
@@ -151,7 +158,8 @@ header {
 
 				<li class="dropdown"><a href="#" class="dropbtn">공지 사항</a>
 					<div class="dropdown-content">
-						<a href="#">회사 소개</a> <a href="#">뉴스 & 이벤트</a> <a href="#">인재 채용</a>
+						<a href="#">회사 소개</a> <a href="#">뉴스 & 이벤트</a> <a href="#">인재
+							채용</a>
 					</div></li>
 				<li><a href="customerService.jsp">고객 센터</a></li>
 			</div>
