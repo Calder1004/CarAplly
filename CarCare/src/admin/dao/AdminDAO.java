@@ -106,7 +106,6 @@ public class AdminDAO {
     		pstmt.setString(3, bean.getName());
     		pstmt.setInt(4, bean.isState() ? 1 : 0);
     		pstmt.setInt(5, bean.getCarId());
-    		System.out.println(bean.getCarId());
     		pstmt.setInt(6, id);
     		check = pstmt.executeUpdate();
     	} catch (Exception e) {
@@ -205,30 +204,57 @@ public class AdminDAO {
 		return list;
 	}
 	
-	// 관리자 상품 등록
-	public int insertPrd() {
+	// 관리자 브랜드 등록
+	public int insBrd(String name) {
 		PreparedStatement pstmt = null;
-		
-		String sql = "insert into car_brands (id,name) values(?,?)";
-		String sql2 = "insert into cars (id,car_brand_id,name) values(?,?,?)"; // car_brand_id refer car_brands.id
-		String sql3 = "insert into car_options (id,car_id,color,cc,km,price,grade) values(?,?,?,?,?,?,?)"; // car_id refer cars.id
+		String sql = "insert into car_brands (name) values(?)";
+		int count = 0;
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		try {
-			pstmt = con.prepareStatement(sql2);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		try {
-			pstmt = con.prepareStatement(sql3);
+			pstmt.setString(1, name);
+			count = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return 0;
+		return count;
+	}
+	// 관리자 모델 등록
+	public int insModel(int carBrandId,String name) {
+		PreparedStatement pstmt = null;
+		String sql = "insert into cars (car_brand_id,name) values(?,?)";
+		int count = 0;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,carBrandId);
+			pstmt.setString(2,name);
+			count = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	// 관리자 자동차 옵션 등록
+	
+	public int insCarOpt(int carId, String color, int cc , int km , double price, String grade) {
+		PreparedStatement pstmt = null;
+		String sql = "insert into car_options (car_id,color,cc,km,price,grade) values (?,?,?,?,?,?)";
+		int count = 0;
+	try {
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1,carId);
+		pstmt.setString(2,color);
+		pstmt.setInt(3,cc);
+		pstmt.setInt(4,km);
+		pstmt.setDouble(5, price);
+		pstmt.setString(6, grade);
+		count = pstmt.executeUpdate();
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
+	return count;
 	}
 }

@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import admin.action.AdminBrandWriteAction;
+import admin.action.AdminCarOptionWriteAction;
 import admin.action.AdminDeleteAction;
 import admin.action.AdminDriveSelectAction;
+import admin.action.AdminModelWriteAction;
 import admin.action.AdminProductSelectAction;
 import admin.action.AdminUpdateAction;
 import admin.action.AdminUpdateFormAction;
@@ -153,6 +156,7 @@ public class CarController extends HttpServlet {
 			}
 		}
 		
+		// 관리자 시승 신청 삭제 
 		if(command.equals("/adminDelete.car") || command.equals("/adminDelete")) {
 			action = new AdminDeleteAction();
 			try {
@@ -162,11 +166,42 @@ public class CarController extends HttpServlet {
 			}
 		}
 		
+		// 관리자 등록 상품 조회
 		if(command.equals("/adminProductSelect.car") || command.equals("/adminProductSelect")) {
 			action = new AdminProductSelectAction();
 			try {
 				forward = action.execute(request, response);
 			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 관리자 브랜드 등록 
+		if(command.equals("/adminBrandWrite.car") || command.equals("/adminBrandWrite")) {
+			action = new AdminBrandWriteAction();
+			try { 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 관리자 모델 등록 
+		if(command.equals("/adminModelWrite.car") || command.equals("/adminModelWrite")) {
+			action = new AdminModelWriteAction();
+			try { 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 관리자 자동차 옵션 등록
+		if(command.equals("/adminCarOptionWrite.car") || command.equals("/adminCarOptionWrite")) {
+			action = new AdminCarOptionWriteAction();
+			try { 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

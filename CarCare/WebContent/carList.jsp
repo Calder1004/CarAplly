@@ -95,8 +95,8 @@ h1 {
 				onclick="redirectToOption('${car.id}','${car.brand}', '${car.model}')">
 				<img src="img/carList/${car.model}.png" alt="${car.model} Image">
 				<div class="catalog-item-description">
-					<p>${car.id}</p>
-
+					<p>브랜드:${car.brand}</p>
+					<p>모델:${car.model}</p>
 				</div>
 			</div>
 		</c:forEach>
