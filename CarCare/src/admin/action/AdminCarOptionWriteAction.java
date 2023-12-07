@@ -17,12 +17,7 @@ public class AdminCarOptionWriteAction implements Action{
 		String priceParam = request.getParameter("price");
 		String color = request.getParameter("color");
 		String grade = request.getParameter("grade");
-		System.out.println(carIdparam);
-		System.out.println(ccParam);
-		System.out.println(kmParam);
-		System.out.println(priceParam);
-		System.out.println(color);
-		System.out.println(grade);
+
 		// carIdparam 값 확인
 		int carId = 0; // 기본값 설정
 		if (carIdparam != null && !carIdparam.isEmpty()) {

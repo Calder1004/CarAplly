@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import admin.action.AdminBrandSelectAction;
 import admin.action.AdminBrandWriteAction;
 import admin.action.AdminCarOptionWriteAction;
 import admin.action.AdminDeleteAction;
@@ -199,6 +200,16 @@ public class CarController extends HttpServlet {
 		// 관리자 자동차 옵션 등록
 		if(command.equals("/adminCarOptionWrite.car") || command.equals("/adminCarOptionWrite")) {
 			action = new AdminCarOptionWriteAction();
+			try { 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 브랜드 조회
+		if(command.equals("/adminBrandSelect.car") || command.equals("/adminBrandSelect")) {
+			action = new AdminBrandSelectAction();
 			try { 
 				forward = action.execute(request, response);
 			} catch (Exception e) {

@@ -266,6 +266,7 @@ a:hover {
 				<li><a href="adminBrandWriteForm.car">[3]브랜드 등록</a></li>
 				<li><a href="adminModelWriteForm.car">[4]모델 등록</a></li>
 				<li><a href="adminCarOptionWriteForm.car">[5]자동차 옵션 등록</a>
+				<li><a href="adminBrandSelect.car">[6]브랜드조회테스트</a><li>
 			</ul>
 		</div>
 		<div class="right">
@@ -331,19 +332,6 @@ a:hover {
 							<input type="text" id="editId" name="id" value="${bean.id}" readonly>
 							<label for="editDate">예약날짜:</label> 
 							<input type="text" id="editDate"name="date" value="${bean.date}">
-<!-- 							<label for="editOptionId">모델변경:</label>
-							<select name="carIds" id="editOptionId">
-							    <option selected>모델선택</option>
-							    <option value="1">LS500H</option>
-							    <option value="2">LS500</option>
-							    <option value="3">ES300</option>
-							    <option value="4">ES300h</option>
-							    <option value="5">RX350h</option>
-							    <option value="6">RX500h</option>
-							    <option value="7">RZ450e</option>
-							    <option value="8">NX350h</option>
-							    <option value="9">NX450h+</option>
-							</select> -->
 							<label for="editOptionId">모델/옵션변경:</label>
 							<select name="carId" id="editOptionId">
 							    <option selected>모델/옵션선택</option>
@@ -372,6 +360,7 @@ a:hover {
 				    <table class="data-table-prdList">
 				        <thead>
 				            <tr>
+				            	<th>브랜드</th>
 				                <th>모델</th>
 				                <th>색상</th>
 				                <th>CC</th>
@@ -383,6 +372,7 @@ a:hover {
 				        <tbody>
 				            <c:forEach var="items" items="${prdList}">
 				                <tr>
+				                	<td>${items.brand}</td>
 				                    <td>${items.model}</td>
 				                    <td>${items.color}</td>
 				                    <td>${items.cc}</td>

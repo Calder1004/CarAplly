@@ -1,10 +1,15 @@
 package admin.svc;
 
+import static client.db.dbConn.close;
+import static client.db.dbConn.commit;
+import static client.db.dbConn.getConnection;
+import static client.db.dbConn.rollback;
+
 import java.sql.Connection;
+import java.util.List;
+import java.util.Map;
 
 import admin.dao.AdminDAO;
-
-import static client.db.dbConn.*;
 
 public class AdminProductWriteService {
 	
@@ -55,5 +60,29 @@ public class AdminProductWriteService {
 		close(con);
 		return ins;
 	}
-
+	
+	public List<Map<Integer, String>> inquiryBrand() throws Exception {
+		Connection con = getConnection();
+		AdminDAO dao = AdminDAO.getInstance();
+		dao.setConnection(con);
+		List<Map<Integer, String>> brandList = dao.inqryBrd();
+		close(con);
+		return brandList;
+	}
+	
+	public List<Map<Integer, String>> inquiryModel() throws Exception {
+		Connection con = getConnection();
+		AdminDAO dao = AdminDAO.getInstance();
+		dao.setConnection(con);
+		List<Map<Integer, String>> modelList = dao.inqryMod();
+		close(con);
+		return modelList;
+	}
+	
+	public void inquiryCarOption() throws Exception {
+		Connection con = getConnection();
+		AdminDAO dao = AdminDAO.getInstance();
+		dao.setConnection(con);
+		
+	}
 }
