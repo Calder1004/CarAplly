@@ -33,35 +33,35 @@ a:hover {
 
 .container {
 	display: flex;
-
 }
+
 .btn-container input[type="submit"][value="삭제"] {
-        margin-right: 5px;
-        padding: 5px 10px;
-        cursor: pointer;
-        background-color: #f44336; /* 삭제 버튼 배경색 */
-        color: white;
-        border: none;
-        border-radius: 3px;
-    }
+	margin-right: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	background-color: #f44336; /* 삭제 버튼 배경색 */
+	color: white;
+	border: none;
+	border-radius: 3px;
+}
 
 .btn-container input[type="submit"][value="삭제"]:hover {
-        background-color: #d32f2f; /* 삭제 버튼 hover 시 배경색 */
-    }
-    
-.btn-container input[type="submit"] {
-    margin-right: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: #4CAF50; /* 수정 버튼 배경색 */
-    color: white;
-    border: none;
-    border-radius: 3px;
-  }
+	background-color: #d32f2f; /* 삭제 버튼 hover 시 배경색 */
+}
 
- .btn-container input[type="submit"]:hover {
-    background-color: #45a049; /* 수정 버튼 hover 시 배경색 */
-  }
+.btn-container input[type="submit"] {
+	margin-right: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	background-color: #4CAF50; /* 수정 버튼 배경색 */
+	color: white;
+	border: none;
+	border-radius: 3px;
+}
+
+.btn-container input[type="submit"]:hover {
+	background-color: #45a049; /* 수정 버튼 hover 시 배경색 */
+}
 
 .left {
 	width: 150px;
@@ -78,7 +78,7 @@ a:hover {
 }
 
 .right {
-	background-color:#f5f5dc;
+	background-color: #f5f5dc;
 	flex-grow: 1;
 }
 
@@ -103,7 +103,6 @@ a:hover {
 }
 </style>
 <style>
-
 .data-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -151,107 +150,150 @@ a:hover {
 	background-color: #d32f2f;
 }
 
-
 <style>
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+#editForm {
+	display: grid;
+	gap: 10px;
+}
+
+#editForm label {
+	font-weight: bold;
+}
+
+#editForm input {
+	padding: 8px;
+	font-size: 14px;
+	width: 100%;
+}
+
+#editForm button {
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#editForm button:hover {
+	background-color: #45a049;
+}
+
+.edit-btn {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	padding: 8px 16px;
+	transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+	background-color: #45a049;
+}
+
+.data-table-prdList {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+.data-table-prdList th, .data-table-prdList td {
+	padding: 10px;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+
+.data-table-prdList th {
+	background-color: #333;
+	color: white;
+}
+</style>
+<style>
+.data-table-prdList {
+	width: 90%; /* 전체 화면의 90%만 차지하도록 수정 */
+	margin: 20px auto; /* 가운데 정렬 및 위 아래 여백 추가 */
+	border: 1px solid #ddd; /* 테두리 추가 */
+	border-collapse: collapse;
+}
+
+.data-table-prdList th, .data-table-prdList td {
+	padding: 10px;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+
+.data-table-prdList th {
+	background-color: #333;
+	color: white;
+}
+</style>
+<style>
+    /* 공통 스타일 */
+    .form-container {
+        margin-top: 20px;
     }
 
-    .modal-content {
-        background-color: #fefefe;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
     }
 
-    #editForm {
-        display: grid;
-        gap: 10px;
+    .form-container h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-align: center;
     }
 
-    #editForm label {
-        font-weight: bold;
+    .form-container label {
+        margin-bottom: 5px;
     }
 
-    #editForm input {
+    .form-container input, .form-container select {
         padding: 8px;
-        font-size: 14px;
-        width: 100%;
+        margin-bottom: 10px;
     }
 
-    #editForm button {
+    .form-container button {
         padding: 10px;
         background-color: #4CAF50;
         color: white;
         border: none;
         border-radius: 3px;
         cursor: pointer;
-    }
-
-    #editForm button:hover {
-        background-color: #45a049;
-    }
-
-    .edit-btn {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        padding: 8px 16px;
         transition: background-color 0.3s ease;
     }
 
-    .edit-btn:hover {
+    .form-container button:hover {
         background-color: #45a049;
     }
-    
-        .data-table-prdList {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    .data-table-prdList th, .data-table-prdList td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-
-    .data-table-prdList th {
-        background-color: #333;
-        color: white;
-    }
-
 </style>
-<style>
-    .data-table-prdList {
-        width: 90%; /* 전체 화면의 90%만 차지하도록 수정 */
-        margin: 20px auto; /* 가운데 정렬 및 위 아래 여백 추가 */
-        border: 1px solid #ddd; /* 테두리 추가 */
-        border-collapse: collapse;
-    }
 
-    .data-table-prdList th, .data-table-prdList td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-
-    .data-table-prdList th {
-        background-color: #333;
-        color: white;
-    }
-
-
-</style>
 </style>
 
 
@@ -263,11 +305,12 @@ a:hover {
 			<ul>
 				<li><a href="adminSelect.car">[1]예약조회 및 관리</a></li>
 				<li><a href="adminProductSelect.car">[2]등록된 자동차 조회</a></li>
-				<li><a href="adminBrandWrite.car">[3]자동차 상품 등록</a><li>
+				<li><a href="adminPostProduct.car">[3]자동차 상품 등록</a>
+				<li>
 			</ul>
 		</div>
 		<div class="right">
-			<div class="title">${userRole}님의관리자 페이지</div>
+			<div class="title">${userRole}님의관리자페이지</div>
 			<div class="content">영역구분/유동적으로 메뉴 불러오는 부분</div>
 
 			<c:if test="${list != null}">
@@ -305,13 +348,13 @@ a:hover {
 										<div class="btn-container">
 											<form action="adminUpdateForm.car" method=post>
 												<input type="hidden" name="id"
-													value="${String.valueOf(select.id)}"> 
-												<input type="submit" value="수정">
+													value="${String.valueOf(select.id)}"> <input
+													type="submit" value="수정">
 											</form>
 											<form action="adminDelete.car">
-												<input type="hidden" name="id" value="${String.valueOf(select.id)}">
-												</input>
-												<input type="submit" value="삭제">
+												<input type="hidden" name="id"
+													value="${String.valueOf(select.id)}"> </input> <input
+													type="submit" value="삭제">
 											</form>
 										</div>
 									</td>
@@ -325,63 +368,110 @@ a:hover {
 				<div class="modal" id="editModal">
 					<div class="modal-content">
 						<form id="editForm" action="adminUpdate.car" method="post">
-							<label for="editId">예약번호:</label> 
-							<input type="text" id="editId" name="id" value="${bean.id}" readonly>
-							<label for="editDate">예약날짜:</label> 
-							<input type="text" id="editDate"name="date" value="${bean.date}">
-							<label for="editOptionId">모델/옵션변경:</label>
-							<select name="carId" id="editOptionId">
-							    <option selected>모델/옵션선택</option>
-							    <option value="1">모델:LS500 색상:SONIC IRIDIUM  #CC 3456 : #KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
-							    <option value="2">모델:LS500 색상:GRAPHITE BLAK </option>
-							    <option value="3">모델:ES300 색상:LUNAR LUSTER</option>
-							    <option value="4">모델:ES300 색상:SONIC TITANIUM</option>
-							    <option value="5">모델:ES300H 색상:SONIC QUARTZ</option>
-							    <option value="6">Option ID:6 색상:HEAT BLUE CONTRAS</option>
-							    <option value="7">Option ID:7 색상:GRAPAHITE BLACK</option>
-							    <option value="8">Option ID:8 색상:DEEP BLUE MIKA</option>
-							    <option value="9">Option ID:9 색상:SONIC COOPER</option>
-							</select>
-							<label for="editModel">현재 모델:</label> 
-							<input type="text" id="editModel"name="model" value="${bean.model}" readonly>
-							<label for="editName">이름:</label> 
-							<input type="text" id="editName"name="name" value="${bean.name}" readonly>
-							<label for="editState">예약상태</label> 
-							<input type="text" id="editState"name="state" value="${bean.state}">
+							<label for="editId">예약번호:</label> <input type="text" id="editId"
+								name="id" value="${bean.id}" readonly> <label
+								for="editDate">예약날짜:</label> <input type="text" id="editDate"
+								name="date" value="${bean.date}"> <label
+								for="editOptionId">모델/옵션변경:</label> <select name="carId"
+								id="editOptionId">
+								<option selected>모델/옵션선택</option>
+								<option value="1">모델:LS500 색상:SONIC IRIDIUM #CC 3456 :
+									#KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
+								<option value="2">모델:LS500 색상:GRAPHITE BLAK</option>
+								<option value="3">모델:ES300 색상:LUNAR LUSTER</option>
+								<option value="4">모델:ES300 색상:SONIC TITANIUM</option>
+								<option value="5">모델:ES300H 색상:SONIC QUARTZ</option>
+								<option value="6">Option ID:6 색상:HEAT BLUE CONTRAS</option>
+								<option value="7">Option ID:7 색상:GRAPAHITE BLACK</option>
+								<option value="8">Option ID:8 색상:DEEP BLUE MIKA</option>
+								<option value="9">Option ID:9 색상:SONIC COOPER</option>
+							</select> <label for="editModel">현재 모델:</label> <input type="text"
+								id="editModel" name="model" value="${bean.model}" readonly>
+							<label for="editName">이름:</label> <input type="text"
+								id="editName" name="name" value="${bean.name}" readonly>
+							<label for="editState">예약상태</label> <input type="text"
+								id="editState" name="state" value="${bean.state}">
 							<button type="submit" class="edit-btn">수정</button>
 						</form>
 					</div>
 				</div>
 			</c:if>
-				<c:if test="${prdList != null and prdList != ''}">
-				    <table class="data-table-prdList">
-				        <thead>
-				            <tr>
-				            	<th>브랜드</th>
-				                <th>모델</th>
-				                <th>색상</th>
-				                <th>CC</th>
-				                <th>KM</th>
-				                <th>가격</th>
-				                <th>등급</th>
-				            </tr>
-				        </thead>
-				        <tbody>
-				            <c:forEach var="items" items="${prdList}">
-				                <tr>
-				                	<td>${items.brand}</td>
-				                    <td>${items.model}</td>
-				                    <td>${items.color}</td>
-				                    <td>${items.cc}</td>
-				                    <td>${items.km}</td>
-				                    <td>${items.price}</td>
-				                    <td>${items.grade}</td>
-				                </tr>
-				            </c:forEach>
-				        </tbody>
-				    </table>
-				</c:if>
-			</div>
+			<c:if test="${prdList != null and prdList != ''}">
+				<table class="data-table-prdList">
+					<thead>
+						<tr>
+							<th>브랜드</th>
+							<th>모델</th>
+							<th>색상</th>
+							<th>CC</th>
+							<th>KM</th>
+							<th>가격</th>
+							<th>등급</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="items" items="${prdList}">
+							<tr>
+								<td>${items.brand}</td>
+								<td>${items.model}</td>
+								<td>${items.color}</td>
+								<td>${items.cc}</td>
+								<td>${items.km}</td>
+								<td>${items.price}</td>
+								<td>${items.grade}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
+	<c:if test="${brandList != null and brandList != ''}">
+    <div class="form-container">
+        <form action="adminBrandWrite.car" method="post">
+            <h2>브랜드 등록</h2>
+            <input type="text" name="name">
+            <button type="submit">등록</button>
+        </form>
+        <br>
+        <form action="adminModelWrite.car" method="post">
+            <h2>모델 등록</h2>
+            <label for="brand">브랜드:</label>
+            <select id="brand" name="carBrandId">
+                <c:forEach var="brandMap" items="${brandList}">
+                    <c:forEach var="entry" items="${brandMap}">
+                        <option value="${entry.key}">${entry.value}</option>
+                    </c:forEach>
+                </c:forEach>
+            </select>
+            <label for="model">모델:</label>
+            <input type="text" name="name">
+            <button type="submit">등록</button>
+        </form>
+    </div>
+</c:if>
+
+<c:if test="${modelList != null and modelList != ''}">
+    <div class="form-container">
+        <form action="adminCarOptionWrite.car" method="post">
+        <h2>자동차 옵션 등록</h2>
+            <label for="model">모델:</label>
+            <select id="brand" name="carId">
+                <c:forEach var="ModelMap" items="${modelList}">
+                    <c:forEach var="entry" items="${ModelMap}">
+                        <option value="${entry.key}">${entry.value}</option>
+                    </c:forEach>
+                </c:forEach>
+            </select>
+            <br> 
+            색상:<input type="text" name="color"><br>
+            CC:<input type="number" name="cc"><br>
+            KM:<input type="number" name="km"><br>
+            가격:<input type="number" name="price"><br>
+            등급:<input type="text" name="grade"><br>
+            <button type="submit">등록</button>
+        </form>
+    </div>
+</c:if>
 		</div>
+	</div>
 </body>
 </html>

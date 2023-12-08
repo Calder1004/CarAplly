@@ -13,6 +13,7 @@ import admin.dao.AdminDAO;
 
 public class AdminProductWriteService {
 	
+	// 브랜드 등록 서비스 db접근
 	public int insertBrand(String name) throws Exception {
 		boolean acs = false;
 		Connection con = getConnection();
@@ -29,6 +30,7 @@ public class AdminProductWriteService {
 		return ins;
 	}
 	
+	// 모델 등록 서비스 db접근
 	public int insertModel(int carBrandId, String name) throws Exception {
 		boolean acs = false;
 		Connection con = getConnection();
@@ -45,6 +47,7 @@ public class AdminProductWriteService {
 		return ins;
 	}
 	
+	// 옵션 등록 서비스 db접근
 	public int insertCarOption(int carId, String color,int cc, int km, double price,String grade) throws Exception {
 		boolean acs = false;
 		Connection con = getConnection();
@@ -60,7 +63,7 @@ public class AdminProductWriteService {
 		close(con);
 		return ins;
 	}
-	
+	// 브랜드 조회 서비스 db접근
 	public List<Map<Integer, String>> inquiryBrand() throws Exception {
 		Connection con = getConnection();
 		AdminDAO dao = AdminDAO.getInstance();
@@ -69,7 +72,7 @@ public class AdminProductWriteService {
 		close(con);
 		return brandList;
 	}
-	
+	// 모델 조회 서비스 model 접근
 	public List<Map<Integer, String>> inquiryModel() throws Exception {
 		Connection con = getConnection();
 		AdminDAO dao = AdminDAO.getInstance();
