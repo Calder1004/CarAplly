@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	* {
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+</style>
+<body>
+<nav class="bg-white p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center h-16">
+        <a href="#" class="italic mr-16 text-stone-900 font-bold text-3xl">MotionVolt</a>
+		<div class="ml-4 flex space-x-6 m-auto">
+            <a href="#" class="text-stone-900 font-bold text-base">MODEL</a>
+            <a href="#" class="text-stone-900 font-bold text-base">BUY</a>
+            <a href="#" class="text-stone-900 font-bold text-base">SERVICE</a>
+            <a href="#" class="text-stone-900 font-bold text-base">BRAND</a>
+        </div>
+		<div class="px-56 bg-gray-800 text-white"></div>
+    	<div class="ml-auto flex space-x-2">
+            <a href="#" class="text-stone-900 font-thin text-xs">공지사항</a>
+            <a href="#" class="text-stone-900 font-thin text-xs">고객센터</a>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

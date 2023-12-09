@@ -4,7 +4,7 @@
 
 <html>
 <head>
-<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="shortcuticon" href="img/favicon.ico">
 <style>
 body {
 	font-family: 'Arial', sans-serif;
@@ -152,7 +152,7 @@ h1 {
 						+ region + '"]').classList.add('selected');
 	}
 
-	// 페이지 로드 시 서울 탭을 활성화합니다.
+		// 페이지 로드 시 서울 탭을 활성화합니다.
 	document.addEventListener('DOMContentLoaded', function() {
 		toggleTable('seoul');
 	});

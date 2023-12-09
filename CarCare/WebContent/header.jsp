@@ -57,6 +57,7 @@ header {
 .nav-group.right {
 	flex-grow: 1;
 	justify-content: flex-end;
+	font-size: 12px;
 }
 
 .nav li {

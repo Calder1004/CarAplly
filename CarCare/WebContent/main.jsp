@@ -18,12 +18,13 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="test333.jsp"/>	
+	<%-- <jsp:include page="header.jsp" /> --%>
 	<!-- 큰 슬라이더 시작-->
 	<div class="swiper banner-swiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/LEXUS_CAR1.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/LEXUS_CARS.jpg" alt="1" /></a>
 			</div>
 			<div class="object-text">
 				<img src="img/logo/logo2023_kv.png" alt="logo2023">
