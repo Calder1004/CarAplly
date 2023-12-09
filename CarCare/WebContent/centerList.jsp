@@ -161,8 +161,8 @@ h1 {
 </head>
 <body>
 	<jsp:include page="test333.jsp" />
+		<h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > <span class="text-gray-400 font-thin">Center</span> </h1>
 	<c:if test="${not empty center}">
-		<h1>Center List</h1>
 		<div class="popup-wrapper">
 			<div class="locations-header">
 				<ul class="locations">
@@ -173,9 +173,9 @@ h1 {
 			<table class="center-list">
 				<thead>
 					<tr>
-						<th>Center Name</th>
-						<th>Center Address</th>
-						<th>Center Number</th>
+						<th>지점명</th>
+						<th>주소</th>
+						<th>번호</th>
 						<th>선택</th>
 					</tr>
 				</thead>
