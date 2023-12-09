@@ -6,7 +6,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Chrome" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>main page</title>
+<title>MotionVolt</title>
 <link rel="shortcut icon" href="img/favicon.ico">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -33,13 +33,13 @@
 				<a href="#"><img src="img/carList/LEXUS_CAR2.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/LEXUS_CAR3.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/LEXUS_CAR2.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/LEXUS_CAR4.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/LEXUS_CAR2.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/LEXUS_CAR5.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/LEXUS_CAR2.jpg" alt="1" /></a>
 			</div>
 		</div>
 	</div>
@@ -114,6 +114,6 @@
 		<div class="swiper-pagination"></div>
 	</div>
 	<!-- 작은 슬라이더 끝 -->
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="footertest.jsp" />
 </body>
 </html>

@@ -4,57 +4,8 @@
 <html>
 <head>
 <link rel="shortcut icon" href="img/favicon.ico">
-<title>Car Catalog</title>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f0f0f0;
-	margin: 0;
-	padding: 0;
-}
-
-h1 {
-	background-color: #333;
-	color: white;
-	padding: 20px;
-	margin: 0;
-	text-align: center;
-}
-
-.catalog-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	padding: 35px;
-}
-
-.catalog-item {
-	width: 31%;
-	margin: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	cursor: pointer;
-	transition: transform 0.2s;
-	overflow: hidden;
-}
-
-.catalog-item:hover {
-	background-color: rgb(127, 126, 126);
-	color: white;
-	transform: scale(1.05);
-}
-
-.catalog-item img {
-	width: 100%;
-	height: 280px;
-	object-fit: cover;
-}
-
-.catalog-item-description {
-	width: 100%;
-	text-align: center;
-	padding: 10px;
-}
-</style>
+ <script src="https://cdn.tailwindcss.com"></script>
+<title>MotionVolt</title>
 
 <script>
 	function redirectToOption(id, brand, model) {
@@ -85,22 +36,22 @@ h1 {
 	}
 </script>
 </head>
-<body>
-	<jsp:include page="header.jsp" />
+<body class="font-sans bg-white">
+  <jsp:include page="test333.jsp" />
 
-	<h1>Car Catalog</h1>
-	<div class="catalog-container">
-		<c:forEach var="car" items="${carList}">
-			<div class="catalog-item"
-				onclick="redirectToOption('${car.id}','${car.brand}', '${car.model}')">
-				<img src="img/carList/${car.model}.png" alt="${car.model} Image">
-				<div class="catalog-item-description">
-					<p>브랜드:${car.brand}</p>
-					<p>모델:${car.model}</p>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-	<jsp:include page="footer.jsp" />
+  <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog</h1>
+  <div class="flex flex-wrap justify-center p-4">
+    <c:forEach var="car" items="${carList}">
+      <div class="w-1/4 m-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:bg-black	 hover:text-white hover:scale-105"
+        onclick="redirectToOption('${car.id}', '${car.brand}', '${car.model}')">
+        <img src="img/carList/${car.model}.png" alt="${car.model} Image" class="w-full h-48 object-cover">
+        <div class="text-center p-4">
+          <p class="mb-2">브랜드: ${car.brand}</p>
+          <p>모델: ${car.model}</p>
+        </div>
+      </div>
+    </c:forEach>
+  </div>
+  <jsp:include page="footertest.jsp" />
 </body>
 </html>

@@ -160,7 +160,7 @@ h1 {
 
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="test333.jsp" />
 	<c:if test="${not empty center}">
 		<h1>Center List</h1>
 		<div class="popup-wrapper">
@@ -207,6 +207,6 @@ h1 {
 			</table>
 		</div>
 	</c:if>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="footertest.jsp" />
 </body>
 </html>

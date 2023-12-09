@@ -77,7 +77,7 @@ tr:hover {
 </script>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="test333.jsp" />
 	<c:if test="${not empty carListOption}">
 		<h1>Car List Option</h1>
 		<table>
@@ -110,6 +110,6 @@ tr:hover {
 		</p>
 	</c:if>
 
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="footertest.jsp" />
 </body>
 </html>
