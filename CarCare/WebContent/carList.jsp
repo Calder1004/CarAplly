@@ -42,7 +42,7 @@
   <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog</h1>
   <div class="flex flex-wrap justify-center p-4">
     <c:forEach var="car" items="${carList}">
-      <div class="w-1/4 m-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:bg-black	 hover:text-white hover:scale-105"
+       <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 m-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:bg-black hover:text-white hover:scale-105"
         onclick="redirectToOption('${car.id}', '${car.brand}', '${car.model}')">
         <img src="img/carList/${car.model}.png" alt="${car.model} Image" class="w-full h-48 object-cover">
         <div class="text-center p-4">
