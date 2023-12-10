@@ -27,7 +27,7 @@ public class CarListOptionAction implements Action {
             String brand = request.getParameter("brand");
             String model = request.getParameter("model");
 
-            ArrayList<CarListOptionBean> carListOption = getCarListOption(carId,brand, model);
+            ArrayList<CarListOptionBean> carListOption = getCarListOption(carId,brand,model);
             
             request.setAttribute("carListOption", carListOption);
             forward = new ActionForward("carListOption.jsp", false);

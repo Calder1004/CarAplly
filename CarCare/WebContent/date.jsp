@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="img/favicon.ico">
-<title>Date Input Example</title>
+<title>MotionVolt</title>
 
 <style>
 body {
@@ -110,8 +110,8 @@ button:hover {
 </script>
 </head>
 <body>
-   <jsp:include page="header.jsp" />
-   <h1>Apply Date</h1>
+   <jsp:include page="test333.jsp" />
+       <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > Center > <span class="text-gray-400 font-thin">Date</span></h1>
    <form id="myForm">
       <label for="inputDate">시승 날짜 선택:</label> 
          <input type="date" id="inputDate" name="selectedDate" required> 
@@ -120,6 +120,6 @@ button:hover {
       <button type="button" onclick="submitForm()">제출</button>
    </form>
 
-   <jsp:include page="footer.jsp" />
+   <jsp:include page="footertest.jsp" />
 </body>
 </html>

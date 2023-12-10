@@ -29,7 +29,7 @@ public class CenterAction implements Action {
         request.setAttribute("center", center); // 센터는 조회되고 빈에 저장된 center 목록들을 내려줌
         request.setAttribute("optionId", optionId); // 자동차 option Id는 request로 받아서 set으로 내려줌
         
-        forward = new ActionForward("centerList.jsp", false);
+        forward = new ActionForward("center.jsp", false);
 		
         return forward;
 	}

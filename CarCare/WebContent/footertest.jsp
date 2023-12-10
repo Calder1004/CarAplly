@@ -14,7 +14,7 @@
 </style>
 </head>
 <body>
-	<div class="w-full h-32 bg-neutral-900">
+	<div class="w-full h-32 bg-neutral-900 relative bottom-0">
 		<ul class="mx-auto mt-auto my-auto container px-2 py-2 flex flex-row gap-4 underline-offset-auto">
 			<li class="mt-4 text-white text-sm"><a href=#></a>| MotionVolt |</li>
 			<li class="mt-5 text-white text-xs"><a href=#></a>Life is either</li>
