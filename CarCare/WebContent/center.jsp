@@ -41,7 +41,7 @@
 	<c:if test="${not empty center}">
 		<div class="w-3/4 grid grid-cols-gap-4">
 		    <c:forEach var="center" items="${center}">
-		    <div class="border rounded-md text-black p-4 cursor-pointer hover:bg-black transform transition-transform duration-200 hover:scale-105 hover:text-white mb-1 mt-2"onclick="submit('${option.id}','${optionId}')">
+		    <div class="border rounded-md text-black p-4 cursor-pointer hover:bg-black transform transition-transform duration-200 hover:scale-105 hover:text-white mb-1 mt-2"onclick="submit('${center.id}','${optionId}')">
 		            <p class="text-xl font-bold mb-2">${center.name}</p>
 		            <p class="text-xs mb-2">${center.address}</p>
 		            <p class="text-xs"><span>전화번호:</span>${center.number}</p>

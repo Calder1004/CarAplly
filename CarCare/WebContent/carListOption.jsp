@@ -34,7 +34,6 @@
 <body class="flex flex-col min-h-screen">
     <jsp:include page="test333.jsp" />
     <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > <span class="text-gray-400 font-thin">Option</span></h1>
-
     <div class="text-center border rounded-md w-8/12 mx-auto mt-4 p-8">뒤로 돌아가기</div> 
     <div class="flex container mx-auto">
 	<div class="w-full sm:w-1/2 p-4">
