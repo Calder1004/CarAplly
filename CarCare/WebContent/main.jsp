@@ -144,6 +144,17 @@
 		<div class="swiper-pagination"></div>
 	</div>
 	<!-- 작은 슬라이더 끝 -->
+	<div class="brand-film-container">
+		<div class="brand-film-list">
+			<a href="https://www.youtube.com/watch?v=lTmMs-EJGxM"
+				class="gtm-main-brand-film-0">
+				<figure class="mod-covered-bg"
+					style="background-image: url(&quot;img/Thumbnail.jpg&quot;);">
+					<figcaption>영상 썸네일입니다.</figcaption>
+				</figure>
+			</a>
+		</div>
+	</div>
 	<jsp:include page="footertest.jsp" />
 </body>
 </html>
