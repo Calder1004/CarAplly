@@ -18,7 +18,7 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-	<jsp:include page="test333.jsp"/>	
+	<jsp:include page="test333.jsp" />
 	<%-- <jsp:include page="header.jsp" /> --%>
 	<!-- 큰 슬라이더 시작-->
 	<div class="swiper banner-swiper">
@@ -51,61 +51,81 @@
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LC500.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, pariatur autem dolorum magni voluptatum harum dicta itaque ea delectus voluptatem!</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Deleniti, pariatur autem dolorum magni voluptatum harum dicta
+						itaque ea delectus voluptatem!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250hFSPORT.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odio iste maxime id dolor? Earum odit fugiat vitae architecto dolorem?</p>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Voluptatem odio iste maxime id dolor? Earum odit fugiat vitae
+						architecto dolorem?</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250h2WD.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis ratione ea placeat. Recusandae dolor repudiandae ratione vero tenetur culpa cumque.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Perspiciatis ratione ea placeat. Recusandae dolor repudiandae
+						ratione vero tenetur culpa cumque.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LS500.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dicta optio ex totam soluta aliquid sit quasi praesentium, vero ullam!</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Natus dicta optio ex totam soluta aliquid sit quasi praesentium,
+						vero ullam!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae alias inventore magnam aperiam odit quibusdam praesentium fuga itaque. Quas, dicta!</p>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Repudiandae alias inventore magnam aperiam odit quibusdam
+						praesentium fuga itaque. Quas, dicta!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ut eaque itaque maxime praesentium quidem dolorem, minima aut id omnis.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+						Iste ut eaque itaque maxime praesentium quidem dolorem, minima aut
+						id omnis.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h+.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum tempora, quo voluptatum corporis corrupti fugit? Veniam vitae cumque placeat officia?</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Ipsum tempora, quo voluptatum corporis corrupti fugit? Veniam
+						vitae cumque placeat officia?</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h+FSPORT.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, nesciunt sint! Natus soluta adipisci, sequi accusantium quas officiis deserunt beatae!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+						Dignissimos, nesciunt sint! Natus soluta adipisci, sequi
+						accusantium quas officiis deserunt beatae!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX350h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quae sint officia facere molestiae sunt quisquam quibusdam hic expedita eius.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Suscipit quae sint officia facere molestiae sunt quisquam
+						quibusdam hic expedita eius.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX450h+.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus error, facere aspernatur repudiandae ipsam consequatur unde vitae facilis expedita earum.</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Doloribus error, facere aspernatur repudiandae ipsam consequatur
+						unde vitae facilis expedita earum.</p>
 				</div>
 			</div>
 		</div>
@@ -114,6 +134,17 @@
 		<div class="swiper-pagination"></div>
 	</div>
 	<!-- 작은 슬라이더 끝 -->
+	<div class="brand-film-container">
+		<div class="brand-film-list">
+			<a href="https://www.youtube.com/watch?v=lTmMs-EJGxM"
+				class="gtm-main-brand-film-0">
+				<figure class="mod-covered-bg"
+					style="background-image: url(&quot;img/Thumbnail.jpg&quot;);">
+					<figcaption>영상 썸네일입니다.</figcaption>
+				</figure>
+			</a>
+		</div>
+	</div>
 	<jsp:include page="footertest.jsp" />
 </body>
 </html>

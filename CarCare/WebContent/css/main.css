@@ -88,4 +88,44 @@ body {
 
 .tooltip {
 	margin-bottom: 50px;
+}.brand-film-container {
+	max-width: 100%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.brand-film-list {
+	position: relative;
+	margin: 20px 0;
+	overflow: hidden;
+}
+
+.brand-film-list figure {
+	background-size: cover;
+	height: 590px;
+	transition: transform .25s;
+	transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.brand-film-list figure:hover {
+	transform: scale(1.06);
+}
+
+.brand-film-list figcaption {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+@media ( max-width : 768px) {
+	.brand-film-list figure {
+		height: auto;
+	}
+	.brand-film-list figcaption {
+		font-size: 14px;
+	}
 }
