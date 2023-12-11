@@ -31,21 +31,22 @@ body {
 	z-index: 100;
 }
 
-.object-text img{
-	position: relative;	
+.object-text img {
+	position: relative;
 }
 
-@keyframes fadeInUp {
-	0% {
-		opacity: 0;
-		transform: translate(0%, 100%);
-	}
-	to {
-		opacity: 1;
-		transform: translate(0%, 0%);
-	}
+@
+keyframes fadeInUp { 0% {
+	opacity: 0;
+	transform: translate(0%, 100%);
 }
 
+to {
+	opacity: 1;
+	transform: translate(0%, 0%);
+}
+
+}
 .banner-swiper .swiper-wrapper .object-text img {
 	height: 600px;
 }
@@ -88,7 +89,9 @@ body {
 
 .tooltip {
 	margin-bottom: 50px;
-}.brand-film-container {
+}
+
+.brand-film-container {
 	max-width: 100%;
 	overflow: hidden;
 	margin: 0 auto;
@@ -113,7 +116,7 @@ body {
 
 .brand-film-list figcaption {
 	position: absolute;
-	bottom: 10px;
+	top: 20px;
 	left: 50%;
 	transform: translateX(-50%);
 	color: #ffffff;
@@ -121,11 +124,63 @@ body {
 	padding: 10px 20px;
 	border-radius: 10px;
 }
+
+.support-section{
+	margin: 100px auto;
+	padding: 50px 0;
+	position: relative;
+}
+
+.support-title {
+	position: absolute;
+	top: -100px;
+	left: 10%;
+	font-size: 5em;
+	margin: 20px 0;
+}
+
+.card-container {
+	display: flex;
+	justify-content: space-around;
+	margin: 20px auto;
+	max-width: 1200px;
+}
+
+.card {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 50px 20px;
+	text-align: center;
+	width: 22%;
+	transition: transform 0.3s ease-in-out;
+}
+
+.card h3 {
+	margin: 10px 0;
+	font-size: 26px;
+}
+
+.card p {
+	color: #666;
+}
+
+.card:hover {
+	transform: translate(0%, -8%);
+}
+
 @media ( max-width : 768px) {
 	.brand-film-list figure {
 		height: auto;
 	}
 	.brand-film-list figcaption {
 		font-size: 14px;
+	}
+	.card-container {
+		flex-direction: column;
+	}
+	.card {
+		width: 80%;
+		margin-bottom: 20px;
 	}
 }

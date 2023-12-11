@@ -18,7 +18,7 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-	<jsp:include page="test333.jsp"/>	
+	<jsp:include page="test333.jsp" />
 	<%-- <jsp:include page="header.jsp" /> --%>
 	<!-- 큰 슬라이더 시작-->
 	<div class="swiper banner-swiper">
@@ -44,7 +44,7 @@
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/CAR_F.jpg" alt="1" /></a>
 			</div>
-		    <div class="swiper-slide">
+			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/CAR_G.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
@@ -81,61 +81,81 @@
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LC500.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, pariatur autem dolorum magni voluptatum harum dicta itaque ea delectus voluptatem!</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Deleniti, pariatur autem dolorum magni voluptatum harum dicta
+						itaque ea delectus voluptatem!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250hFSPORT.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odio iste maxime id dolor? Earum odit fugiat vitae architecto dolorem?</p>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Voluptatem odio iste maxime id dolor? Earum odit fugiat vitae
+						architecto dolorem?</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250h2WD.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis ratione ea placeat. Recusandae dolor repudiandae ratione vero tenetur culpa cumque.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Perspiciatis ratione ea placeat. Recusandae dolor repudiandae
+						ratione vero tenetur culpa cumque.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LS500.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dicta optio ex totam soluta aliquid sit quasi praesentium, vero ullam!</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Natus dicta optio ex totam soluta aliquid sit quasi praesentium,
+						vero ullam!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae alias inventore magnam aperiam odit quibusdam praesentium fuga itaque. Quas, dicta!</p>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Repudiandae alias inventore magnam aperiam odit quibusdam
+						praesentium fuga itaque. Quas, dicta!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ut eaque itaque maxime praesentium quidem dolorem, minima aut id omnis.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+						Iste ut eaque itaque maxime praesentium quidem dolorem, minima aut
+						id omnis.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h+.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum tempora, quo voluptatum corporis corrupti fugit? Veniam vitae cumque placeat officia?</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Ipsum tempora, quo voluptatum corporis corrupti fugit? Veniam
+						vitae cumque placeat officia?</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h+FSPORT.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, nesciunt sint! Natus soluta adipisci, sequi accusantium quas officiis deserunt beatae!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+						Dignissimos, nesciunt sint! Natus soluta adipisci, sequi
+						accusantium quas officiis deserunt beatae!</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX350h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quae sint officia facere molestiae sunt quisquam quibusdam hic expedita eius.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Suscipit quae sint officia facere molestiae sunt quisquam
+						quibusdam hic expedita eius.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX450h+.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus error, facere aspernatur repudiandae ipsam consequatur unde vitae facilis expedita earum.</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Doloribus error, facere aspernatur repudiandae ipsam consequatur
+						unde vitae facilis expedita earum.</p>
 				</div>
 			</div>
 		</div>
@@ -144,6 +164,8 @@
 		<div class="swiper-pagination"></div>
 	</div>
 	<!-- 작은 슬라이더 끝 -->
+
+	<!-- Youtube 시작 -->
 	<div class="brand-film-container">
 		<div class="brand-film-list">
 			<a href="https://www.youtube.com/watch?v=lTmMs-EJGxM"
@@ -155,6 +177,35 @@
 			</a>
 		</div>
 	</div>
+	<!-- Youtube 끝 -->
+
+	<!-- Support Card 시작-->
+	<div class="support-section">
+		<h2 class="support-title">SUPPORT</h2>
+
+		<div class="card-container">
+			<div class="card">
+				<h3>예약 접수</h3>
+				<p>예약 일정, 소요 시간 등에 대한 자세한 안내를 드리고 예약을 진행합니다.</p>
+			</div>
+
+			<div class="card">
+				<h3>예약 조회</h3>
+				<p>고객님 차량에 적합한 서비스 테크니션을 배정하고, 예약일 하루전 사전 확인 전화를 드립니다.</p>
+			</div>
+
+			<div class="card">
+				<h3>고객 상담</h3>
+				<p>서비스를 파악하며, 점검 및 정비 내역에 대하여 상세한 설명과 적절한 서비스 상품을 제안 드립니다.</p>
+			</div>
+
+			<div class="card">
+				<h3>시승신청</h3>
+				<p>고객님과 고객님 차량의 가치를 생각하며 보이지 않는 곳까지 배려하는 서비스 정신</p>
+			</div>
+		</div>
+	</div>
+	<!-- Support Card 끝 -->
 	<jsp:include page="footertest.jsp" />
 </body>
 </html>
