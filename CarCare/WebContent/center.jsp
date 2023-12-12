@@ -5,6 +5,7 @@
 <head>
 <link rel="shortcuticon" href="img/favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
+<title>MotionVolt</title>
 <script>
 	function submit(id, optionId) {
 		var form = document.createElement("form");

@@ -9,6 +9,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
+<title>MotionVolt</title>
 <script>
 	function redirectToCenter(id) {
 		var form = document.createElement("form");

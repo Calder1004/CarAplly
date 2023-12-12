@@ -5,6 +5,7 @@
 <html>
 <head>
 <link rel="shortcuticon" href="img/favicon.ico">
+<title>MotionVolt</title>
 <style>
 body {
 	font-family: 'Arial', sans-serif;
