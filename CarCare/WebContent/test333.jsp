@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +15,9 @@
 <body>
 <nav class="bg-white p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center h-16">
-        <a href="main.jsp" class="italic mr-16 text-stone-900 font-bold text-3xl">MotionVolt</a>
+        <a href="main.jsp" class="flex items-center">
+            <img src="img/logo/MVlogo3.png" alt="MotionVolt Logo" class="h-10 w-auto mr-2">
+        </a>
 		<div class="ml-4 flex space-x-6 m-auto">
             <a href="#" class="text-stone-900 font-bold text-base hover:text-slate-600">MODEL</a>
             <a href="/CarCare/carList.car" class="text-stone-900 font-bold text-base hover:text-slate-600">APLLY</a>
