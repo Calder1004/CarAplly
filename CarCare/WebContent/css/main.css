@@ -25,8 +25,8 @@ body {
 
 .object-text {
 	position: absolute;
-	top: 15%;
-	left: 50%;
+	top: 7%;
+	left: 60%;
 	animation: fadeInUp 1s;
 	z-index: 100;
 }
@@ -35,8 +35,7 @@ body {
 	position: relative;
 }
 
-@
-keyframes fadeInUp { 0% {
+@keyframes fadeInUp { 0% {
 	opacity: 0;
 	transform: translate(0%, 100%);
 }
@@ -125,7 +124,7 @@ to {
 	border-radius: 10px;
 }
 
-.support-section{
+.support-section {
 	margin: 100px auto;
 	padding: 50px 0;
 	position: relative;
