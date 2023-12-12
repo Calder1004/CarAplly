@@ -24,7 +24,7 @@
 	<div class="swiper banner-swiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/CAR_A.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/CAR_E2.jpg" alt="1" /></a>
 			</div>
 			<div class="object-text">
 				<img src="img/logo/logo2023_kv.png" alt="logo2023">
@@ -39,10 +39,10 @@
 				<a href="#"><img src="img/carList/CAR_D.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/CAR_E.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/CAR_A.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/CAR_F.jpg" alt="1" /></a>
+				<a href="#"><img src="img/carList/CAR_F2.jpg" alt="1" /></a>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/CAR_G.jpg" alt="1" /></a>
