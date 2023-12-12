@@ -44,7 +44,7 @@
     <c:forEach var="car" items="${carList}">
        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 m-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:bg-black hover:text-white hover:scale-105"
         onclick="redirectToOption('${car.id}', '${car.brand}', '${car.model}')">
-        <img src="img/carList/${car.model}.png" alt="${car.model} Image" class="w-full h-48 object-cover">
+        <img src="img/carList/${car.model}.png" alt="${car.model} Image" class="w-full h-56 object-cover">
         <div class="text-center p-4">
           <p class="mb-2">브랜드: ${car.brand}</p>
           <p>모델: ${car.model}</p>

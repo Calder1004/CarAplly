@@ -32,7 +32,8 @@
 <body>
 	<jsp:include page="test333.jsp" />
 		<h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > <span class="text-gray-400 font-thin">Center</span> </h1>
-	<div class="flex container mx-auto">
+		<a href="javascript:history.back()" class="flex items-center justify-center border rounded-md w-8/12 h-10 mx-auto mt-4 p-5 block hover:bg-gray-800 hover:text-white transition duration-300">뒤로 돌아가기</a>
+	<div class="flex container mx-auto overflow-hidden">
 	<div class="w-full sm:w-1/2 p-4">
 	    <div class="bg-black text-white h-300 rounded-md overflow-hidden">
 	        <img src="img/carList/RX350h.png" class="w-full h-full object-cover" alt="Car Image">
