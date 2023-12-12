@@ -3,7 +3,7 @@
 <%@ page import="client.vo.CenterBean"%>
 <html>
 <head>
-<link rel="shortcuticon" href="img/favicon.ico">
+<link rel="shortcut icon" href="img/favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
 <title>MotionVolt</title>
 <script>
