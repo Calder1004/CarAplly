@@ -21,7 +21,7 @@
 	<jsp:include page="header.jsp" />
 	<%-- <jsp:include page="header.jsp" /> --%>
 	<!-- 큰 슬라이더 시작-->
-	<div class="swiper banner-swiper" >
+	<div class="swiper banner-swiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/CAR_E2.jpg" alt="1" /></a>
@@ -79,83 +79,63 @@
 	<div class="swiper content-swiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/LC500.png" alt="" /></a>
+				<a href="#"><img src="img/carList/LC500h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-						Deleniti, pariatur autem dolorum magni voluptatum harum dicta
-						itaque ea delectus voluptatem!</p>
+					<p>LC500</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250hFSPORT.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Voluptatem odio iste maxime id dolor? Earum odit fugiat vitae
-						architecto dolorem?</p>
+					<p>UX250hFSPORT</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250h2WD.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Perspiciatis ratione ea placeat. Recusandae dolor repudiandae
-						ratione vero tenetur culpa cumque.</p>
+					<p>UX250h2WD</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LS500.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Natus dicta optio ex totam soluta aliquid sit quasi praesentium,
-						vero ullam!</p>
+					<p>LS500</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Repudiandae alias inventore magnam aperiam odit quibusdam
-						praesentium fuga itaque. Quas, dicta!</p>
+					<p>ES300</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						Iste ut eaque itaque maxime praesentium quidem dolorem, minima aut
-						id omnis.</p>
+					<p>ES300h</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<a href="#"><img src="img/carList/NX450h+.png" alt="" /></a>
+				<a href="#"><img src="img/carList/NX450h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Ipsum tempora, quo voluptatum corporis corrupti fugit? Veniam
-						vitae cumque placeat officia?</p>
+					<p>NX450h</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h+FSPORT.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-						Dignissimos, nesciunt sint! Natus soluta adipisci, sequi
-						accusantium quas officiis deserunt beatae!</p>
+					<p>NX450h+FSPORT</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX350h.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Suscipit quae sint officia facere molestiae sunt quisquam
-						quibusdam hic expedita eius.</p>
+					<p>RX350h</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX450h+.png" alt="" /></a>
 				<div class="tooltip">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-						Doloribus error, facere aspernatur repudiandae ipsam consequatur
-						unde vitae facilis expedita earum.</p>
+					<p>RX450h+</p>
 				</div>
 			</div>
 		</div>

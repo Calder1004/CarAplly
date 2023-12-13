@@ -16,7 +16,7 @@
 <nav class="bg-white p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center h-16">
         <a href="main.jsp" class="flex items-center">
-            <img src="img/logo/MVlogo3.png" alt="MotionVolt Logo" class="h-10 w-auto mr-2">
+            <img src="img/logo/mainlogo.png" alt="MotionVolt Logo" class="ml-1 h-13 w-14 mr-8">
         </a>
 		<div class="ml-4 flex space-x-6 m-auto">
             <a href="#" class="text-stone-900 font-bold text-base hover:text-slate-600">MODEL</a>
