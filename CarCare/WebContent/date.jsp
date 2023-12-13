@@ -6,74 +6,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="img/favicon.ico">
-<script src="js/date.js" defer></script>
+<!-- <script src="js/date.js" defer></script> -->
 <title>MotionVolt</title>
 
 <script>
-const dateInput = document.getElementById('inputDate');
-
 function submitForm() {
-   const selectedDateElement = document.getElementById("inputDate");
+    const form = document.getElementById("datePost");
+    form.method = "post";
+    form.action = "user.car";
 
-   if (selectedDateElement) {
-      const selectedDate = selectedDateElement.value;
-      const selectedId = '${id}';
-      const selectedOptionId = '${optionId}';
+    const optionIdInput = document.createElement("input");
+    optionIdInput.type = "hidden";
+    optionIdInput.name = "optionId";
+    optionIdInput.value = "${optionId}";
 
-      if (!isNaN(selectedId)) {
-         var form = document.createElement("form");
-         form.method = "post";
-         form.action = "user.car";
+    const idInput = document.createElement("input");
+    idInput.type = "hidden";
+    idInput.name = "id";
+    idInput.value = "${id}";
 
-         var hiddenField = document.createElement("input");
-         hiddenField.type = "hidden";
-         hiddenField.name = "selectedDate";
-         hiddenField.value = selectedDate;
-         form.appendChild(hiddenField);
 
-         var idInput = document.createElement("input");
-         idInput.type = "hidden";
-         idInput.name = "id";
-         idInput.value = selectedId;
-         form.appendChild(idInput);
+    form.appendChild(optionIdInput);
+    form.appendChild(idInput);
 
-         var optionIdsInput = document.createElement("input");
-         optionIdsInput.type = "hidden";
-         optionIdsInput.name = "optionId";
-         optionIdsInput.value = selectedOptionId;
-         form.appendChild(optionIdsInput);
-
-         document.body.appendChild(form);
-         form.submit();
-      } else {
-         console.error("검증되지 안음:", selectedId);
-      }
-   } 
+    // 폼 제출
+    form.submit();
 }
-
 </script>
+
 </head>
-<body>
         <jsp:include page="header.jsp" />
+<body>
+        <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > Center > <span class="text-gray-400 font-thin">Date</span></h1>
     <div class="container mx-auto p-4">
 
-        <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > Center > <span class="text-gray-400 font-thin">Date</span></h1>
-
-        <form id="myForm" class="mt-8">
-            <label for="inputDate" class="block text-gray-700">시승 날짜 선택:</label>
-            <input type="date" id="inputDate" name="selectedDate" required
-                class="mt-1 p-2 border rounded-md w-full focus:outline-none focus:border-blue-500">
-
-            <input type="hidden" id="inputId" name="selectedId" required>
-            <input type="hidden" id="inputOptionId" name="selectedOptionId" required>
-
-            <button type="button" onclick="submitForm()"
-                class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600">
-                제출
-            </button>
-        </form>
+	<form id="datePost" class="max-w-md mx-auto bg-gray-100 p-6 rounded-md shadow-md">
+	    <input type="date" id="inputDate" name="date" required class="mb-4 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
+	    <button type="button" onclick="submitForm()" class="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
+	        제출
+	    </button>
+	</form>
 
     </div>
         <jsp:include page="footer.jsp" />
 </body>
 </html>
+       

@@ -24,6 +24,8 @@ import client.dao.CarDAO;
 import client.vo.KaKaoBean;
 
 public class KaKaoService {
+	
+	// Token ¾ò¾î¿È
     public static String getAccessToken(String authorizeCode) throws ParseException {
         String accessToken = "";
         String refreshToken = "";
@@ -72,7 +74,7 @@ public class KaKaoService {
 
         return accessToken;
     }
-
+    
     public Map<String, Object> KaKaogetUserInfo(String access_token) throws IOException {
         String host = "https://kapi.kakao.com/v2/user/me";
         Map<String, Object> result = new HashMap<>();
@@ -91,19 +93,16 @@ public class KaKaoService {
             {
                 res+=line;
             }
-            System.out.println(res);
-
-
+    
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject) parser.parse(res);
-            System.out.println(obj);
-            JSONObject properties = (JSONObject) obj.get("properties");
-            System.out.println(properties);
 
+            JSONObject properties = (JSONObject) obj.get("properties");
+   
             String id = obj.get("id").toString();
             String connected_at = obj.get("connected_at").toString();
             String nickname = properties.get("nickname").toString();
-            System.out.println(nickname);
+      
             result.put("id", id);
             result.put("nickname", nickname);
             result.put("connected_at", connected_at);

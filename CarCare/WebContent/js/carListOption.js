@@ -1,5 +1,4 @@
-
-	function redirectToCenter(id) {
+function redirectToCenter(id) {
 		var form = document.createElement("form");
 		form.method = "post";
 		form.action = "center.car";

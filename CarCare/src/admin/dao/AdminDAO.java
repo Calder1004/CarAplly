@@ -278,8 +278,7 @@ public class AdminDAO {
 				String brandName = rs.getString("name");
 		          Map<Integer, String> brandInfo = new HashMap<>();
 		            brandInfo.put(brandId, brandName);
-		            brandList.add(brandInfo);
-				 System.out.println("Brand ID: " + brandId + ", Brand Name: " + brandName);
+		            brandList.add(brandInfo);	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -306,10 +305,7 @@ public class AdminDAO {
 
 	            Map<Integer, String> modelInfo = new HashMap<>();
 	            modelInfo.put(modelId, modelName); // key와 value의 순서 변경
-
 	            modelList.add(modelInfo);
-
-	            System.out.println("Model ID: " + modelId + ",  ModelName: " + modelName);
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

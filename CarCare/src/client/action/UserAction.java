@@ -15,7 +15,7 @@ public class UserAction implements Action {
         String selectedIdString = request.getParameter("id");
         int centerid = (selectedIdString != null && !selectedIdString.isEmpty()) ? Integer.parseInt(selectedIdString) : 0;
 
-        String date = request.getParameter("selectedDate");
+        String date = request.getParameter("date");
         String optionId = request.getParameter("optionId");
 
         HttpSession session = request.getSession();
