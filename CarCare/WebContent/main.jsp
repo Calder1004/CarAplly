@@ -18,7 +18,7 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-	<jsp:include page="test333.jsp" />
+	<jsp:include page="header.jsp" />
 	<%-- <jsp:include page="header.jsp" /> --%>
 	<!-- 큰 슬라이더 시작-->
 	<div class="swiper banner-swiper">
@@ -206,6 +206,6 @@
 		</div>
 	</div>
 	<!-- Support Card 끝 -->
-	<jsp:include page="footertest.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -9,23 +9,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
+<script src="js/carListOption.js"></script>
 <title>MotionVolt</title>
-<script>
-	function redirectToCenter(id) {
-		var form = document.createElement("form");
-		form.method = "post";
-		form.action = "center.car";
-
-		var idInput = document.createElement("input");
-		idInput.type = "hidden";
-		idInput.name = "id";
-		idInput.value = id;
-		form.appendChild(idInput);
-
-		document.body.appendChild(form);
-		form.submit();
-	}
-</script>
 <style>
 	* {
 		font-family: 'Noto Sans KR', sans-serif;	
@@ -33,7 +18,7 @@
 </style>
 </head>
 <body class="flex flex-col min-h-screen">
-    <jsp:include page="test333.jsp" />
+    <jsp:include page="header.jsp" />
     <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > <span class="text-gray-400 font-thin">Option</span></h1>
     <a href="javascript:history.back()" class="flex items-center justify-center border rounded-md w-8/12 h-10 mx-auto mt-4 p-5 block hover:bg-gray-800 hover:text-white transition duration-300">뒤로 돌아가기</a>
     <div class="flex container mx-auto overflow-hidden">
@@ -67,6 +52,6 @@
 		    </c:if>
         </div>
     </div>
- <jsp:include page="footertest.jsp" />
+ <jsp:include page="footer.jsp" />
 </body>
 </html>

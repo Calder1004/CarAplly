@@ -6,7 +6,8 @@
 <link rel="shortcut icon" href="img/favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
 <title>MotionVolt</title>
-<script>
+<script src="js/center.js" defer></script>
+<!-- <script>
 	function submit(id, optionId) {
 		var form = document.createElement("form");
 		form.method = "post";
@@ -27,11 +28,11 @@
 		document.body.appendChild(form);
 		form.submit();
 	}
-</script>
+</script> -->
 
 </head>
 <body>
-	<jsp:include page="test333.jsp" />
+	<jsp:include page="header.jsp" />
 		<h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > <span class="text-gray-400 font-thin">Center</span> </h1>
 		<a href="javascript:history.back()" class="flex items-center justify-center border rounded-md w-8/12 h-10 mx-auto mt-4 p-5 block hover:bg-gray-800 hover:text-white transition duration-300">뒤로 돌아가기</a>
 	<div class="flex container mx-auto overflow-hidden">
@@ -52,6 +53,6 @@
 		</div>
 	</c:if>
 	</div>
-	<jsp:include page="footertest.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

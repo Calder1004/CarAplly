@@ -163,7 +163,7 @@ h1 {
 
 </head>
 <body>
-	<jsp:include page="test333.jsp" />
+	<jsp:include page="header.jsp" />
 		<h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > <span class="text-gray-400 font-thin">Center</span> </h1>
 	<c:if test="${not empty center}">
 		<div class="popup-wrapper">
@@ -210,6 +210,6 @@ h1 {
 			</table>
 		</div>
 	</c:if>
-	<jsp:include page="footertest.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
