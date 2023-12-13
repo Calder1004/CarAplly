@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,13 +51,10 @@
     </style>
 </head>
 <body>
+	<jsp:include page="header.jsp" />
     <h2>Test Drive Approval</h2>
     
     <table>
-        <tr>
-            <th>ID:</th>
-            <td>${kakaoid}</td>
-        </tr>
         <tr>
             <th>Nickname:</th>
             <td>${nickname}</td>
@@ -79,5 +76,6 @@
         <input type="hidden" name="date" value="${date}">
         <input type="submit" value="예약신청">
     </form>
+    	<jsp:include page="footer.jsp" />
 </body>
 </html>

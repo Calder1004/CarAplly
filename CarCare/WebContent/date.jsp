@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="img/favicon.ico">
-<!-- <script src="js/date.js" defer></script> -->
+<script src="js/date.js" defer></script>
 <title>MotionVolt</title>
-
+<!-- 
 <script>
 function submitForm() {
     const form = document.getElementById("datePost");
@@ -32,23 +32,23 @@ function submitForm() {
     // 폼 제출
     form.submit();
 }
-</script>
+</script> -->
 
 </head>
-        <jsp:include page="header.jsp" />
+<jsp:include page="header.jsp" />
 <body>
         <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > Center > <span class="text-gray-400 font-thin">Date</span></h1>
     <div class="container mx-auto p-4">
 
 	<form id="datePost" class="max-w-md mx-auto bg-gray-100 p-6 rounded-md shadow-md">
 	    <input type="date" id="inputDate" name="date" required class="mb-4 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
-	    <button type="button" onclick="submitForm()" class="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
+	    <button type="button" onclick="submitForm('${id}', '${optionId}')" class="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
 	        제출
 	    </button>
 	</form>
 
     </div>
-        <jsp:include page="footer.jsp" />
+<jsp:include page="footer.jsp" />
 </body>
 </html>
        
