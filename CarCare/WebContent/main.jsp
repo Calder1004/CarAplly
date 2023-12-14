@@ -80,62 +80,62 @@
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LC500h.png" alt="" /></a>
-				<div class="tooltip">
-					<p>LC500</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand Name : MotionVolt <br> Model name :  MV-500 / deep sea</p> 	 	
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250hFSPORT.png" alt="" /></a>
-				<div class="tooltip">
-					<p>UX250hFSPORT</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-250hFSPORT / cobalt</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/UX250h2WD.png" alt="" /></a>
-				<div class="tooltip">
-					<p>UX250h2WD</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-250h2WD / dark orange</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/LS500.png" alt="" /></a>
-				<div class="tooltip">
-					<p>LS500</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-500 / sliver</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300.png" alt="" /></a>
-				<div class="tooltip">
-					<p>ES300</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-300 / indigo</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/ES300h.png" alt="" /></a>
-				<div class="tooltip">
-					<p>ES300h</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-300h / gray</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h.png" alt="" /></a>
-				<div class="tooltip">
-					<p>NX450h</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : NV-450h / light cool </p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/NX450h+FSPORT.png" alt="" /></a>
-				<div class="tooltip">
-					<p>NX450h+FSPORT</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-450h+FSPORT / navy</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX350h.png" alt="" /></a>
-				<div class="tooltip">
-					<p>RX350h</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-350h / rust</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<a href="#"><img src="img/carList/RX450h+.png" alt="" /></a>
-				<div class="tooltip">
-					<p>RX450h+</p>
+				<div class="tooltip flex items-center justify-center">
+					<p>Brand name : MotionVolt <br> Model name : MV-450h+ / white</p>
 				</div>
 			</div>
 		</div>
