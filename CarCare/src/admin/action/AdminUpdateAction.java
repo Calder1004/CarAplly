@@ -25,14 +25,14 @@ public class AdminUpdateAction implements Action {
 		boolean state = Boolean.parseBoolean(request.getParameter("state"));
 	
 		AdminUpdateService svc = new AdminUpdateService();
-		AdminDriveSelectBean bean = new AdminDriveSelectBean();
-			bean.setId(id);
-			bean.setCarId(carId);
-			bean.setDate(date);
-			bean.setModel(model);
-			bean.setName(name);
-			bean.setState(state);
-		boolean result = svc.admUpd(id, bean);
+		AdminDriveSelectBean UpdateList = new AdminDriveSelectBean();
+			UpdateList.setId(id);
+			UpdateList.setCarId(carId);
+			UpdateList.setDate(date);
+			UpdateList.setModel(model);
+			UpdateList.setName(name);
+			UpdateList.setState(state);
+		boolean result = svc.admUpd(id, UpdateList);
 	    if (result) {
             return new ActionForward("dashboard.jsp", false);
         } else {

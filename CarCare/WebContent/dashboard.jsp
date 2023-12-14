@@ -306,14 +306,13 @@ a:hover {
 				<li><a href="adminSelect.car">[1]예약조회 및 관리</a></li>
 				<li><a href="adminProductSelect.car">[2]등록된 자동차 조회</a></li>
 				<li><a href="adminPostProduct.car">[3]자동차 상품 등록</a>
-				<li>
 			</ul>
 		</div>
 		<div class="right">
 			<div class="title">${userRole}님의관리자페이지</div>
 			<div class="content">영역구분/유동적으로 메뉴 불러오는 부분</div>
 
-			<c:if test="${list != null}">
+			<c:if test="${not empty list}">
 				<div class="inner">
 					<table class="data-table">
 						<thead>
@@ -364,39 +363,40 @@ a:hover {
 					</table>
 				</div>
 			</c:if>
-			<c:if test="${ bean != null}">
+			<c:if test="${not empty ModifyList}">
 				<div class="modal" id="editModal">
 					<div class="modal-content">
 						<form id="editForm" action="adminUpdate.car" method="post">
 							<label for="editId">예약번호:</label> <input type="text" id="editId"
-								name="id" value="${bean.id}" readonly> <label
+								name="id" value="${ModifyList.id}" readonly> <label
 								for="editDate">예약날짜:</label> <input type="text" id="editDate"
-								name="date" value="${bean.date}"> <label
-								for="editOptionId">모델/옵션변경:</label> <select name="carId"
-								id="editOptionId">
-								<option selected>모델/옵션선택</option>
-								<option value="1">모델:LS500 색상:SONIC IRIDIUM #CC 3456 :
-									#KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
-								<option value="2">모델:LS500 색상:GRAPHITE BLAK</option>
-								<option value="3">모델:ES300 색상:LUNAR LUSTER</option>
-								<option value="4">모델:ES300 색상:SONIC TITANIUM</option>
-								<option value="5">모델:ES300H 색상:SONIC QUARTZ</option>
-								<option value="6">Option ID:6 색상:HEAT BLUE CONTRAS</option>
-								<option value="7">Option ID:7 색상:GRAPAHITE BLACK</option>
-								<option value="8">Option ID:8 색상:DEEP BLUE MIKA</option>
-								<option value="9">Option ID:9 색상:SONIC COOPER</option>
-							</select> <label for="editModel">현재 모델:</label> <input type="text"
-								id="editModel" name="model" value="${bean.model}" readonly>
+								name="date" value="${ModifyList.date}"> <label
+								for="editOptionId">모델/옵션변경:</label> 
+								<select name="carId" id="editOptionId">
+									<option selected>모델/옵션선택</option>
+									<option value="1">모델:LS500 색상:SONIC IRIDIUM #CC 3456 :
+										#KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
+									<option value="2">모델:LS500 색상:GRAPHITE BLAK</option>
+									<option value="3">모델:ES300 색상:LUNAR LUSTER</option>
+									<option value="4">모델:ES300 색상:SONIC TITANIUM</option>
+									<option value="5">모델:ES300H 색상:SONIC QUARTZ</option>
+									<option value="6">Option ID:6 색상:HEAT BLUE CONTRAS</option>
+									<option value="7">Option ID:7 색상:GRAPAHITE BLACK</option>
+									<option value="8">Option ID:8 색상:DEEP BLUE MIKA</option>
+									<option value="9">Option ID:9 색상:SONIC COOPER</option>
+								</select> 
+							<label for="editModel">현재 모델:</label> <input type="text"
+								id="editModel" name="model" value="${ModifyList.model}" readonly>
 							<label for="editName">이름:</label> <input type="text"
-								id="editName" name="name" value="${bean.name}" readonly>
+								id="editName" name="name" value="${ModifyList.name}" readonly>
 							<label for="editState">예약상태</label> <input type="text"
-								id="editState" name="state" value="${bean.state}">
+								id="editState" name="state" value="${ModifyList.state}">
 							<button type="submit" class="edit-btn">수정</button>
 						</form>
 					</div>
 				</div>
 			</c:if>
-			<c:if test="${prdList != null and prdList != ''}">
+			<c:if test="${not empty prdList}">
 				<table class="data-table-prdList">
 					<thead>
 						<tr>
@@ -424,53 +424,70 @@ a:hover {
 					</tbody>
 				</table>
 			</c:if>
-	<c:if test="${brandList != null and brandList != ''}">
+	<script>
+    // 작업이 끝난 후 페이지를 다시로드하는 함수
+    function reloadPage() {
+        location.reload(true); // true 매개변수는 캐시를 무시하고 서버에서 새로운 내용을 다시로드합니다.
+    }
+
+    // 모든 form에 대해 submit 이벤트를 가로채고 작업이 끝나면 reloadPage 함수를 호출합니다.
+    document.querySelectorAll('form').forEach(function(form) {
+        form.addEventListener('submit', function() {
+            // 여기에 작업 완료 후의 추가 로직을 추가할 수 있습니다.
+
+            // 페이지 다시로드
+            reloadPage();
+        });
+    });
+</script>		
+	<c:if test="${not empty brandList}">
     <div class="form-container">
         <form action="adminBrandWrite.car" method="post">
             <h2>브랜드 등록</h2>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
             <button type="submit">등록</button>
         </form>
         <br>
         <form action="adminModelWrite.car" method="post">
             <h2>모델 등록</h2>
             <label for="brand">브랜드:</label>
-            <select id="brand" name="carBrandId">
+            <select id="brand" name="carBrandId" required>
                 <c:forEach var="brandMap" items="${brandList}">
                     <c:forEach var="entry" items="${brandMap}">
+                     <option value="" disabled selected hidden>브랜드를 선택하세요</option>
                         <option value="${entry.key}">${entry.value}</option>
                     </c:forEach>
                 </c:forEach>
             </select>
             <label for="model">모델:</label>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
             <button type="submit">등록</button>
         </form>
     </div>
 </c:if>
-
-<c:if test="${modelList != null and modelList != ''}">
-    <div class="form-container">
-        <form action="adminCarOptionWrite.car" method="post">
-        <h2>자동차 옵션 등록</h2>
-            <label for="model">모델:</label>
-            <select id="brand" name="carId">
-                <c:forEach var="ModelMap" items="${modelList}">
-                    <c:forEach var="entry" items="${ModelMap}">
-                        <option value="${entry.key}">${entry.value}</option>
-                    </c:forEach>
-                </c:forEach>
-            </select>
-            <br> 
-            색상:<input type="text" name="color"><br>
-            CC:<input type="number" name="cc"><br>
-            KM:<input type="number" name="km"><br>
-            가격:<input type="number" name="price"><br>
-            등급:<input type="text" name="grade"><br>
-            <button type="submit">등록</button>
-        </form>
-    </div>
-</c:if>
+	
+	<c:if test="${not empty modelList}">
+	    <div class="form-container">
+	        <form action="adminCarOptionWrite.car" method="post">
+	        <h2>자동차 옵션 등록</h2>
+	            <label for="model">모델:</label>
+	            <select id="brand" name="carId" required>
+	                <c:forEach var="ModelMap" items="${modelList}">
+	                    <c:forEach var="entry" items="${ModelMap}">
+	                        <option value="${entry.key}">${entry.value}</option>
+	                    </c:forEach>
+	                </c:forEach>
+	            </select>
+	            <br> 
+	            색상:<input type="text" name="color" required><br>
+	            CC:<input type="number" name="cc" required><br>
+	            KM:<input type="number" name="km" required><br>
+	            가격:<input type="number" name="price" required><br>
+	            등급:<input type="text" name="grade" required><br>
+	            <button type="submit">등록</button>
+	        </form>
+	    </div>
+	</c:if>
 		</div>
 	</div>
 </body>

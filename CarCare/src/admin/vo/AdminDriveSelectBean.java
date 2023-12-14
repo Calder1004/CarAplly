@@ -5,6 +5,17 @@ import java.sql.Date;
 
 public class AdminDriveSelectBean {
 	public AdminDriveSelectBean() {}
+	//UpdateActionConst
+
+	public AdminDriveSelectBean(int id, int carId, Date date, String model, String name, boolean state) {
+		super();
+		this.id = id;
+		this.carId = carId;
+		this.date = date;
+		this.model = model;
+		this.name = name;
+		this.state = state;
+	}
 	public AdminDriveSelectBean(int id, Date date, String model, String name, int cc, String color, String grade,
 			int km, double price, boolean state) {
 		this.id = id;

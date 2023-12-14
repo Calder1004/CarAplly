@@ -33,6 +33,7 @@ public class TestDriveAction implements Action {
 		            java.util.Date utilDate = formatter.parse(dateString);
 		            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		            System.out.println();
+		            // param 값 전달 svc에
 		            insertTestDrive(centerId, kakaouserId, caroptionId, sqlDate);
 
 		            forward = new ActionForward("main.jsp", false);

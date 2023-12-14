@@ -18,9 +18,11 @@ public class AdminUpdateFormAction implements Action{
 		int id = (idParameter != null && !idParameter.isEmpty()) ? Integer.parseInt(idParameter) : 0;
 
         AdminUpdateService svc = new AdminUpdateService();
-        AdminDriveSelectBean bean = svc.getAdminData(id);
         
-        request.setAttribute("bean", bean);
+        //id값 얻어서 조회
+        AdminDriveSelectBean ModifyList = svc.getAdminData(id);
+        
+        request.setAttribute("ModifyList", ModifyList);
         
         forward = new ActionForward("dashboard.jsp", false);
 
