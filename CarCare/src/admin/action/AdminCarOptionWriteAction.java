@@ -1,4 +1,6 @@
 package admin.action;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,9 +45,23 @@ public class AdminCarOptionWriteAction implements Action{
 		}
 		
 		AdminProductWriteService svc = new AdminProductWriteService();
-		svc.insertCarOption(carId, color, cc, km, price, grade);
-		
-		forward = new ActionForward("dashboard.jsp", false);
+		int check = svc.insertCarOption(carId, color, cc, km, price, grade);
+		if(check > 0) {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('옵션 등록에 성공하셨습니다')");
+			out.println("window.location='adminPostProduct.car'");
+			out.println("</script>");
+		} else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('옵션 등록에 실패하였습니다.')");
+			out.println("window.location='adminPostProduct.car'");
+			out.println("</script>");
+		}
+
 		return forward;
 	}
 	

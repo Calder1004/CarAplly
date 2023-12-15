@@ -1,7 +1,7 @@
 package admin.action;
 
+import java.io.PrintWriter;
 import java.sql.Date;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +15,7 @@ public class AdminUpdateAction implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ActionForward forward = null;
 		request.setCharacterEncoding("UTF-8");
 		
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -34,10 +35,21 @@ public class AdminUpdateAction implements Action {
 			UpdateList.setState(state);
 		boolean result = svc.admUpd(id, UpdateList);
 	    if (result) {
-            return new ActionForward("dashboard.jsp", false);
+	    	response.setContentType("text/html;charset=utf-8");
+	    	PrintWriter out = response.getWriter();
+	    	out.println("<script>");
+	    	out.println("alert('예약 수정 완료')");
+	    	out.println("window.location='adminSelect.car'");
+	    	out.println("</script>");
         } else {
-            return new ActionForward("admindenied.jsp", false);
+	    	response.setContentType("text/html;charset=utf-8");
+	    	PrintWriter out = response.getWriter();
+	    	out.println("<script>");
+	    	out.println("alert('예약 수정 실패')");
+	    	out.println("window.location='adminSelect.car'");
+	    	out.println("</script>");
         }
+	    return forward;
 	}
 
 }

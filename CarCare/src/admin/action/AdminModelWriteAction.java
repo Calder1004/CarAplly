@@ -29,9 +29,22 @@ public class AdminModelWriteAction implements Action {
 		
 		
 		AdminProductWriteService svc = new AdminProductWriteService();
-		svc.insertModel(carBrandId,name);
-
-		forward = new ActionForward("dashboard.jsp", false);
+		int check = svc.insertModel(carBrandId,name);
+		if (check >0 ) {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('모델 등록에 성공하셨습니다.')");
+			out.println("window.location='adminPostProduct.car'");
+			out.println("</script>");
+		} else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('모델 등록에 실패하셨습니다.')");
+			out.println("window.location='adminPostProduct.car'");
+			out.println("</script>");
+		}
 		return forward;
 	}
 

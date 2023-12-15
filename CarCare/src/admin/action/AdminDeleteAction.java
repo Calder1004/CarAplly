@@ -13,7 +13,7 @@ public class AdminDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward forward = new ActionForward();
+		ActionForward forward = null;
 		int id = Integer.parseInt(request.getParameter("id")); 
 		// ¼­ºñ½º 
 		AdminDeleteService svc = new AdminDeleteService();

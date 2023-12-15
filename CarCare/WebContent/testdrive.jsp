@@ -63,8 +63,6 @@
             <th>Date:</th>
             <td>${date}</td>
         </tr>
-
-
     </table>
 
     <form action="testdrive.car" method="post">
