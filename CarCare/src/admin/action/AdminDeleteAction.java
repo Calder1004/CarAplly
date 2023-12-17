@@ -8,13 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminDeleteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.WrapperConverter;
 
 public class AdminDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
-		int id = Integer.parseInt(request.getParameter("id")); 
+			
+		int id = WrapperConverter.parseInt.apply(request.getParameter("id"));
+		
 		// ¼­ºñ½º 
 		AdminDeleteService svc = new AdminDeleteService();
 		boolean useDelete = svc.removetdl(id);

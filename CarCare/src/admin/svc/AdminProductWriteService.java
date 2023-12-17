@@ -1,9 +1,6 @@
 package admin.svc;
 
-import static client.db.dbConn.close;
-import static client.db.dbConn.commit;
-import static client.db.dbConn.getConnection;
-import static client.db.dbConn.rollback;
+import static util.dbConnection.*;
 
 import java.sql.Connection;
 import java.util.List;

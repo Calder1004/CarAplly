@@ -311,8 +311,7 @@ a:hover {
 		<div class="right">
 			<div class="title">${userRole}님의관리자페이지</div>
 			<div class="content">영역구분/유동적으로 메뉴 불러오는 부분</div>
-
-			<c:if test="${not empty list}">
+			<c:if test="${not empty list} ">
 				<div class="inner">
 					<table class="data-table">
 						<thead>
@@ -363,6 +362,7 @@ a:hover {
 					</table>
 				</div>
 			</c:if>
+
 			<c:if test="${not empty ModifyList}">
 				<div class="modal" id="editModal">
 					<div class="modal-content">
@@ -372,8 +372,7 @@ a:hover {
 								for="editDate">예약날짜:</label> <input type="text" id="editDate"
 								name="date" value="${ModifyList.date}"> <label
 								for="editOptionId">모델/옵션변경:</label> 
-								<select name="carId" id="editOptionId">
-									<option selected>모델/옵션선택</option>
+								<select name="carId" id="editOptionId" required>
 									<option value="1">모델:LS500 색상:SONIC IRIDIUM #CC 3456 :
 										#KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
 									<option value="2">모델:LS500 색상:GRAPHITE BLAK</option>
@@ -389,8 +388,11 @@ a:hover {
 								id="editModel" name="model" value="${ModifyList.model}" readonly>
 							<label for="editName">이름:</label> <input type="text"
 								id="editName" name="name" value="${ModifyList.name}" readonly>
-							<label for="editState">예약상태</label> <input type="text"
-								id="editState" name="state" value="${ModifyList.state}">
+							<label for="editState">예약상태</label> 
+							<select id="editState" name="state">
+							    <option value="RESERVED" ${ModifyList.state == 'RESERVED' ? 'selected' : ''}>RESERVED</option>
+							    <option value="FAILED" ${ModifyList.state == 'FAILED' ? 'selected' : ''}>FAILED</option>
+							</select>
 							<button type="submit" class="edit-btn">수정</button>
 						</form>
 					</div>

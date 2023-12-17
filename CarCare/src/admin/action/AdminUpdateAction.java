@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import admin.svc.AdminUpdateService;
 import admin.vo.AdminDriveSelectBean;
+import admin.vo.AdminDriveSelectBean.States;
 import client.action.Action;
 import client.vo.ActionForward;
 
@@ -23,7 +24,7 @@ public class AdminUpdateAction implements Action {
 		Date date = Date.valueOf(request.getParameter("date"));
 		String model = request.getParameter("model");
 		String name = request.getParameter("name");
-		boolean state = Boolean.parseBoolean(request.getParameter("state"));
+		States state = States.valueOf(request.getParameter("state"));
 	
 		AdminUpdateService svc = new AdminUpdateService();
 		AdminDriveSelectBean UpdateList = new AdminDriveSelectBean();

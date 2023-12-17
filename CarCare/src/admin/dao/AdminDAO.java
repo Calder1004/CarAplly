@@ -1,6 +1,6 @@
 package admin.dao;
 
-import static client.db.dbConn.close;
+import static util.dbConnection.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import admin.vo.AdminDriveSelectBean;
+import admin.vo.AdminDriveSelectBean.States;
 import admin.vo.AdminProductSelectBean;
 
 public class AdminDAO {
@@ -76,7 +77,11 @@ public class AdminDAO {
 				bean.setGrade(rs.getString("grade"));
 				bean.setKm(rs.getInt("km"));
 				bean.setPrice(rs.getDouble("price"));
-				bean.setState(rs.getBoolean("state"));
+				// state 상태 stateValue에 할당
+	            boolean stateValue = rs.getBoolean("state");
+	            // state 변수 조건문 true면 Reserved, fail이면 failed
+	            States state = stateValue ? States.RESERVED : States.FAILED;
+	            bean.setState(state);
 				list.add(bean);
 			}
 		} catch (Exception e) {
@@ -103,7 +108,7 @@ public class AdminDAO {
 			pstmt.setDate(1, bean.getDate());
 			pstmt.setString(2, bean.getModel());
 			pstmt.setString(3, bean.getName());
-			pstmt.setInt(4, bean.isState() ? 1 : 0);
+			pstmt.setInt(4, bean.getState().getValue() ? 1 : 0);
 			pstmt.setInt(5, bean.getCarId());
 			pstmt.setInt(6, id);
 			check = pstmt.executeUpdate();
@@ -139,7 +144,7 @@ public class AdminDAO {
 				bean.setGrade(rs.getString("grade"));
 				bean.setKm(rs.getInt("km"));
 				bean.setPrice(rs.getDouble("price"));
-				bean.setState(rs.getBoolean("state"));
+				bean.setState(rs.getBoolean("state") ? States.RESERVED : States.FAILED);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

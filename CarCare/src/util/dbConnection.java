@@ -1,9 +1,9 @@
-package client.db;
+package util;
 import java.sql.*;
 import javax.naming.*;
 import javax.sql.DataSource;
 
-public class dbConn {
+public class dbConnection {
 	
 	public static Connection getConnection() {
 		Connection con = null;

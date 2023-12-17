@@ -7,7 +7,7 @@ public class AdminDriveSelectBean {
 	public AdminDriveSelectBean() {}
 	//UpdateActionConst
 
-	public AdminDriveSelectBean(int id, int carId, Date date, String model, String name, boolean state) {
+	public AdminDriveSelectBean(int id, int carId, Date date, String model, String name, States state) {
 		super();
 		this.id = id;
 		this.carId = carId;
@@ -17,7 +17,7 @@ public class AdminDriveSelectBean {
 		this.state = state;
 	}
 	public AdminDriveSelectBean(int id, Date date, String model, String name, int cc, String color, String grade,
-			int km, double price, boolean state) {
+			int km, double price, States state) {
 		this.id = id;
 		this.date = date;
 		this.model = model;
@@ -83,12 +83,6 @@ public class AdminDriveSelectBean {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public boolean isState() {
-		return state;
-	}
-	public void setState(boolean state) {
-		this.state = state;
-	}
 	
 	public int getCarId() {
 		return carId;
@@ -97,6 +91,13 @@ public class AdminDriveSelectBean {
 		this.carId = carId;
 	}
 	
+	public States getState() {
+		return state;
+	}
+	
+	public void setState(States state) {
+		this.state = state;
+	}
 
 	private int id;
 	private int carId;
@@ -108,7 +109,22 @@ public class AdminDriveSelectBean {
 	private String grade;
 	private int km;
 	private double price;
-	private boolean state;
-
+	private States state;
 	
+
+	public enum States {
+	    RESERVED(true),
+	    FAILED(false),
+	    ;
+	
+	    private final boolean value;
+	
+	    States(boolean value) {
+	        this.value = value;
+	    }
+	
+	    public boolean getValue() {
+	        return value;
+	    }
+	}
 }
