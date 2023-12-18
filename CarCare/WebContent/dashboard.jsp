@@ -80,7 +80,7 @@
 
     <div class="w-1/6 p-4">
         <div class="bg-white shadow-md p-6 rounded-md h-full">
-            <h2 class="text-lg font-semibold mb-4">대시보드 카드</h2>
+            <h2 class="text-lg font-semibold mb-4">자동차 판매량</h2>
             <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
             <div class="mt-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">2023-12-31</span>
@@ -91,11 +91,11 @@
 
     <div class="w-full p-4 h-full">
         <div class="bg-white shadow-md p-6 rounded-md h-full">
-            <h2 class="text-lg font-semibold mb-4">대시보드 카드</h2>
-            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
+            <h2 class="text-lg font-semibold mb-4">최신 인기순 모델</h2>	
             <div class="mt-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">2023-12-31</span>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">더 보기</button>
+            <p class="text-gray-600"><img src="img/carList/LS500h.png" class="w-30 rounded-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">></button>
             </div>
         </div>
     </div>
