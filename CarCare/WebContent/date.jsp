@@ -40,15 +40,15 @@ function submitForm() {
         <h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > Center > <span class="text-gray-400 font-thin">Date</span></h1>
     <div class="container mx-auto p-4">
 
-	<form id="datePost" class="max-w-md mx-auto bg-gray-100 p-6 rounded-md shadow-md">
-	    <input type="date" id="inputDate" name="date" required class="mb-4 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
-	    <button type="button" onclick="submitForm('${id}', '${optionId}')" class="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
+	<form id="datePost" class="max-w-md mx-auto bg-gray-100 p-6 rounded-md shadow-md" onsubmit="return validateForm()">
+	    <input type="date" id="datePost" name="date" required class="mb-4 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
+	    <button type="button" onclick="submitForm('${id}', '${optionId}')" class="w-full py-2 px-4 bg-black text-white rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
 	        제출
 	    </button>
 	</form>
 
     </div>
-<jsp:include page="footer.jsp" />
 </body>
+<jsp:include page="footer.jsp" />
 </html>
        

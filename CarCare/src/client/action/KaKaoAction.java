@@ -18,6 +18,7 @@ public class KaKaoAction implements Action {
         String accessToken = KaKaoService.getAccessToken(code);
         KaKaoService svc = new KaKaoService();
         Map<String, Object> userInfo = svc.KaKaogetUserInfo(accessToken);
+        
 
         long kakaoId = WrapperConverter.parseLong.apply(((String) userInfo.get("id")));
         String nickname = (String) userInfo.get("nickname");
@@ -37,6 +38,7 @@ public class KaKaoAction implements Action {
 
         try {
             String code = request.getParameter("code");
+            response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
             getKaKaoUserInfoAndInsertUser(request, code);
 
             forward = new ActionForward("testdrive.jsp", false);

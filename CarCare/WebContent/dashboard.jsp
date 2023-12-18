@@ -93,15 +93,15 @@
         <div class="bg-white shadow-md p-6 rounded-md h-full">
             <h2 class="text-lg font-semibold mb-4">최신 인기순 모델</h2>	
             <div class="mt-4 flex justify-between items-center">
-                <span class="text-sm text-gray-500">2023-12-31</span>
-            <p class="text-gray-600"><img src="img/carList/LS500h.png" class="w-30 rounded-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">></button>
+                <button class="bg-black text-white px-4 py-2 rounded hover:bg-blue-700"><</button>
+          		<img src="img/carList/LS500h.png" class="w-30 rounded-md">
+                <button class="bg-black text-white px-4 py-2 rounded hover:bg-blue-700">></button>
             </div>
+            <p class="text-center">LX-500H</p>
         </div>
     </div>
     
 </div>
-
 </c:if>
 
 
