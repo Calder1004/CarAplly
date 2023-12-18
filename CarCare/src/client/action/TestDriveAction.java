@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import client.svc.TestDriveService;
 import client.vo.ActionForward;
 import client.vo.TestDriveBean;
+import util.WrapperConverter;
 
 public class TestDriveAction implements Action {
 	    
@@ -24,15 +25,24 @@ public class TestDriveAction implements Action {
 		        try {
 		            request.setCharacterEncoding("utf-8");
 		            ActionForward forward = null;
-		            int centerId = Integer.parseInt(request.getParameter("centerid"));
-		            long kakaouserId = Long.parseLong(request.getParameter("kakaoid"));
-		            int caroptionId = Integer.parseInt(request.getParameter("optionId"));
-		            String dateString = request.getParameter("date");
+		            int centerId = WrapperConverter.parseInt.apply(request.getParameter("centerId"));
+		            long kakaouserId = WrapperConverter.parseLong.apply(request.getParameter("kakaoId"));
+		            int caroptionId = WrapperConverter.parseInt.apply(request.getParameter("optionId"));
+					/*
+					 * int centerId = Integer.parseInt(request.getParameter("centerid")); long
+					 * kakaouserId = Long.parseLong(request.getParameter("kakaoid")); int
+					 * caroptionId = Integer.parseInt(request.getParameter("optionId"));
+					 */
+		            String date = request.getParameter("date");
 		            
+		            // date 포맷 방식  설정
 		            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		            java.util.Date utilDate = formatter.parse(dateString);
+		            
+		            // utildate로 변환
+		            java.util.Date utilDate = formatter.parse(date);
+		            // sqlDate로 변환
 		            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-		            System.out.println();
+		            
 		            // param 값 전달 svc에
 		            insertTestDrive(centerId, kakaouserId, caroptionId, sqlDate);
 

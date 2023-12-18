@@ -8,14 +8,18 @@ import admin.svc.AdminUpdateService;
 import admin.vo.AdminDriveSelectBean;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.WrapperConverter;
 
 public class AdminUpdateFormAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
-		String idParameter = request.getParameter("id");
-		int id = (idParameter != null && !idParameter.isEmpty()) ? Integer.parseInt(idParameter) : 0;
+		
+		int id = WrapperConverter.parseInt.apply(request.getParameter("id"));
+		
+//		String idParameter = request.getParameter("id");
+//		int id = (idParameter != null && !idParameter.isEmpty()) ? Integer.parseInt(idParameter) : 0;
 
         AdminUpdateService svc = new AdminUpdateService();
         

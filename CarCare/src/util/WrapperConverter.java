@@ -8,4 +8,5 @@ public class WrapperConverter {
     public static final Function<String, Long> parseLong = Long::parseLong;
     public static final Function<String, Date> parseDate = Date::valueOf;
     public static final Function<String, Boolean> parseBoolean = Boolean::parseBoolean;
+    public static final Function<String, Double> parseDouble = Double::parseDouble;
 }

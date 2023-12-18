@@ -311,7 +311,7 @@ a:hover {
 		<div class="right">
 			<div class="title">${userRole}님의관리자페이지</div>
 			<div class="content">영역구분/유동적으로 메뉴 불러오는 부분</div>
-			<c:if test="${not empty list} ">
+			<c:if test="${not empty list}">
 				<div class="inner">
 					<table class="data-table">
 						<thead>

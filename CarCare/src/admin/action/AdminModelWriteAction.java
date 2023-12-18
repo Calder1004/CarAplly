@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminProductWriteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.WrapperConverter;
 
 public class AdminModelWriteAction implements Action {
 
@@ -16,17 +17,9 @@ public class AdminModelWriteAction implements Action {
 		ActionForward forward = null;
 		
 		// param 받음
-		String carBrandIdParam = request.getParameter("carBrandId");
-		// carBrandId 초깃값 설정
-		int carBrandId = 0;
+		int carBrandId = WrapperConverter.parseInt.apply(request.getParameter("carBrandId"));
 		String name = request.getParameter("name");
-		
-		
-		
-		if(carBrandIdParam != null && !carBrandIdParam.isEmpty()) {
-		  carBrandId = Integer.parseInt(carBrandIdParam);
-		}
-		
+
 		
 		AdminProductWriteService svc = new AdminProductWriteService();
 		int check = svc.insertModel(carBrandId,name);

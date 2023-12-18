@@ -7,43 +7,23 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminProductWriteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.WrapperConverter;
 
 public class AdminCarOptionWriteAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
-		String carIdparam = request.getParameter("carId");
-		String ccParam = request.getParameter("cc");
-		String kmParam = request.getParameter("km");
-		String priceParam = request.getParameter("price");
+		
+		int carId = WrapperConverter.parseInt.apply(request.getParameter("carId"));
+		int cc = WrapperConverter.parseInt.apply(request.getParameter("cc"));
+		int km = WrapperConverter.parseInt.apply(request.getParameter("km"));
+		double price = WrapperConverter.parseDouble.apply(request.getParameter("price"));
+
 		String color = request.getParameter("color");
 		String grade = request.getParameter("grade");
 
-		// carIdparam 값 확인
-		int carId = 0; // 기본값 설정
-		if (carIdparam != null && !carIdparam.isEmpty()) {
-		    carId = Integer.parseInt(carIdparam);
-		}
 
-		// ccParam 값 확인
-		int cc = 0; // 기본값 설정
-		if (ccParam != null && !ccParam.isEmpty()) {
-		    cc = Integer.parseInt(ccParam);
-		}
-
-		// kmParam 값 확인
-		int km = 0; // 기본값 설정
-		if (kmParam != null && !kmParam.isEmpty()) {
-		    km = Integer.parseInt(kmParam);
-		}
-
-		// priceParam 값 확인
-		double price = 0.0; // 기본값 설정
-		if (priceParam != null && !priceParam.isEmpty()) {
-		    price = Double.parseDouble(priceParam);
-		}
-		
 		AdminProductWriteService svc = new AdminProductWriteService();
 		int check = svc.insertCarOption(carId, color, cc, km, price, grade);
 		if(check > 0) {

@@ -14,7 +14,7 @@
 
 <c:set var="clientId" value="31a78ed0030ac205ddf12b4382b1b74a" />
 <c:set var="redirectUri" value="http://localhost:8084/CarCare/kakao.car" />
-<c:set var="kakaoAuthUrl" value="https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&centerid=${sessionScope.centerid}&date=${sessionScope.date}&optionid=${sessionScope.optionId}" />
+<c:set var="kakaoAuthUrl" value="https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&centerid=${sessionScope.centerId}&date=${sessionScope.date}&optionid=${sessionScope.optionId}" />
 <jsp:include page="header.jsp" />
 <!-- <script type="text/javascript">
     window.onload = function() {

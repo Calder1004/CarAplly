@@ -11,6 +11,7 @@ import admin.vo.AdminDriveSelectBean;
 import admin.vo.AdminDriveSelectBean.States;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.WrapperConverter;
 
 public class AdminUpdateAction implements Action {
 	
@@ -19,23 +20,20 @@ public class AdminUpdateAction implements Action {
 		ActionForward forward = null;
 		request.setCharacterEncoding("UTF-8");
 		
-		int id = Integer.parseInt(request.getParameter("id"));
-		int carId = Integer.parseInt(request.getParameter("carId"));
-		Date date = Date.valueOf(request.getParameter("date"));
+		int id = WrapperConverter.parseInt.apply(request.getParameter("id"));
+		int carId = WrapperConverter.parseInt.apply(request.getParameter("carId"));
+		Date date = WrapperConverter.parseDate.apply(request.getParameter("date"));
+		
 		String model = request.getParameter("model");
 		String name = request.getParameter("name");
 		States state = States.valueOf(request.getParameter("state"));
 	
 		AdminUpdateService svc = new AdminUpdateService();
-		AdminDriveSelectBean UpdateList = new AdminDriveSelectBean();
-			UpdateList.setId(id);
-			UpdateList.setCarId(carId);
-			UpdateList.setDate(date);
-			UpdateList.setModel(model);
-			UpdateList.setName(name);
-			UpdateList.setState(state);
+		AdminDriveSelectBean UpdateList = new AdminDriveSelectBean(id,carId,date,model,name,state);
+		
 		boolean result = svc.admUpd(id, UpdateList);
-	    if (result) {
+	    
+		if (result) {
 	    	response.setContentType("text/html;charset=utf-8");
 	    	PrintWriter out = response.getWriter();
 	    	out.println("<script>");
@@ -50,6 +48,7 @@ public class AdminUpdateAction implements Action {
 	    	out.println("window.location='adminSelect.car'");
 	    	out.println("</script>");
         }
+		
 	    return forward;
 	}
 

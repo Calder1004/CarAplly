@@ -57,7 +57,7 @@
     <table>
         <tr>
             <th>Nickname:</th>
-            <td>${nickname}</td>
+            <td>${nickname}님 환영합니다</td>
         </tr>
         <tr>
             <th>Date:</th>
@@ -66,10 +66,10 @@
     </table>
 
     <form action="testdrive.car" method="post">
-        <input type="hidden" name="kakaoid" value="${kakaoid}">
+        <input type="hidden" name="kakaoId" value="${kakaoId}">
         <input type="hidden" name="nickname" value="${nickname}">
         <input type="hidden" name="connected_at" value="${connected_at}">
-        <input type="hidden" name="centerid" value="${centerid}">
+        <input type="hidden" name="centerId" value="${centerId}">
         <input type="hidden" name="optionId" value="${optionId}">
         <input type="hidden" name="date" value="${date}">
         <input type="submit" value="예약신청">

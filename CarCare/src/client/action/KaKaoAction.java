@@ -9,22 +9,24 @@ import javax.servlet.http.HttpSession;
 import client.svc.KaKaoService;
 import client.vo.ActionForward;
 import client.vo.KaKaoBean;
+import util.WrapperConverter;
 
 public class KaKaoAction implements Action {
-
+	
+	// token 
     private void getKaKaoUserInfoAndInsertUser(HttpServletRequest request, String code) throws Exception {
         String accessToken = KaKaoService.getAccessToken(code);
         KaKaoService svc = new KaKaoService();
         Map<String, Object> userInfo = svc.KaKaogetUserInfo(accessToken);
 
-        long kakaoid = Long.parseLong((String) userInfo.get("id"));
+        long kakaoId = WrapperConverter.parseLong.apply(((String) userInfo.get("id")));
         String nickname = (String) userInfo.get("nickname");
         String connected_at = (String) userInfo.get("connected_at");
 
-        KaKaoBean kkb = new KaKaoBean(kakaoid, nickname, connected_at);
+        KaKaoBean kkb = new KaKaoBean(kakaoId, nickname, connected_at);
         svc.insertKaKaoUser(kkb);
 
-        request.setAttribute("kakaoid", kakaoid);
+        request.setAttribute("kakaoId", kakaoId);
         request.setAttribute("nickname", nickname);
         request.setAttribute("connected_at", connected_at);
     }
