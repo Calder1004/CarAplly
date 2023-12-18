@@ -2,7 +2,8 @@
 <%@ page import="java.io.*,java.util.*"%>
 <%@ page import="javax.servlet.*"%>
 <%@ page import="javax.servlet.http.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <!DOCTYPE html>
 <html>
@@ -48,14 +49,61 @@
 		    </ul>
         </div>
 <div class="w-full bg-white p-8">
-<div class="text-sm mb-8 text-center flex items-center justify-center">
-    <img src="img/logo/mainlogo.svg" class="w-24 align-middle" alt="MotionVolt Logo">
+	<div class="text-sm mb-8 text-center flex items-center justify-center">
+		<a href="dashboard.jsp">
+		    <img src="img/logo/mainlogo.svg" class="w-24 align-middle" alt="MotionVolt Logo">
+		</a>
+	</div>
+	<hr class="mb-4">
+<c:if test="${empty list and empty ModifyList and empty prdList and empty brandList}">
+<div class="flex flex-wrap">
+    <div class="w-2/6 p-4">
+        <div class="bg-white shadow-md p-6 rounded-md h-full">
+            <h2 class="text-lg font-semibold mb-4">자동차 리스트</h2>
+            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">2023-12-31</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-3/6 p-4">
+        <div class="bg-white shadow-md p-6 rounded-md h-full">
+            <h2 class="text-lg font-semibold mb-4">예약 조회수</h2>
+            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">2023-12-31</span>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">더 보기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-1/6 p-4">
+        <div class="bg-white shadow-md p-6 rounded-md h-full">
+            <h2 class="text-lg font-semibold mb-4">대시보드 카드</h2>
+            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">2023-12-31</span>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">더 보기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full p-4 h-full">
+        <div class="bg-white shadow-md p-6 rounded-md h-full">
+            <h2 class="text-lg font-semibold mb-4">대시보드 카드</h2>
+            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">2023-12-31</span>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">더 보기</button>
+            </div>
+        </div>
+    </div>
+    
 </div>
-<!-- 	<div class="text-center p-3 flex items-center justify-center">
-	    <div class="inline-block">
-	        <p class="font-bold border border-gray-100 px-3 py-1 rounded-full">MotionVolt</p>
-	    </div>
-	</div> -->
+
+</c:if>
+
 
 <c:if test="${not empty list}">
 <div class="bg-white p-8 mb-8 shadow-sm text-center rounded-md border border-gray-100">예약 대기중</div>
