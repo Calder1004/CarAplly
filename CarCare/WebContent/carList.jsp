@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="shortcut icon" href="img/favicon.ico">
- <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <title>MotionVolt</title>
 <script src="js/carList.js" defer></script>
 </head>

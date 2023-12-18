@@ -22,7 +22,8 @@ public class AdminVaildAction implements Action {
         
         // login check 가 끝나고
         if (isAdmin) {
-            HttpSession session = request.getSession(); // 세션을 얻어옴
+            HttpSession session = request.getSession(); 
+            // 세션을 얻어옴
             session.setAttribute("userRole", "admin"); // 세션에 userRole을 키로한 admin을 내려줌
             forward = new ActionForward("dashboard.jsp", true); // isAdmin이 맞으면 dashboard로감
         } else {
