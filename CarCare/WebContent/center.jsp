@@ -12,12 +12,16 @@
 	<jsp:include page="header.jsp" />
 		<h1 class="bg-black text-white py-5 mb-0 text-center">Catalog > Option > <span class="text-gray-400 font-thin">Center</span> </h1>
 		<a href="javascript:history.back()" class="flex items-center justify-center border rounded-md w-8/12 h-10 mx-auto mt-4 p-5 block hover:bg-black hover:text-white transition duration-300">뒤로 돌아가기</a>
-	<div class="flex container mx-auto overflow-hidden">
-	<div class="w-full sm:w-1/2 p-4">
-	    <div class="bg-black text-white h-300 rounded-md overflow-hidden">
-	        <img src="img/carList/RX350h.png" class="w-full h-full object-cover" alt="Car Image">
-	    </div>
-	</div>	
+	<div class="flex container mx-auto">
+		<div class="w-full sm:w-1/2 p-4">
+		    <div class="bg-white text-black h-300 rounded-md overflow-hidden">
+		        <div class="p-6">
+		            <h2 class="text-4xl font-bold mb-4">Service Center</h2>
+		            <p class="text-sm">(Dummy)Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>	
+		        </div>
+		    </div>
+		</div>
+	
 	<c:if test="${not empty center}">
 		<div class="w-3/4 grid grid-cols-gap-4">
 		    <c:forEach var="center" items="${center}">
@@ -29,6 +33,7 @@
 		    </c:forEach>
 		</div>
 	</c:if>
+	
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>

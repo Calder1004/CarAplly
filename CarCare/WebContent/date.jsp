@@ -42,7 +42,7 @@ function submitForm() {
 
 	<form id="datePost" class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
 	    <input type="date" id="datePost" name="date" required class="mb-4 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
-	    <button type="button" onclick="submitForm('${id}', '${optionId}')" class="w-full py-2 px-4 bg-black text-white rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+	    <button type="button" onclick="submitForm('${id}', '${optionId}')" class="w-full py-2 px-4 bg-white text-black border border-gray-500 rounded-md hover:bg-black hover:text-white transform transition-transform duration-200 hover:scale-105">
 	        제출
 	    </button>
 	</form>
