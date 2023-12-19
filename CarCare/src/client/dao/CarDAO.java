@@ -137,7 +137,11 @@ public class CarDAO {
 			pstmt.setInt(1, tdb.getCenterId());
 			pstmt.setLong(2,tdb.getKakaouserId());
 			pstmt.setInt(3, tdb.getCarId());
-			pstmt.setDate(4, tdb.getReservationDate());
+	        if (tdb.getReservationDate() != null) {
+	            pstmt.setDate(4, tdb.getReservationDate());
+	        } else {
+	            pstmt.setNull(4, java.sql.Types.DATE);
+	        }
 			pstmt.setBoolean(5, tdb.isState());
 
 			check = pstmt.executeUpdate();

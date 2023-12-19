@@ -1,6 +1,6 @@
 package client.action;
 
-import java.util.Date;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,23 +16,24 @@ public class UserAction implements Action {
         ActionForward forward = null;
         
         int centerId = WrapperConverter.parseInt.apply(request.getParameter("id"));
-        Date date = WrapperConverter.parseDate.apply(request.getParameter("date"));
+        // date는 testDrive에서 최종적으로넘어감, 여기서는 데이터변환이 필요없음
+        String date = request.getParameter("date");
         int optionId = WrapperConverter.parseInt.apply(request.getParameter("optionId"));
-//        String optionId = request.getParameter("optionId");
-        
-		/*
-		 * String selectedIdString = request.getParameter("id"); int centerid =
-		 * (selectedIdString != null && !selectedIdString.isEmpty()) ?
-		 * Integer.parseInt(selectedIdString) : 0;
-		 */
 
-//        String date = request.getParameter("date");
 
         HttpSession session = request.getSession();
 
         session.setAttribute("centerId", centerId);
         session.setAttribute("date", date);
         session.setAttribute("optionId", optionId);
+
+        if (date == null || date.trim().isEmpty()) {
+        	response.setContentType("text/html;charset=utf-8");
+            String alertScript = "<script>alert('예약일을 선택하세요.'); history.back();</script>";
+            
+            response.getWriter().write(alertScript);
+            return null; 
+        }
         
         forward = new ActionForward("user.jsp", false);
         

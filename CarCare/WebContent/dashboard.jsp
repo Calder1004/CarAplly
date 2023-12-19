@@ -172,55 +172,7 @@
         </div>
     </div>
 </c:if>
-<%-- <c:if test="${not empty list}">
-   <div class="bg-white shadow-md p-8 overflow-x-auto rounded-lg">
-        <table class="w-full rounded-md text-sm">
-            <thead>
-                <tr class="bg-gray-800 rounded-md text-white">	
-                    <th class="p-3 border-collapse border border-white">예약번호</th>
-                    <th class="p-3 border-collapse border border-white">날짜</th>
-                    <th class="p-3 border-collapse border border-white">모델</th>
-                    <th class="p-3 border-collapse border border-white">신청자이름</th>
-                    <th class="p-3 border-collapse border border-white">CC</th>
-                    <th class="p-3 border-collapse border border-white">색상</th>
-                    <th class="p-3 border-collapse border border-white">등급</th>
-                    <th class="p-3 border-collapse border border-white">KM</th>
-                    <th class="p-3 border-collapse border border-white">가격</th>
-                    <th class="p-3 border-collapse border border-white">예약상태</th>
-                    <th class="p-3 border-collapse border border-white">관리</th>
-                </tr>
-            </thead>
-            <tbody class="text-sm text-center">
-                <c:forEach var="select" items="${list}">
-                    <tr class="border border-gray-300 selected-row">
-                        <td class="border border-gray-300">${select.id}</td>
-                        <td class="border border-gray-300">${select.date}</td>
-                        <td class="border border-gray-300">${select.model}</td>
-                        <td class="border border-gray-300">${select.name}</td>
-                        <td class="border border-gray-300">${select.cc}</td>
-                        <td class="border border-gray-300">${select.color}</td>
-                        <td class="border border-gray-300">${select.grade}</td>
-                        <td class="border border-gray-300">${select.km}</td>
-                        <td class="border border-gray-300">${select.price}</td>
-                        <td class="border border-gray-300">${select.state}</td>
-                        <td class="border border-gray-300">
-                        <div class="flex space-x-2 justify-center m-3">
-                            <form action="adminUpdateForm.car" method="post">
-                                <input type="hidden" name="id" value="${String.valueOf(select.id)}">
-                                <button type="submit" class="bg-blue-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-blue-700">수정</button>
-                            </form>
-                            <form action="adminDelete.car">
-                                <input type="hidden" name="id" value="${String.valueOf(select.id)}">
-                                <button type="submit" class="bg-red-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-red-700">삭제</button>
-                            </form>
-                        </div>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
-</c:if> --%>
+
 <c:if test="${not empty ModifyList}">
     <div id="editModal">
         <div class="bg-white mx-auto mt-20 p-8 w-96 shadow-lg rounded-lg flex items-center">
@@ -233,8 +185,7 @@
 
                 <label for="editOptionId" class="block text-sm font-bold">모델/옵션변경:</label>
                 <select name="carId" id="editOptionId" required class="w-full border rounded p-2 mb-2">
-                                                						<option value="1">모델:LS500 색상:SONIC IRIDIUM #CC 3456 :
-											#KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
+                                       <option value="1">모델:LS500 색상:SONIC IRIDIUM</option>
 										<option value="2">모델:LS500 색상:GRAPHITE BLAK</option>
 										<option value="3">모델:ES300 색상:LUNAR LUSTER</option>
 										<option value="4">모델:ES300 색상:SONIC TITANIUM</option>
@@ -263,47 +214,6 @@
     </div>
 </c:if>
 
-<%-- 	<c:if test="${not empty ModifyList}">
-    <div class="modal" id="editModal">
-        <div class="modal-content bg-white mx-auto mt-20 p-8 w-96 shadow-lg rounded-lg flex items-center">
-            <form id="editForm" action="adminUpdate.car" method="post" class="space-y-4 w-full">
-                <label for="editId" class="block text-sm font-bold">예약번호:</label>
-                <input type="text" id="editId" name="id" value="${ModifyList.id}" readonly class="w-full border rounded p-2" />
-
-                <label for="editDate" class="block text-sm font-bold">예약날짜:</label>
-                <input type="text" id="editDate" name="date" value="${ModifyList.date}" class="w-full border rounded p-2" />
-
-                <label for="editOptionId" class="block text-sm font-bold">모델/옵션변경:</label>
-                <select name="carId" id="editOptionId" required class="w-full border rounded p-2">
-                            						<option value="1">모델:LS500 색상:SONIC IRIDIUM #CC 3456 :
-											#KM:9 #가격:174030.00 #GRADE:PLATINUM</option>
-										<option value="2">모델:LS500 색상:GRAPHITE BLAK</option>
-										<option value="3">모델:ES300 색상:LUNAR LUSTER</option>
-										<option value="4">모델:ES300 색상:SONIC TITANIUM</option>
-										<option value="5">모델:ES300H 색상:SONIC QUARTZ</option>
-										<option value="6">Option ID:6 색상:HEAT BLUE CONTRAS</option>
-										<option value="7">Option ID:7 색상:GRAPAHITE BLACK</option>
-										<option value="8">Option ID:8 색상:DEEP BLUE MIKA</option>
-										<option value="9">Option ID:9 색상:SONIC COOPER</option>
-                </select>
-
-                <label for="editModel" class="block text-sm font-bold">현재 모델:</label>
-                <input type="text" id="editModel" name="model" value="${ModifyList.model}" readonly class="w-full border rounded p-2" />
-
-                <label for="editName" class="block text-sm font-bold">이름:</label>
-                <input type="text" id="editName" name="name" value="${ModifyList.name}" readonly class="w-full border rounded p-2" />
-
-                <label for="editState" class="block text-sm font-bold">예약상태:</label>
-                <select id="editState" name="state" class="w-full border rounded p-2">
-                    <option value="RESERVED" ${ModifyList.state == 'RESERVED' ? 'selected' : ''}>RESERVED</option>
-                    <option value="FAILED" ${ModifyList.state == 'FAILED' ? 'selected' : ''}>FAILED</option>
-                </select>
-
-                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">수정</button>
-            </form>
-        </div>
-    </div>
-</c:if> --%>
 <c:if test="${not empty prdList}">
     <div class="bg-white p-8 r shadow-md">
         <div class="overflow-x-auto rounded-lg">
@@ -395,18 +305,18 @@
 	                    <input type="number" name="cc" required class="w-full p-2 border rounded-md" placeholder="자동차 CC를 입력하세요.">
 	                </div>
 	                <div>
-	                    <label for="km" class="block mb-2 text-sm font-medium text-gray-600"placeholder="자동차 KM를 입력하세요." >KM:</label>
-	                    <input type="number" name="km" required class="w-full p-2 border rounded-md">
+	                    <label for="km" class="block mb-2 text-sm font-medium text-gray-600">KM:</label>
+	                    <input type="number" name="km" required class="w-full p-2 border rounded-md" placeholder="자동차 KM를 입력하세요." >
 	                </div>
 	            </div>
 	            <div class="grid grid-cols-2 gap-4 mt-4">
 	                <div>
-	                    <label for="price" class="block mb-2 text-sm font-medium text-gray-600" placeholder="자동차 가격을 입력하세요.">가격:</label>
-	                    <input type="number" name="price" required class="w-full p-2 border rounded-md">
+	                    <label for="price" class="block mb-2 text-sm font-medium text-gray-600">가격:</label>
+	                    <input type="number" name="price" required class="w-full p-2 border rounded-md" placeholder="자동차 가격을 입력하세요.">
 	                </div>
 	                <div>
-	                    <label for="grade" class="block mb-2 text-sm font-medium text-gray-600" placeholder="자동차 등급을 입력하세요.">등급:</label>
-	                    <input type="text" name="grade" required class="w-full p-2 border rounded-md">
+	                    <label for="grade" class="block mb-2 text-sm font-medium text-gray-600">등급:</label>
+	                    <input type="text" name="grade" required class="w-full p-2 border rounded-md" placeholder="자동차 등급을 입력하세요.">
 	                </div>
 	            </div>
 	            <div class="flex flex-col items-center space-y-4">
