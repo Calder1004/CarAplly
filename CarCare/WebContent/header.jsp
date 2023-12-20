@@ -22,7 +22,7 @@
             <a href="#" class="text-stone-900 font-bold text-base hover:text-slate-600">MODEL</a>
             <a href="/CarCare/carList.car" class="text-stone-900 font-bold text-base hover:text-slate-600">APLLY</a>
             <a href="service.jsp" class="text-stone-900 font-bold text-base hover:text-slate-600">SERVICE</a>
-            <a href="#" class="text-stone-900 font-bold text-base hover:text-slate-600">BRAND</a>
+            <a href="brand.jsp" class="text-stone-900 font-bold text-base hover:text-slate-600">BRAND</a>
         </div>
 		<div class="px-56 bg-gray-800 text-white"></div>
     	<div class="ml-auto flex space-x-2">
