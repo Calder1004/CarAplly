@@ -11,7 +11,7 @@ public class WrapperConverter {
 	public static final Function<String, Date> parseDate = s -> s != null ? Date.valueOf(s) : null;
 	public static final Function<String, Boolean> parseBoolean = s -> s != null ? Boolean.parseBoolean(s) : null;
 	public static final Function<String, Double> parseDouble = s -> s != null ? Double.parseDouble(s) : null;
-	
+	public static final Function<String, String> parseString = s -> s != null ? s : null;
 
     public static final Function<String, java.util.Date> parseUtilDate = s -> {
         try {

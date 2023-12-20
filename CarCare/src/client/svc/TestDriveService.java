@@ -29,8 +29,6 @@ public class TestDriveService {
             close(con);
         }
 
-        System.out.println("Insert success: " + isSuccess);
-        System.out.println("Inserted TestDrive ID: " + tdb.getId());
 
         return isSuccess;
     }

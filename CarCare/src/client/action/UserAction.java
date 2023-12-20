@@ -17,7 +17,7 @@ public class UserAction implements Action {
         
         int centerId = WrapperConverter.parseInt.apply(request.getParameter("id"));
         // date는 testDrive에서 최종적으로넘어감, 여기서는 데이터변환이 필요없음
-        String date = request.getParameter("date");
+        String date = WrapperConverter.parseString.apply(request.getParameter("date"));
         int optionId = WrapperConverter.parseInt.apply(request.getParameter("optionId"));
 
 

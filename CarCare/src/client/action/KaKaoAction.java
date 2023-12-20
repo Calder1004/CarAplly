@@ -21,8 +21,8 @@ public class KaKaoAction implements Action {
         
 
         long kakaoId = WrapperConverter.parseLong.apply(((String) userInfo.get("id")));
-        String nickname = (String) userInfo.get("nickname");
-        String connected_at = (String) userInfo.get("connected_at");
+		String nickname = WrapperConverter.parseString.apply((String) userInfo.get("nickname"));
+        String connected_at = WrapperConverter.parseString.apply((String) userInfo.get("connected_at"));
 
         KaKaoBean kkb = new KaKaoBean(kakaoId, nickname, connected_at);
         svc.insertKaKaoUser(kkb);
@@ -37,7 +37,8 @@ public class KaKaoAction implements Action {
         ActionForward forward = null;
 
         try {
-            String code = request.getParameter("code");
+        	String code = WrapperConverter.parseString.apply(request.getParameter("code"));
+
             response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
             getKaKaoUserInfoAndInsertUser(request, code);
 

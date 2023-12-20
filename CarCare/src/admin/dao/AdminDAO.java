@@ -33,15 +33,43 @@ public class AdminDAO {
 	public void setConnection(Connection con) {
 		this.con = con;
 	}
+	
+	public enum SQLQueries {
+	    SELECT_DRIVE_SCHEDULE_VIEW("SELECT * FROM drive_schedule_view"),
+		SELECT_DRIVE_BY_ID("SELECT * FROM drive_schedule_view WHERE id=?"),
+		UPDATE_SCHEDULED_DRIVE_INFO("UPDATE schedule_drive"
+				+ " INNER JOIN kakaouserinfos ON schedule_drive.kakaouser_id = kakaouserinfos.id"
+				+ " INNER JOIN car_options ON schedule_drive.car_option_id = car_options.id"
+				+ " INNER JOIN cars ON car_options.car_id = cars.id" + " SET" + " schedule_drive.reservation_date = ?,"
+				+ " cars.name = ?," + " kakaouserinfos.nickname = ?," + " schedule_drive.state = ?,"
+				+ " schedule_drive.car_option_id = ?" + " WHERE schedule_drive.id = ? "),
+		DELETE_SCHEDULED_DRIVE_BY_ID("DELETE FROM schedule_drive WHERE id = ?"),
+		GET_ADMIN_PRODUCT_LIST("SELECT * FROM car_adminlist_view"),
+	    INSERT_BRAND("insert into car_brands (name) values(?)"),
+	    INSERT_MODEL("insert into cars (car_brand_id, name) values(?, ?)"),
+	    INSERT_CAR_OPTION("insert into car_options (car_id, color, cc, km, price, grade) values (?, ?, ?, ?, ?, ?)"),
+	    SELECT_BRANDS("select * from car_brands"),
+	    SELECT_MODELS("select id, name from car_product_list_view"),
+		SELECT_ADMIN("SELECT * FROM admin WHERE username=? AND password=?");
+		
+	    private final String query;
+
+	    SQLQueries(String query) {
+	        this.query = query;
+	    }
+
+	    public String getQuery() {
+	        return query;
+	    }
+	}
 
 	// 관리자 검증
 	public boolean usrVld(String username, String password) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM admin WHERE username=? AND password=?";
 		boolean check = false;
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.SELECT_ADMIN.getQuery());
 			pstmt.setString(1, username);
 			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
@@ -60,10 +88,10 @@ public class AdminDAO {
 	public ArrayList<AdminDriveSelectBean> driveSlt() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM drive_schedule_view";
+		
 		ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.SELECT_DRIVE_SCHEDULE_VIEW.getQuery());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				AdminDriveSelectBean bean = new AdminDriveSelectBean();
@@ -96,15 +124,9 @@ public class AdminDAO {
 	// 시승신청 업데이트 :: id값 받아서 bean업데이트
 	public int updateSch(int id, AdminDriveSelectBean bean) {
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE schedule_drive"
-				+ " INNER JOIN kakaouserinfos ON schedule_drive.kakaouser_id = kakaouserinfos.id"
-				+ " INNER JOIN car_options ON schedule_drive.car_option_id = car_options.id"
-				+ " INNER JOIN cars ON car_options.car_id = cars.id" + " SET" + " schedule_drive.reservation_date = ?,"
-				+ " cars.name = ?," + " kakaouserinfos.nickname = ?," + " schedule_drive.state = ?,"
-				+ " schedule_drive.car_option_id = ?" + " WHERE schedule_drive.id = ? ";
 		int check = 0;
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.UPDATE_SCHEDULED_DRIVE_INFO.getQuery());
 			pstmt.setDate(1, bean.getDate());
 			pstmt.setString(2, bean.getModel());
 			pstmt.setString(3, bean.getName());
@@ -127,8 +149,7 @@ public class AdminDAO {
 		AdminDriveSelectBean bean = null;
 
 		try {
-			String sql = "SELECT * FROM drive_schedule_view WHERE id=?";
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.SELECT_DRIVE_BY_ID.getQuery());
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 
@@ -159,11 +180,10 @@ public class AdminDAO {
 	// 시승신청 리스트 삭제
 	public int removeLst(int id) {
 		PreparedStatement pstmt = null;
-		String sql = "DELETE FROM schedule_drive WHERE id = ?;";
 		int count = 0;
 
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.DELETE_SCHEDULED_DRIVE_BY_ID.getQuery());
 			pstmt.setInt(1, id);
 			count = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -179,11 +199,10 @@ public class AdminDAO {
 	public ArrayList<AdminProductSelectBean> admPrdSlt() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM car_adminlist_view";
 		AdminProductSelectBean bean = null;
 		ArrayList<AdminProductSelectBean> list = new ArrayList<AdminProductSelectBean>();
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.GET_ADMIN_PRODUCT_LIST.getQuery());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				bean = new AdminProductSelectBean();
@@ -211,11 +230,9 @@ public class AdminDAO {
 	// 관리자 브랜드 등록
 	public int insBrd(String name) {
 		PreparedStatement pstmt = null;
-		String sql = "insert into car_brands (name) values(?)";
 		int count = 0;
-
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.INSERT_BRAND.getQuery());
 			pstmt.setString(1, name);
 			count = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -230,11 +247,9 @@ public class AdminDAO {
 	// 관리자 모델 등록
 	public int insModel(int carBrandId, String name) {
 		PreparedStatement pstmt = null;
-		String sql = "insert into cars (car_brand_id,name) values(?,?)";
 		int count = 0;
-
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.INSERT_MODEL.getQuery());
 			pstmt.setInt(1, carBrandId);
 			pstmt.setString(2, name);
 			count = pstmt.executeUpdate();
@@ -250,10 +265,9 @@ public class AdminDAO {
 
 	public int insCarOpt(int carId, String color, int cc, int km, double price, String grade) {
 		PreparedStatement pstmt = null;
-		String sql = "insert into car_options (car_id,color,cc,km,price,grade) values (?,?,?,?,?,?)";
 		int count = 0;
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.INSERT_CAR_OPTION.getQuery());
 			pstmt.setInt(1, carId);
 			pstmt.setString(2, color);
 			pstmt.setInt(3, cc);
@@ -274,9 +288,9 @@ public class AdminDAO {
 		List<Map<Integer, String>> brandList = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from car_brands";
+	
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(SQLQueries.SELECT_BRANDS.getQuery());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int brandId = rs.getInt("id");
@@ -298,10 +312,10 @@ public class AdminDAO {
 	    List<Map<Integer, String>> modelList = new ArrayList<>();
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
-	    String sql = "SELECT id, name FROM car_product_list_view";
+
 	    
 	    try {
-	        pstmt = con.prepareStatement(sql);
+	        pstmt = con.prepareStatement(SQLQueries.SELECT_MODELS.getQuery());
 	        rs = pstmt.executeQuery();
 	        
 	        while (rs.next()) {

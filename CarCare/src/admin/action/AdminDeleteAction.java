@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminDeleteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.ScriptWriter;
 import util.WrapperConverter;
 
 public class AdminDeleteAction implements Action {
@@ -22,19 +23,9 @@ public class AdminDeleteAction implements Action {
 		AdminDeleteService svc = new AdminDeleteService();
 		boolean useDelete = svc.removetdl(id);
 		if(!useDelete) {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('삭제를 실패하였습니다')");
-			out.println("window.location='adminSelect.car'");
-			out.println("</script>");
+			ScriptWriter.WriteFn(response.getWriter(), "삭제를 실패하였습니다", "adminSelect.car");
 		} else {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('삭제를 성공하였습니다.');");
-			out.println("window.location='adminSelect.car';");
-			out.println("</script>");
+			ScriptWriter.WriteFn(response.getWriter(), "삭제를 성공하였습니다", "adminSelect.car");
 		}
 		
 		return forward;

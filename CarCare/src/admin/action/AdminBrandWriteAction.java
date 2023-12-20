@@ -8,37 +8,28 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminProductWriteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.ScriptWriter;
+import util.WrapperConverter;
 
 public class AdminBrandWriteAction implements Action {
 
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ActionForward forward = null;// forward 객체 생성
-        String name = request.getParameter("name");
-
-        if (name != null && !name.isEmpty()) {
-            System.out.println(name);
+        	request.setCharacterEncoding("utf-8");
+    		ActionForward forward = null;// forward 객체 생성
+        	String name = WrapperConverter.parseString.apply(request.getParameter("name"));
+    
 
             // 서비스
             AdminProductWriteService svc = new AdminProductWriteService();
             int check = svc.insertBrand(name);
 
             if (check > 0) {
-                response.setContentType("text/html;charset=utf-8");
-                PrintWriter out = response.getWriter();
-                out.println("<script>");
-                out.println("alert('브랜드 등록에 성공하셨습니다')");
-                out.println("window.location='adminPostProduct.car'");
-                out.println("</script>");
+            	ScriptWriter.WriteFn(response.getWriter(), "브랜드 등록에 성공", "adminPostProduct.car");
             } else {
-                response.setContentType("text/html;charset=utf-8");
-                PrintWriter out = response.getWriter();
-                out.println("<script>");
-                out.println("alert('브랜드 등록에 실패하셨습니다')");
-                out.println("window.location='adminPostProduct.car'");
-                out.println("</script>");
+            	ScriptWriter.WriteFn(response.getWriter(), "브랜드 등록에 실패", "adminPostProduct.car");
             }
-        }
+
 
         return forward;
     }

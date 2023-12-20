@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminProductWriteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.ScriptWriter;
 import util.WrapperConverter;
 
 public class AdminModelWriteAction implements Action {
@@ -18,25 +19,15 @@ public class AdminModelWriteAction implements Action {
 		
 		// param 받음
 		int carBrandId = WrapperConverter.parseInt.apply(request.getParameter("carBrandId"));
-		String name = request.getParameter("name");
+		String name = WrapperConverter.parseString.apply(request.getParameter("name"));
 
 		
 		AdminProductWriteService svc = new AdminProductWriteService();
 		int check = svc.insertModel(carBrandId,name);
-		if (check >0 ) {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('모델 등록에 성공하셨습니다.')");
-			out.println("window.location='adminPostProduct.car'");
-			out.println("</script>");
+		if (check > 0) {
+			ScriptWriter.WriteFn(response.getWriter(), "모델 등록에 성공", "adminPostProduct.car");
 		} else {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('모델 등록에 실패하셨습니다.')");
-			out.println("window.location='adminPostProduct.car'");
-			out.println("</script>");
+			ScriptWriter.WriteFn(response.getWriter(), "모델 등록에 실패", "adminPostProduct.car");
 		}
 		return forward;
 	}

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import admin.svc.AdminVaildService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.WrapperConverter;
 
 public class AdminVaildAction implements Action {
 	
@@ -14,8 +15,8 @@ public class AdminVaildAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
         
-		String username = request.getParameter("username");
-        String password = request.getParameter("password");
+		String username = WrapperConverter.parseString.apply(request.getParameter("username"));
+		String password = WrapperConverter.parseString.apply(request.getParameter("password"));
 
         AdminVaildService svc = new AdminVaildService();
         boolean isAdmin = svc.admChc(username, password);

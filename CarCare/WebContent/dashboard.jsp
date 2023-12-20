@@ -73,7 +73,6 @@
             <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
             <div class="mt-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">2023-12-31</span>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">더 보기</button>
             </div>
         </div>
     </div>
@@ -84,7 +83,6 @@
             <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at quam a elit accumsan tincidunt.</p>
             <div class="mt-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">2023-12-31</span>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">더 보기</button>
             </div>
         </div>
     </div>

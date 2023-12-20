@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import admin.svc.AdminProductWriteService;
 import client.action.Action;
 import client.vo.ActionForward;
+import util.ScriptWriter;
 import util.WrapperConverter;
 
 public class AdminCarOptionWriteAction implements Action{
@@ -19,27 +20,16 @@ public class AdminCarOptionWriteAction implements Action{
 		int cc = WrapperConverter.parseInt.apply(request.getParameter("cc"));
 		int km = WrapperConverter.parseInt.apply(request.getParameter("km"));
 		double price = WrapperConverter.parseDouble.apply(request.getParameter("price"));
-
-		String color = request.getParameter("color");
-		String grade = request.getParameter("grade");
+		String color = WrapperConverter.parseString.apply(request.getParameter("color"));
+		String grade = WrapperConverter.parseString.apply(request.getParameter("grade"));
 
 
 		AdminProductWriteService svc = new AdminProductWriteService();
 		int check = svc.insertCarOption(carId, color, cc, km, price, grade);
 		if(check > 0) {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('옵션 등록에 성공하셨습니다')");
-			out.println("window.location='adminPostProduct.car'");
-			out.println("</script>");
+			ScriptWriter.WriteFn(response.getWriter(), "옵션 등록에 성공", "adminPostProduct.car");
 		} else {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('옵션 등록에 실패하였습니다.')");
-			out.println("window.location='adminPostProduct.car'");
-			out.println("</script>");
+			ScriptWriter.WriteFn(response.getWriter(), "옵션 등록에 실패", "adminPostProduct.car");
 		}
 
 		return forward;

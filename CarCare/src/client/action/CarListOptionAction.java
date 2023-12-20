@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import client.svc.CarListOptionService;
 import client.vo.ActionForward;
 import client.vo.CarListOptionBean;
+import util.WrapperConverter;
 
 public class CarListOptionAction implements Action {
 	
@@ -23,9 +24,9 @@ public class CarListOptionAction implements Action {
     	request.setCharacterEncoding("utf-8");
     	ActionForward forward = null;
         try {
-        	int carId = Integer.parseInt(request.getParameter("id"));
-            String brand = request.getParameter("brand");
-            String model = request.getParameter("model");
+        	int carId = WrapperConverter.parseInt.apply(request.getParameter("id"));
+        	String brand = WrapperConverter.parseString.apply(request.getParameter("brand"));
+        	String model = WrapperConverter.parseString.apply(request.getParameter("model"));
 
             ArrayList<CarListOptionBean> carListOption = getCarListOption(carId,brand,model);
             

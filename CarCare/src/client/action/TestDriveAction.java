@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import client.svc.TestDriveService;
 import client.vo.ActionForward;
 import client.vo.TestDriveBean;
+import util.ScriptWriter;
 import util.WrapperConverter;
 
 public class TestDriveAction implements Action {
@@ -27,25 +28,18 @@ public class TestDriveAction implements Action {
 			int centerId = WrapperConverter.parseInt.apply(request.getParameter("centerId"));
 			long kakaouserId = WrapperConverter.parseLong.apply(request.getParameter("kakaoId"));
 			int caroptionId = WrapperConverter.parseInt.apply(request.getParameter("optionId"));
+			String date = WrapperConverter.parseString.apply(request.getParameter("date"));
 
-			String date = request.getParameter("date");
 			
 			java.util.Date utilDate = WrapperConverter.parseUtilDate.apply(date);
 			java.sql.Date sqlDate = WrapperConverter.parseSqlDate.apply(date);
 			
 			boolean check = true;
 			if(check) {
-				response.setContentType("text/html;charset=utf-8");
 				insertTestDrive(centerId, kakaouserId, caroptionId,sqlDate);
-				PrintWriter out = response.getWriter();
-				out.println("<script>");
-				out.println("alert('예약신청이 완료되었습니다')");
-				out.println("</script>");
+				ScriptWriter.WriteFn(response.getWriter(), "예약신청 성공", "main.jsp");
 			} else {
-				PrintWriter out = response.getWriter();
-				out.println("<script>");
-				out.println("alert('예약신청이 실패했습니다.')");
-				out.println("</script>");
+				ScriptWriter.WriteFn(response.getWriter(), "예약신청 실패", "main.jsp");
 			}
 			forward = new ActionForward("main.jsp", false);
 			return forward;

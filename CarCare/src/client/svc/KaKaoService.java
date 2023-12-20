@@ -139,9 +139,6 @@ public class KaKaoService {
             close(con);
         }
 
-        System.out.println("Insert success: " + isSuccess);
-        System.out.println("Inserted TestDrive ID: " + kkb.getId());
-
         }
         return isSuccess;
        }

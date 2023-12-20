@@ -18,9 +18,6 @@ public class AdminUpdateFormAction implements Action{
 		
 		int id = WrapperConverter.parseInt.apply(request.getParameter("id"));
 		
-//		String idParameter = request.getParameter("id");
-//		int id = (idParameter != null && !idParameter.isEmpty()) ? Integer.parseInt(idParameter) : 0;
-
         AdminUpdateService svc = new AdminUpdateService();
         
         //id값 얻어서 조회
