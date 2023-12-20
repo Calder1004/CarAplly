@@ -26,6 +26,7 @@ public class dbConnection {
 		try {
 			if(con != null) con.close();
 		} catch (Exception e) {
+			System.out.println("close success");
 			e.printStackTrace();
 		}
 	}
@@ -34,6 +35,7 @@ public class dbConnection {
 		try {
 			if(stmt != null) stmt.close();
 		} catch (Exception e) {
+			System.out.println("close success");
 			e.printStackTrace();
 		}
 	}
@@ -41,6 +43,7 @@ public class dbConnection {
 	public static void close(ResultSet rs) {
 		try {
 			if(rs != null) rs.close();
+			System.out.println("close success");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
