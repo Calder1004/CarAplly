@@ -6,16 +6,7 @@ Tomcat Server : 8.5
 Jre : 1.8
 
 # 프로젝트 서버 환경
-프로그래밍 언어 : Java
-<br>
-개발 도구 : Eclipse
-<br>
-웹 서버 : Tomcat
-<br>
-데이터베이스 : Mysql
-<br>
-형상관리 : git
-<br>
+![스크린샷 2023-12-22 101346](https://github.com/mydkonline/CarWebProject/assets/67779682/fde4af8f-bab2-4e69-ae49-30abb7e6ca1a)
 
 # 프로젝트 파일 디렉터리 구조
 ```bash
@@ -58,4 +49,3 @@ Jre : 1.8
 <br>
 # 프로젝트 소개
 
-![스크린샷 2023-12-22 101346](https://github.com/mydkonline/CarWebProject/assets/67779682/fde4af8f-bab2-4e69-ae49-30abb7e6ca1a)
