@@ -47,6 +47,7 @@ JDK : 1.8
 <br>
 # 팀 소개
 ![profile](https://github.com/mydkonline/CarWebProject/assets/67779682/bd5ab885-0daf-4a54-8ee3-c611210ce4b5)
+<br>
 김성준
 박승현
 
