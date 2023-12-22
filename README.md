@@ -49,6 +49,8 @@ JDK : 1.8
 <img src="https://github.com/mydkonline/CarWebProject/assets/67779682/bd5ab885-0daf-4a54-8ee3-c611210ce4b5" alt="프로필 이미지" width="100" height="100">
 <br>
 김성준
+<img src="https://github.com/mydkonline/CarWebProject/assets/67779682/bd5ab885-0daf-4a54-8ee3-c611210ce4b5" alt="프로필 이미지" width="100" height="100">
+<br>
 박승현
 
 # 프로젝트 소개
