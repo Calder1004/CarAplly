@@ -68,6 +68,7 @@ JDK : 1.8
 ### 관리자 페이지
 ![스크린샷 2023-12-22 102347](https://github.com/mydkonline/CarWebProject/assets/67779682/0f91ded7-6021-4ec4-a615-fa8f113de746)
 
+
 | 주요 기능 | 메인 페이지 | 시승신청 시연 과정 | 관리자 페이지 |
 |------------|--------------|--------------------|----------------|
 |            | ![메인 페이지](https://github.com/mydkonline/CarWebProject/assets/67779682/93b2537b-4b9f-49bd-9ab8-e93edfa01603) | ![시승신청 시연 과정](https://github.com/mydkonline/CarWebProject/assets/67779682/659c016a-4033-4341-88f7-4246c4c78394) | ![관리자 페이지](https://github.com/mydkonline/CarWebProject/assets/67779682/0f91ded7-6021-4ec4-a615-fa8f113de746) |
