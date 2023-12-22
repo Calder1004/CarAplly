@@ -21,7 +21,7 @@ public class CarListOptionAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         
-    	request.setCharacterEncoding("utf-8");
+    	
     	ActionForward forward = null;
         try {
         	int carId = WrapperConverter.parseInt.apply(request.getParameter("id"));

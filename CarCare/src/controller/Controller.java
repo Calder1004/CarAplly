@@ -1,4 +1,4 @@
-package client.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -31,7 +31,7 @@ import client.vo.ActionForward;
 
 
 @WebServlet("*.car")
-public class CarController extends HttpServlet {
+public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

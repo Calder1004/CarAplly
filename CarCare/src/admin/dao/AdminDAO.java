@@ -50,8 +50,8 @@ public class AdminDAO {
 	    INSERT_CAR_OPTION("insert into car_options (car_id, color, cc, km, price, grade) values (?, ?, ?, ?, ?, ?)"),
 	    SELECT_BRANDS("select * from car_brands"),
 	    SELECT_MODELS("select id, name from car_product_list_view"),
-		SELECT_ADMIN("SELECT * FROM admin WHERE username=? AND password=?");
-		
+		SELECT_ADMIN("SELECT * FROM admin WHERE username=? AND password=?"),
+		DELETE_CAR_OPTION("DELETE FROM car_options WHERE id = ?");
 	    private final String query;
 
 	    SQLQueries(String query) {
@@ -189,6 +189,22 @@ public class AdminDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error:" + e);
+		} finally {
+			close(pstmt);
+		}
+		return count;
+	}
+	
+	public int removeCarPrdLst(int id) {
+		PreparedStatement pstmt = null;
+		int count = 0;
+		
+		try {
+			pstmt = con.prepareStatement(SQLQueries.DELETE_CAR_OPTION.getQuery());
+			pstmt.setInt(1, id);
+			count = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}

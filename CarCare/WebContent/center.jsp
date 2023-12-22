@@ -14,7 +14,7 @@
 		<a href="javascript:history.back()" class="flex items-center justify-center border rounded-md w-8/12 h-10 mx-auto mt-4 p-5 block hover:bg-black hover:text-white transition duration-300">뒤로 돌아가기</a>
 	<div class="flex container mx-auto">
 		<div class="w-full sm:w-1/2 p-4">
-		    <div class="bg-white text-black h-300 rounded-md overflow-hidden">
+		    <div class="bg-white text-black h-300 	rounded-md overflow-hidden">
 		        <div class="p-6">
 		            <h2 class="text-4xl font-bold mb-4">Service Center</h2>
 		            <p class="text-sm">(Dummy)Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>	

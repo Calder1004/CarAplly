@@ -225,6 +225,7 @@
                         <th class="p-3">KM</th>
                         <th class="p-3">가격</th>
                         <th class="p-3">등급</th>
+                        <th class="p-3">관리</th>
                     </tr>
                 </thead>
                 <tbody class="text-medium	">
@@ -237,6 +238,14 @@
                             <td class="py-2 border border-gray-300">${items.km}</td>
                             <td class="py-2 border border-gray-300">${items.price}</td>
                             <td class="py-2 border border-gray-300">${items.grade}</td>
+                            <td class="py-2 border border-gray-300">   
+                            <div class="flex space-x-2 justify-center m-3">
+                            <form action="adminDelete.car" method="post">
+                                <input type="hidden" name="id" value="${items.id}">
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-blue-700">삭제</button>
+                    		</form>
+                    		</div>
+                    		</td>
                         </tr>
                     </c:forEach>
                 </tbody>

@@ -23,7 +23,7 @@ public class TestDriveAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
-			request.setCharacterEncoding("utf-8");
+
 			ActionForward forward = null;
 			int centerId = WrapperConverter.parseInt.apply(request.getParameter("centerId"));
 			long kakaouserId = WrapperConverter.parseLong.apply(request.getParameter("kakaoId"));

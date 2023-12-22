@@ -20,7 +20,7 @@ public class CenterAction implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("utf-8");
+
 		ActionForward forward = null;
 
 		ArrayList<CenterBean> center = getCenterList(); // service วาด็;

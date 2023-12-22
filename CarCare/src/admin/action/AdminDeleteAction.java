@@ -18,16 +18,22 @@ public class AdminDeleteAction implements Action {
 		ActionForward forward = null;
 			
 		int id = WrapperConverter.parseInt.apply(request.getParameter("id"));
+		int car_option_id = WrapperConverter.parseInt.apply(request.getParameter("id"));
 		
 		// 서비스 
 		AdminDeleteService svc = new AdminDeleteService();
 		boolean useDelete = svc.removetdl(id);
-		if(!useDelete) {
-			ScriptWriter.WriteFn(response.getWriter(), "삭제를 실패하였습니다", "adminSelect.car");
-		} else {
-			ScriptWriter.WriteFn(response.getWriter(), "삭제를 성공하였습니다", "adminSelect.car");
-		}
+		boolean useDelete2 = svc.removecarlst(car_option_id);
 		
+        if (useDelete) {
+            ScriptWriter.WriteFn(response.getWriter(), "유저 삭제 성공", "adminSelect.car");
+        } else if (useDelete2) {
+            ScriptWriter.WriteFn(response.getWriter(), "상품 삭제 성공", "adminProductSelect.car");
+        } else if (!useDelete2 && !useDelete) {
+            ScriptWriter.WriteFn(response.getWriter(), "삭제 실패", "dashboard.jsp");
+        } 
+		
+
 		return forward;
 	}
 	

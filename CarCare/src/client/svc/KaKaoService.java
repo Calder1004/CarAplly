@@ -59,8 +59,11 @@ public class KaKaoService {
 
             String access_token = elem.get("access_token").toString();
             String refresh_token = elem.get("refresh_token").toString();
+            
             accessToken = access_token;
-
+            refreshToken = refresh_token;
+            System.out.println("refresh_token : " + refresh_token);
+            
             br.close();
             bw.close();
             

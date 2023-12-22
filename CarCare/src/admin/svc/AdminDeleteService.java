@@ -29,4 +29,23 @@ public class AdminDeleteService {
 		return check;
 	}
 	
+	public boolean removecarlst(int id) throws Exception {
+		boolean check = false;
+		
+		Connection con = getConnection();
+		AdminDAO dao = AdminDAO.getInstance();
+		dao.setConnection(con);
+		int count = dao.removeCarPrdLst(id);
+		
+		if(count > 0 ) {
+			commit(con);
+			check = true;
+		} else {
+			rollback(con);
+		}
+		close(con);
+		return check;
+		
+	}
+	
 }

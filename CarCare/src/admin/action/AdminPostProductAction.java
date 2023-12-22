@@ -15,8 +15,8 @@ public class AdminPostProductAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		AdminProductWriteService svc = new AdminProductWriteService();
-		List brandList= svc.inquiryBrand();
-		List ModelList= svc.inquiryModel();
+		List<?> brandList= svc.inquiryBrand();
+		List<?> ModelList= svc.inquiryModel();
 		request.setAttribute("brandList",brandList);
 		request.setAttribute("modelList", ModelList);
 		forward = new ActionForward("dashboard.jsp", false);

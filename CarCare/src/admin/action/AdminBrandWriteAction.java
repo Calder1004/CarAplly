@@ -15,7 +15,7 @@ public class AdminBrandWriteAction implements Action {
 
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        	request.setCharacterEncoding("utf-8");
+
     		ActionForward forward = null;// forward °´Ã¼ »ý¼º
         	String name = WrapperConverter.parseString.apply(request.getParameter("name"));
     

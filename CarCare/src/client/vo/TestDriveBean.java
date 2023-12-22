@@ -50,7 +50,7 @@ public class TestDriveBean {
 	public void setState(boolean state) {
 		this.state = state;
 	}
-
+	
 	private int id;
     private int centerId;
     private long kakaouserId;
@@ -65,4 +65,10 @@ public class TestDriveBean {
         this.reservationDate = date;
         this.state = false; 
     }
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
 }
