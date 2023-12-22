@@ -61,8 +61,7 @@ JDK : 1.8
 우리의 프로그램은 자동차 브랜드 및 딜러쉽들이 자동차 시승 신청 및 예약을 손쉽게 관리할 수 있도록 돕는 서비스입니다.
 
 ### 주요기능
-<br>
-### 메인 페이지
+### 메인페이지
 ![스크린샷 2023-12-22 103457](https://github.com/mydkonline/CarWebProject/assets/67779682/93b2537b-4b9f-49bd-9ab8-e93edfa01603)
 ### 시승신청 시연 과정
 ![스크린샷 2023-12-22 101921](https://github.com/mydkonline/CarWebProject/assets/67779682/659c016a-4033-4341-88f7-4246c4c78394)
