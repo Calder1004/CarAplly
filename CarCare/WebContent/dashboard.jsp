@@ -121,11 +121,15 @@
 	
 <c:choose>
     <c:when test="${not empty requestScope.filteredList}">
-            <form action="adminSelect.car" method="post">
-            <label for="search">검색어:</label>
-            <input type="text" name="search" id="search" />
-            <input type="submit" value="검색" />
-        </form>
+            <c:if test="${not empty requestScope.filteredList}">
+			    <form action="adminSelect.car" method="post" class="my-4">
+		        <div class="flex items-center">
+		            <label for="search" class="mr-2">검색어:</label>
+		            <input type="text" name="search" id="search" class="border rounded py-1 px-2">
+		            <button type="submit" class="bg-black text-white py-1 px-3 ml-2 rounded">검색</button>
+		        </div>
+		    </form>
+      		</c:if>
           <div class="bg-white p-8 r shadow-md">
 		        <div class="overflow-x-auto rounded-lg">
 		            <table class="w-full border-collapse border border-gray-300 text-sm">
@@ -178,11 +182,15 @@
     </c:when>
 
 <c:otherwise>
-        <form action="adminSelect.car" method="post">
-            <label for="search">검색어:</label>
-            <input type="text" name="search" id="search" />
-            <input type="submit" value="검색" />
-        </form>
+		<c:if test="${not empty list}">
+		    <form action="adminSelect.car" method="post" class="my-4">
+		        <div class="flex items-center">
+		            <label for="search" class="mr-2">검색어:</label>
+		            <input type="text" name="search" id="search" class="border rounded py-1 px-2">
+		            <button type="submit" class="bg-black text-white py-1 px-3 ml-2 rounded">검색</button>
+		        </div>
+		    </form>
+        </c:if>
 		<c:if test="${not empty list}">
 		    <div class="bg-white p-8 r shadow-md">
 		        <div class="overflow-x-auto rounded-lg">
