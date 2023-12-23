@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import admin.action.AdminPostProductAction;
 import admin.action.AdminBrandWriteAction;
 import admin.action.AdminCarOptionWriteAction;
+import admin.action.AdminCreatedAction;
 import admin.action.AdminDeleteAction;
 import admin.action.AdminDriveSelectAction;
 import admin.action.AdminModelWriteAction;
@@ -44,9 +45,12 @@ public class Controller extends HttpServlet {
 	
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String RequestURI = request.getRequestURI(); // URI 정보 얻어옴
-		String contextPath = request.getContextPath(); // 파일 경로 얻어옴
-		String command = RequestURI.substring(contextPath.length()); //uri에 파일경로매칭
+		String RequestURI = request.getRequestURI();
+		System.out.println("URI:"+RequestURI);// URI 정보 얻어옴
+		String contextPath = request.getContextPath();
+		System.out.println("FILE:" + contextPath);// 파일 경로 얻어옴
+		String command = RequestURI.substring(contextPath.length());
+		System.out.println(command);//uri에 파일경로매칭
 
 		ActionForward forward = null;
 		Action action = null;
@@ -210,6 +214,16 @@ public class Controller extends HttpServlet {
 		// 자동차 등록
 		if(command.equals("/adminPostProduct.car") || command.equals("/adminPostProduct")) {
 			action = new AdminPostProductAction();
+			try { 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 어드민 등록
+		if(command.equals("/adminCreated.car") || command.equals("/adminCreated")) {
+			action = new AdminCreatedAction();
 			try { 
 				forward = action.execute(request, response);
 			} catch (Exception e) {

@@ -1,7 +1,8 @@
 package admin.action;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,23 +15,45 @@ import client.vo.ActionForward;
 
 public class AdminDriveSelectAction implements Action {
 	
-	// 서비스 접근 함수
-	private ArrayList<AdminDriveSelectBean> getAdminDriveSelect() throws Exception {
-		AdminDriveSelectService svc = new AdminDriveSelectService();
-		return svc.AdminDss();
-	}
-	
-	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward forward = null;
-		
-		ArrayList<AdminDriveSelectBean> list = getAdminDriveSelect();
-	
-		request.setAttribute("list", list);
 
-		forward = new ActionForward("dashboard.jsp", false);
-		
-		return forward;
-	}
+    private List<AdminDriveSelectBean> filter(List<AdminDriveSelectBean> driveList, String keyword) {
+        return driveList.stream()
+                .filter(drive -> drive.getName().toLowerCase().contains(keyword))
+                .collect(Collectors.toList());
+    }
+    
+    private long countFiltered(List<AdminDriveSelectBean> driveList, String keyword) {
+        return driveList.stream()
+                .filter(drive -> drive.getName().toLowerCase().contains(keyword))
+                .count();
+    }
+    @Override
+    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ActionForward forward = null;
+
+        try {
+            AdminDriveSelectService svc = new AdminDriveSelectService();
+
+            List<AdminDriveSelectBean> list = svc.AdminDss();
+            request.setAttribute("list", list);
+
+            String searchKeyword = request.getParameter("search");
+
+            if (searchKeyword != null && !searchKeyword.isEmpty()) {
+                List<AdminDriveSelectBean> filteredList = filter(list, searchKeyword.toLowerCase());
+                long filteredCount = countFiltered(list, searchKeyword.toLowerCase());
+
+                request.setAttribute("filteredList", filteredList);
+                request.setAttribute("filteredCount", filteredCount);
+            }
+
+            forward = new ActionForward("dashboard.jsp", false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            forward = new ActionForward("error.jsp", true);
+        }
+        return forward;
+    }
 	
 }

@@ -1,6 +1,7 @@
 package client.vo;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class TestDriveBean {
     public int getId() {
@@ -27,12 +28,12 @@ public class TestDriveBean {
 		this.kakaouserId = kakaouserId;
 	}
 
-	public int getCarId() {
-		return carId;
+	public int getCarOptionId() {
+		return carOptionId;
 	}
 
-	public void setCarId(int carId) {
-		this.carId = carId;
+	public void setCarOptionId(int carOptionId) {
+		this.carOptionId = carOptionId;
 	}
 
 	public Date getReservationDate() {
@@ -54,14 +55,14 @@ public class TestDriveBean {
 	private int id;
     private int centerId;
     private long kakaouserId;
-    private int carId;
+    private int carOptionId;
     private Date reservationDate;
     private boolean state;
 
-    public TestDriveBean(int centerId, long kakaouserId, int caroptionId, Date date) {
-        this.centerId = centerId;
-        this.kakaouserId = kakaouserId;
-        this.carId = caroptionId;
+    public TestDriveBean(int centerId, long kakaouserId, int carOptionId, Date date) {
+        this.centerId = Objects.requireNonNull(centerId);
+        this.kakaouserId = Objects.requireNonNull(kakaouserId);
+        this.carOptionId = Objects.requireNonNull(carOptionId);
         this.reservationDate = date;
         this.state = false; 
     }

@@ -24,12 +24,6 @@ public class CarListBean {
 		this.model = model;
 	}
 
-    @Override
-    public String toString() {
-    	// TODO Auto-generated method stub
-    	return "brand:" + brand + "model:" + model;
-    }
-
     public int getCarId() {
     	return carId;
     }

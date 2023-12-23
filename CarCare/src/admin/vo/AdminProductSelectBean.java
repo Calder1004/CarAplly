@@ -1,6 +1,6 @@
 package admin.vo;
 
-public class AdminProductSelectBean {
+public final class AdminProductSelectBean {
 	public AdminProductSelectBean() {}
 	public int getId() {
 		return id;

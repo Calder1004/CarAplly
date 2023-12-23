@@ -1,6 +1,6 @@
 package admin.action;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +16,7 @@ public class AdminProductSelectAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		AdminProductSelectService svc = new AdminProductSelectService();
-		ArrayList<AdminProductSelectBean> prdList = svc.getAdminProductList(); 
+		List<AdminProductSelectBean> prdList = svc.getAdminProductList(); 
 		request.setAttribute("prdList",prdList);
 		forward = new ActionForward("dashboard.jsp",false);
 		return forward;

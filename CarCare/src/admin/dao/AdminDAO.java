@@ -1,18 +1,22 @@
 package admin.dao;
 
-import static util.dbConnection.*;
+import static util.dbConnection.close;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import admin.vo.AdminDriveSelectBean;
 import admin.vo.AdminDriveSelectBean.States;
 import admin.vo.AdminProductSelectBean;
+import admin.vo.AdminUserBean;
 
 public class AdminDAO {
 
@@ -51,7 +55,9 @@ public class AdminDAO {
 	    SELECT_BRANDS("select * from car_brands"),
 	    SELECT_MODELS("select id, name from car_product_list_view"),
 		SELECT_ADMIN("SELECT * FROM admin WHERE username=? AND password=?"),
-		DELETE_CAR_OPTION("DELETE FROM car_options WHERE id = ?");
+		DELETE_CAR_OPTION("DELETE FROM car_options WHERE id = ?"),
+		CREATE_ADD_ADMIN("INSERT INTO admin(id,username,password) values(?,?,?)");
+		
 	    private final String query;
 
 	    SQLQueries(String query) {
@@ -65,6 +71,11 @@ public class AdminDAO {
 
 	// 관리자 검증
 	public boolean usrVld(String username, String password) {
+		
+	    if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
+            throw new IllegalArgumentException("Username and password cannot be null or empty");
+        }
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		boolean check = false;
@@ -83,13 +94,30 @@ public class AdminDAO {
 		}
 		return check;
 	}
-
+	
+	public int admCrd(AdminUserBean bean) {
+		PreparedStatement pstmt = null;
+		int check = 0;
+		try {
+			pstmt = con.prepareStatement(SQLQueries.CREATE_ADD_ADMIN.getQuery());
+			pstmt.setString(1, bean.getId().toString());
+			pstmt.setString(2, bean.getUsername());
+			pstmt.setString(3, bean.getPassword());
+			check = pstmt.executeUpdate();
+			System.out.println("Rows affected: " + check);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return check;
+	}
 	// 시승신청 조회
-	public ArrayList<AdminDriveSelectBean> driveSlt() {
+	public List<AdminDriveSelectBean> driveSlt() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		ArrayList<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
+		List<AdminDriveSelectBean> list = new ArrayList<AdminDriveSelectBean>();
 		try {
 			pstmt = con.prepareStatement(SQLQueries.SELECT_DRIVE_SCHEDULE_VIEW.getQuery());
 			rs = pstmt.executeQuery();
@@ -212,11 +240,11 @@ public class AdminDAO {
 	}
 
 	// 관리자 상품 목록 조회
-	public ArrayList<AdminProductSelectBean> admPrdSlt() {
+	public List<AdminProductSelectBean> admPrdSlt() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		AdminProductSelectBean bean = null;
-		ArrayList<AdminProductSelectBean> list = new ArrayList<AdminProductSelectBean>();
+		List<AdminProductSelectBean> list = new ArrayList<AdminProductSelectBean>();
 		try {
 			pstmt = con.prepareStatement(SQLQueries.GET_ADMIN_PRODUCT_LIST.getQuery());
 			rs = pstmt.executeQuery();
@@ -341,6 +369,7 @@ public class AdminDAO {
 	            Map<Integer, String> modelInfo = new HashMap<>();
 	            modelInfo.put(modelId, modelName); // key와 value의 순서 변경
 	            modelList.add(modelInfo);
+	            modelList.sort(Comparator.comparing(m -> m.keySet().iterator().next()));
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

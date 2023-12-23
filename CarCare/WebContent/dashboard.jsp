@@ -103,9 +103,9 @@
 </c:if>
 
 
-<c:if test="${not empty list}">
-<div class="bg-white p-8 mb-8 shadow-sm text-center rounded-md border border-gray-100">예약 대기중</div>
-</c:if>
+	<c:if test="${not empty list}">
+	<div class="bg-white p-8 mb-8 shadow-sm text-center rounded-md border border-gray-100">예약 대기중</div>
+	</c:if>
 
 
 
@@ -119,57 +119,124 @@
     	<div class="bg-white p-8 mb-8 shadow-sm text-center rounded-md border border-gray-100">상품 등록</div>
 	</c:if>
 	
-	<c:if test="${not empty list}">
-    <div class="bg-white p-8 r shadow-md">
-        <div class="overflow-x-auto rounded-lg">
-            <table class="w-full border-collapse border border-gray-300 text-sm">
-                <thead class="p-12">
-	                <tr class="bg-black rounded-md text-white">	
-	                    <th class="p-3 border-collapse border border-white">예약번호</th>
-	                    <th class="p-3 border-collapse border border-white">날짜</th>
-	                    <th class="p-3 border-collapse border border-white">모델</th>
-	                    <th class="p-3 border-collapse border border-white">신청자이름</th>
-	                    <th class="p-3 border-collapse border border-white">CC</th>
-	                    <th class="p-3 border-collapse border border-white">색상</th>
-	                    <th class="p-3 border-collapse border border-white">등급</th>
-	                    <th class="p-3 border-collapse border border-white">KM</th>
-	                    <th class="p-3 border-collapse border border-white">가격</th>
-	                    <th class="p-3 border-collapse border border-white">예약상태</th>
-	                    <th class="p-3 border-collapse border border-white">관리</th>
-	                </tr>
-                </thead>
-                <tbody class="text-medium text-center">
-           			<c:forEach var="select" items="${list}">
-                    <tr class="border border-gray-300 selected-row">
-                        <td class="border border-gray-300">${select.id}</td>
-                        <td class="border border-gray-300">${select.date}</td>
-                        <td class="border border-gray-300">${select.model}</td>
-                        <td class="border border-gray-300">${select.name}</td>
-                        <td class="border border-gray-300">${select.cc}</td>
-                        <td class="border border-gray-300">${select.color}</td>
-                        <td class="border border-gray-300">${select.grade}</td>
-                        <td class="border border-gray-300">${select.km}</td>
-                        <td class="border border-gray-300">${select.price}</td>
-                        <td class="border border-gray-300">${select.state}</td>
-                        <td class="border border-gray-300">
-                        <div class="flex space-x-2 justify-center m-3">
-                            <form action="adminUpdateForm.car" method="post">
-                                <input type="hidden" name="id" value="${String.valueOf(select.id)}">
-                                <button type="submit" class="bg-blue-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-blue-700">수정</button>
-                            </form>
-                            <form action="adminDelete.car">
-                                <input type="hidden" name="id" value="${String.valueOf(select.id)}">
-                                <button type="submit" class="bg-red-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-red-700">삭제</button>
-                            </form>
-                        </div>
-                        </td>
-                    </tr>
+<c:choose>
+    <c:when test="${not empty requestScope.filteredList}">
+            <form action="adminSelect.car" method="post">
+            <label for="search">검색어:</label>
+            <input type="text" name="search" id="search" />
+            <input type="submit" value="검색" />
+        </form>
+          <div class="bg-white p-8 r shadow-md">
+		        <div class="overflow-x-auto rounded-lg">
+		            <table class="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+			                <tr class="bg-black rounded-md text-white">	
+			                    <th class="p-3 border-collapse border border-white">예약번호</th>
+			                    <th class="p-3 border-collapse border border-white">날짜</th>
+			                    <th class="p-3 border-collapse border border-white">모델</th>
+			                    <th class="p-3 border-collapse border border-white">신청자이름</th>
+			                    <th class="p-3 border-collapse border border-white">CC</th>
+			                    <th class="p-3 border-collapse border border-white">색상</th>
+			                    <th class="p-3 border-collapse border border-white">등급</th>
+			                    <th class="p-3 border-collapse border border-white">KM</th>
+			                    <th class="p-3 border-collapse border border-white">가격</th>
+			                    <th class="p-3 border-collapse border border-white">예약상태</th>
+			                    <th class="p-3 border-collapse border border-white">관리</th>
+			                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="drive" items="${requestScope.filteredList}">
+                    <tr>
+                        <td class="border border-gray-300">${drive.id}</td>
+		                        <td class="border border-gray-300">${drive.date}</td>
+		                        <td class="border border-gray-300">${drive.model}</td>
+		                        <td class="border border-gray-300">${drive.name}</td>
+		                        <td class="border border-gray-300">${drive.cc}</td>
+		                        <td class="border border-gray-300">${drive.color}</td>
+		                        <td class="border border-gray-300">${drive.grade}</td>
+		                        <td class="border border-gray-300">${drive.km}</td>
+		                        <td class="border border-gray-300">${drive.price}</td>
+		                        <td class="border border-gray-300">${drive.state}</td>
+		                        <td class="border border-gray-300">
+		                        <div class="flex space-x-2 justify-center m-3">
+		                            <form action="adminUpdateForm.car" method="post">
+		                                <input type="hidden" name="id" value="${String.valueOf(drive.id)}">
+		                                <button type="submit" class="bg-blue-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-blue-700">수정</button>
+		                            </form>
+		                            <form action="adminDelete.car">
+		                                <input type="hidden" name="id" value="${String.valueOf(drive.id)}">
+		                                <button type="submit" class="bg-red-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-red-700">삭제</button>
+		                            </form>
+		                        </div>
+		                        </td>
+                   	 </tr>
                 </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</c:if>
+            	</tbody>
+        </table>
+            </div>
+            	</div>
+    </c:when>
+
+<c:otherwise>
+        <form action="adminSelect.car" method="post">
+            <label for="search">검색어:</label>
+            <input type="text" name="search" id="search" />
+            <input type="submit" value="검색" />
+        </form>
+		<c:if test="${not empty list}">
+		    <div class="bg-white p-8 r shadow-md">
+		        <div class="overflow-x-auto rounded-lg">
+		            <table class="w-full border-collapse border border-gray-300 text-sm">
+		                <thead class="p-12">
+			                <tr class="bg-black rounded-md text-white">	
+			                    <th class="p-3 border-collapse border border-white">예약번호</th>
+			                    <th class="p-3 border-collapse border border-white">날짜</th>
+			                    <th class="p-3 border-collapse border border-white">모델</th>
+			                    <th class="p-3 border-collapse border border-white">신청자이름</th>
+			                    <th class="p-3 border-collapse border border-white">CC</th>
+			                    <th class="p-3 border-collapse border border-white">색상</th>
+			                    <th class="p-3 border-collapse border border-white">등급</th>
+			                    <th class="p-3 border-collapse border border-white">KM</th>
+			                    <th class="p-3 border-collapse border border-white">가격</th>
+			                    <th class="p-3 border-collapse border border-white">예약상태</th>
+			                    <th class="p-3 border-collapse border border-white">관리</th>
+			                </tr>
+		                </thead>
+		                <tbody class="text-medium text-center">
+		           			<c:forEach var="select" items="${list}">
+		                    <tr class="border border-gray-300 selected-row">
+		                        <td class="border border-gray-300">${select.id}</td>
+		                        <td class="border border-gray-300">${select.date}</td>
+		                        <td class="border border-gray-300">${select.model}</td>
+		                        <td class="border border-gray-300">${select.name}</td>
+		                        <td class="border border-gray-300">${select.cc}</td>
+		                        <td class="border border-gray-300">${select.color}</td>
+		                        <td class="border border-gray-300">${select.grade}</td>
+		                        <td class="border border-gray-300">${select.km}</td>
+		                        <td class="border border-gray-300">${select.price}</td>
+		                        <td class="border border-gray-300">${select.state}</td>
+		                        <td class="border border-gray-300">
+		                        <div class="flex space-x-2 justify-center m-3">
+		                            <form action="adminUpdateForm.car" method="post">
+		                                <input type="hidden" name="id" value="${String.valueOf(select.id)}">
+		                                <button type="submit" class="bg-blue-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-blue-700">수정</button>
+		                            </form>
+		                            <form action="adminDelete.car">
+		                                <input type="hidden" name="id" value="${String.valueOf(select.id)}">
+		                                <button type="submit" class="bg-red-500 text-white px-4 py-1 text-sm rounded transition duration-300 hover:bg-red-700">삭제</button>
+		                            </form>
+		                        </div>
+		                        </td>
+		                    </tr>
+		                </c:forEach>
+		                </tbody>
+		            </table>
+		        </div>
+		    </div>
+		</c:if>
+    </c:otherwise>
+</c:choose>
+
 
 <c:if test="${not empty ModifyList}">
     <div id="editModal">

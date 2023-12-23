@@ -136,7 +136,7 @@ public class CarDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, tdb.getCenterId());
 			pstmt.setLong(2,tdb.getKakaouserId());
-			pstmt.setInt(3, tdb.getCarId());
+			pstmt.setInt(3, tdb.getCarOptionId());
 			// null üũ
 	        if (tdb.getReservationDate() != null) {
 	            pstmt.setDate(4, tdb.getReservationDate());
